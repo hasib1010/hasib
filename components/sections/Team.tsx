@@ -5,7 +5,7 @@ import Image from "next/image";
 import { team, teamStats } from "@/data/team";
 
 const tabs = [
-  { id: "all", label: "All", count: 13 },
+  { id: "all", label: "All", count: teamStats.totalMembers },
   { id: "design", label: "Design", count: 2 },
   { id: "frontend", label: "Frontend", count: 6 },
   { id: "backend", label: "Backend", count: 3 },

@@ -9,7 +9,7 @@ export const team: TeamMember[] = [
         department: 'design',
         bio: 'Award-winning designer from Dhaka with 8+ years crafting intuitive digital experiences. Specializes in design systems and user research.',
         skills: ['Figma', 'Adobe XD', 'Prototyping', 'Design Systems', 'User Research'],
-        image: 'https://images.unsplash.com/photo-1626443791479-4733bcae7327?q=80&w=1080&auto=format&fit=crop',
+        image: '/team/female-freelancer-looking-laptop.jpg',
         social: {
             linkedin: 'https://linkedin.com/in/fahmida-rahman',
             twitter: 'https://twitter.com/fahmida_rahman'
@@ -36,7 +36,7 @@ export const team: TeamMember[] = [
         department: 'backend',
         bio: 'Full-stack architect from Dhaka with expertise in scalable microservices. 10+ years building enterprise-grade applications.',
         skills: ['Node.js', 'Python', 'PostgreSQL', 'AWS', 'Docker'],
-        image: 'https://images.unsplash.com/photo-1667551970926-d2c7e0f46d8a?q=80&w=1080&auto=format&fit=crop',
+        image: '/team/images (1).jpeg',
         social: {
             github: 'https://github.com/rakibul-islam',
             linkedin: 'https://linkedin.com/in/rakibul-islam'
@@ -88,7 +88,7 @@ export const team: TeamMember[] = [
         department: 'frontend',
         bio: 'Animation wizard and CSS expert from Khulna. Creates stunning visual experiences with attention to every pixel.',
         skills: ['Vue.js', 'GSAP', 'Three.js', 'CSS', 'WebGL'],
-        image: 'https://images.unsplash.com/photo-1608440208198-65202a3d0e8a?q=80&w=1080&auto=format&fit=crop',
+        image: 'https://images.pexels.com/photos/35140700/pexels-photo-35140700.jpeg?auto=compress&cs=tinysrgb&w=1080',
         social: {
             github: 'https://github.com/mehedi-hasan'
         }
@@ -100,7 +100,7 @@ export const team: TeamMember[] = [
         department: 'frontend',
         bio: 'Mobile-first development advocate from Dhaka. Expert in responsive design and cross-browser compatibility.',
         skills: ['React Native', 'Flutter', 'PWA', 'Tailwind', 'Accessibility'],
-        image: 'https://images.unsplash.com/photo-1601114174531-4d95d279713e?q=80&w=1080&auto=format&fit=crop',
+        image: '/team/middle-aged-hispanic-business-people.jpg',
         social: {
             linkedin: 'https://linkedin.com/in/lamia-karim'
         }
@@ -124,7 +124,7 @@ export const team: TeamMember[] = [
         department: 'frontend',
         bio: 'Component library specialist from Dhaka focused on reusable, accessible UI components and design system implementation.',
         skills: ['Angular', 'Stencil', 'Web Components', 'SCSS', 'A11y'],
-        image: 'https://images.unsplash.com/photo-1729337531424-198f880cb6c7?q=80&w=1080&auto=format&fit=crop',
+        image: '/team/serious-attractive-lady-preparing-report-outdoors.jpg',
         social: {
             github: 'https://github.com/nusrat-jahan'
         }
@@ -136,7 +136,7 @@ export const team: TeamMember[] = [
         department: 'frontend',
         bio: 'Enthusiastic developer from Mymensingh with fresh perspectives and modern approaches. Quick learner passionate about clean code.',
         skills: ['JavaScript', 'React', 'Tailwind CSS', 'Git', 'Figma'],
-        image: 'https://images.unsplash.com/photo-1612016219304-c9984757cc54?q=80&w=1080&auto=format&fit=crop',
+        image: 'https://images.pexels.com/photos/12899156/pexels-photo-12899156.jpeg?auto=compress&cs=tinysrgb&w=1080',
         social: {
             github: 'https://github.com/arafat-hossain'
         }
@@ -150,7 +150,7 @@ export const team: TeamMember[] = [
         department: 'qa',
         bio: 'Quality assurance expert from Dhaka ensuring pixel-perfect delivery. Implements comprehensive testing strategies.',
         skills: ['Cypress', 'Playwright', 'Selenium', 'API Testing', 'Performance Testing'],
-        image: 'https://images.unsplash.com/photo-1464892216009-6d356060e72c?q=80&w=1080&auto=format&fit=crop',
+        image: '/team/young-smiling-pretty-caucasian-schoolgirl-wearing-glasses-sits-desk-with-school-tools-holds-pen-isolated-green-space-with-copy-space.jpg',
         social: {
             linkedin: 'https://linkedin.com/in/shabnam-sultana'
         }
@@ -158,7 +158,7 @@ export const team: TeamMember[] = [
 ];
 
 export const teamStats = {
-    totalMembers: 13,
+    totalMembers: team.length,
     designers: 2,
     backendDevs: 3,
     frontendDevs: 6,

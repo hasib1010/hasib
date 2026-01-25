@@ -1,70 +1,128 @@
-'use client';
+import Link from "next/link";
+import Image from "next/image";
+import { services } from "@/data/services";
 
-import Link from 'next/link';
-import { services } from '@/data/services';
-
-const icons: Record<string, React.ReactNode> = {
-    globe: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>,
-    palette: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>,
-    code: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>,
-    server: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>,
-    'shopping-cart': <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>,
-    settings: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+const serviceImages: Record<string, string> = {
+  "web-development": "/services/web-dev-3d.png",
+  "ui-ux-design": "/services/uiux-3d.png",
+  "frontend-development": "/services/frontend-3d.png",
+  "backend-development": "/services/backend-3d.png",
+  ecommerce: "/services/ecommerce-3d.png",
+  "website-maintenance":
+    "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1080&auto=format&fit=crop",
 };
 
 export default function Services() {
-    return (
-        <section id="services" className="py-20 lg:py-28 bg-white relative">
-            <div className="container mx-auto px-6 lg:px-12">
-                <div className="text-center max-w-3xl mx-auto mb-20">
-                    <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 uppercase tracking-widest mb-4 before:h-0.5 before:w-8 before:bg-emerald-600/30 after:h-0.5 after:w-8 after:bg-emerald-600/30">Our Expertise</span>
-                    <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                        Solutions for <span className="bg-gradient-to-br from-emerald-600 to-teal-600 bg-clip-text text-transparent">Growth</span>
-                    </h2>
-                    <p className="text-lg lg:text-xl text-slate-600 leading-relaxed">
-                        We cover every aspect of digital product development, from initial concept to final deployment and support.
-                    </p>
-                </div>
+  return (
+    <section
+      id="services"
+      className="py-20 lg:py-32 bg-slate-900 relative overflow-hidden"
+    >
+      {/* Animated Background Glows */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse" />
+      <div
+        className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-teal-500/10 rounded-full blur-[100px] animate-pulse"
+        style={{ animationDelay: "2s" }}
+      />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service) => (
-                        <Link
-                            key={service.id}
-                            href={`/services/${service.id}`}
-                            className="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 group"
-                        >
-                            {/* Icon */}
-                            <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
-                                {icons[service.icon]}
-                            </div>
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 uppercase tracking-[0.2em] mb-4">
+              <span className="w-8 h-[1px] bg-emerald-400/50" />
+              Our Expertise
+            </span>
+            <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+              Precision-Engineered <br />
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                Digital Solutions
+              </span>
+            </h2>
+          </div>
+          <p className="max-w-md text-slate-400 text-lg leading-relaxed">
+            We blend cutting-edge technology with world-class design to build
+            products that redefine industries.
+          </p>
+        </div>
 
-                            {/* Content */}
-                            <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-emerald-700 transition-colors">
-                                {service.title}
-                            </h3>
-                            <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                                {service.description}
-                            </p>
+        {/* Bento Grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+          {services.map((service, index) => {
+            // Custom grid spans for Bento effect
+            const isLarge = index === 0 || index === 3;
+            const isMedium = index === 4;
 
-                            {/* Feature List (Compact) */}
-                            <ul className="space-y-2 mb-6 border-t border-slate-100 pt-4">
-                                {service.features.slice(0, 3).map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-slate-600">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
+            return (
+              <Link
+                key={service.id}
+                href={`/services/${service.id}`}
+                className={`group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 lg:p-10 overflow-hidden transition-all duration-500 hover:border-emerald-400/50 hover:bg-white/[0.08] flex flex-col justify-between
+                                    ${isLarge ? "md:col-span-4" : "md:col-span-2"}
+                                    ${isMedium ? "md:col-span-3" : ""}
+                                `}
+              >
+                {/* Subtle noise texture */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-                            {/* Link */}
-                            <div className="flex items-center text-sm font-semibold text-emerald-600 group-hover:translate-x-2 transition-transform">
-                                Read more
-                                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                            </div>
-                        </Link>
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="w-16 h-16 relative">
+                      <Image
+                        src={serviceImages[service.id]}
+                        alt={service.title}
+                        fill
+                        className="object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+                      />
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-400/50 uppercase tracking-widest bg-emerald-400/5 px-3 py-1 rounded-full border border-emerald-400/10">
+                      SEC-0{index + 1}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-emerald-300 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-400 text-base leading-relaxed mb-8 max-w-sm">
+                    {service.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {service.features.slice(0, 3).map((f, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-3 py-1.5 bg-white/5 rounded-lg group-hover:text-emerald-200 transition-colors"
+                      >
+                        {f}
+                      </span>
                     ))}
+                  </div>
                 </div>
-            </div>
-        </section>
-    );
+
+                {/* Interactive arrow */}
+                <div className="mt-12 flex items-center gap-2 text-emerald-400 text-sm font-bold opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                  Explore Service
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </div>
+
+                {/* Background gradient glow on hover */}
+                <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }
