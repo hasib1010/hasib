@@ -1,91 +1,119 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { team, teamStats } from '@/data/team';
+import { useState } from "react";
+import Image from "next/image";
+import { team, teamStats } from "@/data/team";
 
 const tabs = [
-    { id: 'all', label: 'All', count: 13 },
-    { id: 'design', label: 'Design', count: 2 },
-    { id: 'frontend', label: 'Frontend', count: 6 },
-    { id: 'backend', label: 'Backend', count: 3 },
-    { id: 'qa', label: 'QA', count: 1 },
+  { id: "all", label: "All", count: 13 },
+  { id: "design", label: "Design", count: 2 },
+  { id: "frontend", label: "Frontend", count: 6 },
+  { id: "backend", label: "Backend", count: 3 },
+  { id: "qa", label: "QA", count: 1 },
 ];
 
-const colors: Record<string, string> = {
-    design: 'from-pink-500 to-rose-600',
-    frontend: 'from-blue-500 to-indigo-600',
-    backend: 'from-emerald-500 to-teal-600',
-    qa: 'from-amber-500 to-orange-600',
-};
-
 export default function Team() {
-    const [activeTab, setActiveTab] = useState('all');
-    const filtered = activeTab === 'all' ? team : team.filter(m => m.department === activeTab);
+  const [activeTab, setActiveTab] = useState("all");
+  const filtered =
+    activeTab === "all" ? team : team.filter((m) => m.department === activeTab);
 
-    return (
-        <section id="team" className="py-20 lg:py-28 bg-white relative">
-            <div className="container mx-auto px-6 lg:px-12">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 uppercase tracking-widest mb-4 before:h-0.5 before:w-8 before:bg-emerald-600/30 after:h-0.5 after:w-8 after:bg-emerald-600/30">Our Team</span>
-                    <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                        Expert <span className="bg-gradient-to-br from-emerald-600 to-teal-600 bg-clip-text text-transparent">Engineers</span>
-                    </h2>
-                    <p className="text-lg lg:text-xl text-slate-600 leading-relaxed">
-                        A small, high-impact team of {teamStats.totalMembers} experts dedicated to your success.
-                    </p>
+  return (
+    <section
+      id="team"
+      className="py-20 lg:py-28 bg-slate-50 relative overflow-hidden"
+    >
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-50/50 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-blue-50/50 rounded-full blur-[100px] -z-10" />
+
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 uppercase tracking-widest mb-4 before:h-0.5 before:w-8 before:bg-emerald-600/30">
+              Our Team
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+              Meet Our{" "}
+              <span className="bg-gradient-to-br from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                Digital Craftsmen
+              </span>
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              A high-impact team of {teamStats.totalMembers} experts specialized
+              in building premium web applications and scalable solutions.
+            </p>
+          </div>
+
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 border ${
+                  activeTab === tab.id
+                    ? "bg-slate-900 text-white border-slate-900 shadow-lg"
+                    : "bg-white text-slate-500 border-slate-100 hover:border-emerald-200 hover:text-emerald-600"
+                }`}
+              >
+                {tab.label}
+                <span
+                  className={`ml-2 text-[10px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? "bg-white/20" : "bg-slate-100"}`}
+                >
+                  {tab.count}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {filtered.map((member) => (
+            <div
+              key={member.id}
+              className="group bg-white rounded-3xl p-6 border border-slate-100 hover:border-emerald-200 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500"
+            >
+              <div className="relative mb-6 rounded-2xl overflow-hidden aspect-square">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Department Tag on Image */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold text-slate-900 uppercase tracking-wider shadow-sm">
+                    {member.department}
+                  </span>
                 </div>
+              </div>
 
-                {/* Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-14">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border flex items-center gap-2 ${activeTab === tab.id
-                                ? 'bg-emerald-600 text-white border-emerald-600 shadow-md transform scale-105'
-                                : 'bg-white text-slate-500 border-slate-200 hover:border-emerald-200 hover:text-emerald-600'
-                                }`}
-                        >
-                            {tab.label}
-                            <span className={`text-xs px-1.5 py-0.5 rounded-full font-bold ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
-                                }`}>
-                                {tab.count}
-                            </span>
-                        </button>
-                    ))}
+              <div className="text-center">
+                <h4 className="font-extrabold text-xl text-slate-900 mb-1 group-hover:text-emerald-600 transition-colors">
+                  {member.name}
+                </h4>
+                <p className="text-sm font-medium text-slate-500 mb-4 uppercase tracking-wide">
+                  {member.role}
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-1.5 pt-4 border-t border-slate-50">
+                  {member.skills.slice(0, 3).map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-[10px] px-2.5 py-1 bg-slate-50 rounded-full text-slate-600 font-medium group-hover:bg-emerald-50 group-hover:text-emerald-700 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-10 gap-x-6">
-                    {team.map((member, index) => (
-                        <div
-                            key={member.id}
-                            className="group text-center"
-                        >
-                            <div className="relative mb-4 mx-auto w-32 h-32">
-                                <div className="absolute inset-0 bg-emerald-100 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center opacity-50" />
-                                <div className="relative w-full h-full rounded-full bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center text-3xl font-bold text-slate-300 group-hover:text-emerald-500 group-hover:border-emerald-200 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                                    {member.name.charAt(0)}
-                                </div>
-                            </div>
-
-                            <h4 className="font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                                {member.name}
-                            </h4>
-                            <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wide mb-2">
-                                {member.role}
-                            </p>
-
-                            <div className="flex flex-wrap justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                {member.skills.slice(0, 2).map(skill => (
-                                    <span key={skill} className="text-[10px] px-2 py-0.5 bg-slate-100 rounded-full text-slate-600">
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+              </div>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
