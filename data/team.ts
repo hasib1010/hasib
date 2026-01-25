@@ -36,7 +36,7 @@ export const team: TeamMember[] = [
         department: 'backend',
         bio: 'Full-stack architect from Dhaka with expertise in scalable microservices. 10+ years building enterprise-grade applications.',
         skills: ['Node.js', 'Python', 'PostgreSQL', 'AWS', 'Docker'],
-        image: '/team/images (1).jpeg',
+        image: '/team/working-businessman.jpg',
         social: {
             github: 'https://github.com/rakibul-islam',
             linkedin: 'https://linkedin.com/in/rakibul-islam'
@@ -75,7 +75,7 @@ export const team: TeamMember[] = [
         department: 'frontend',
         bio: 'React expert and performance optimization specialist from Dhaka. Leads frontend architecture decisions and mentors the team.',
         skills: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'Performance'],
-        image: 'https://images.unsplash.com/photo-1568743296270-9cc798164b3b?q=80&w=1080&auto=format&fit=crop',
+        image: '/team/1760966866143.jpeg',
         social: {
             github: 'https://github.com/tasnim-zahan',
             twitter: 'https://twitter.com/tasnim_zahan'
