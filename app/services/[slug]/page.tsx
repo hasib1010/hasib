@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { services } from '@/data/services';
+import { companyInfo } from '@/data/site';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const icons: Record<string, React.ReactNode> = {
     globe: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>,
@@ -30,77 +33,109 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     const others = services.filter((s) => s.id !== slug).slice(0, 3);
 
     return (
-        <main className="min-h-screen">
-            <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-white/95 backdrop-blur-lg border-b border-gray-100">
-                <div className="container flex-between">
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                            <span className="text-white font-bold">H</span>
+        <>
+            <Navbar />
+            <main>
+                <section className="pt-32 pb-16">
+                    <div className="container mx-auto px-6 lg:px-12">
+                        <div className="max-w-3xl mx-auto text-center">
+                            <div className="w-20 h-20 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mx-auto mb-6">
+                                {icons[service.icon]}
+                            </div>
+                            <h1 className="text-4xl font-bold mb-4">{service.title}</h1>
+                            <p className="text-lg text-gray-600">{service.description}</p>
                         </div>
-                        <span className="font-bold text-lg">Hasib<span className="text-emerald-600">Digital</span></span>
-                    </Link>
-                    <Link href="/#services" className="btn btn-ghost">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                        Services
-                    </Link>
-                </div>
-            </header>
-
-            <section className="pt-32 pb-16">
-                <div className="container">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <div className="w-20 h-20 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mx-auto mb-6">
-                            {icons[service.icon]}
-                        </div>
-                        <h1 className="text-4xl font-bold mb-4">{service.title}</h1>
-                        <p className="text-lg text-gray-600">{service.description}</p>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section className="section section-alt">
-                <div className="container">
-                    <div className="max-w-3xl mx-auto">
-                        <h2 className="text-2xl font-bold mb-8 text-center">What&apos;s Included</h2>
-                        <div className="space-y-4">
-                            {service.features.map((f, i) => (
-                                <div key={i} className="card flex items-center gap-4 p-5">
-                                    <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <section className="section section-alt">
+                    <div className="container mx-auto px-6 lg:px-12">
+                        <div className="max-w-3xl mx-auto">
+                            <h2 className="text-2xl font-bold mb-8 text-center">What&apos;s Included</h2>
+                            <div className="space-y-4">
+                                {service.features.map((f, i) => (
+                                    <div key={i} className="card flex items-center gap-4 p-5">
+                                        <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                                        </div>
+                                        <span className="text-gray-700">{f}</span>
                                     </div>
-                                    <span className="text-gray-700">{f}</span>
-                                </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="section">
+                    <div className="container mx-auto px-6 lg:px-12 text-center">
+                        <h2 className="text-2xl font-bold mb-4">Ready to get started?</h2>
+                        <p className="text-gray-500 mb-8">Let&apos;s discuss your project.</p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href={companyInfo.fiverr} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-full bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-xl shadow-emerald-600/20 hover:shadow-emerald-600/30 hover:-translate-y-1 transition-all duration-300 group">
+                                <span>Hire on Fiverr</span>
+                                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </a>
+                            <Link href="/#contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-full bg-white text-slate-900 border border-slate-200 hover:border-emerald-500 hover:text-emerald-600 hover:bg-slate-50 transition-all duration-300">
+                                Contact Us
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="section section-alt my-20">
+                    <div className="container mx-auto px-6 lg:px-12">
+                        <div className="text-center max-w-3xl mx-auto mb-12">
+                            <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 uppercase tracking-widest mb-4 before:h-0.5 before:w-8 before:bg-emerald-600/30 after:h-0.5 after:w-8 after:bg-emerald-600/30">Explore More</span>
+                            <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                                Other <span className="bg-gradient-to-br from-emerald-600 to-teal-600 bg-clip-text text-transparent">Services</span>
+                            </h2>
+                            <p className="text-lg text-slate-600">
+                                Discover more solutions we offer to help grow your business.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {others.map((s) => (
+                                <Link
+                                    key={s.id}
+                                    href={`/services/${s.id}`}
+                                    className="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 group"
+                                >
+                                    {/* Icon */}
+                                    <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                                        {icons[s.icon]}
+                                    </div>
+
+                                    {/* Content */}
+                                    <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-emerald-700 transition-colors">
+                                        {s.title}
+                                    </h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                                        {s.description}
+                                    </p>
+
+                                    {/* Feature List (Compact) */}
+                                    <ul className="space-y-2 mb-6 border-t border-slate-100 pt-4">
+                                        {s.features.slice(0, 3).map((feature, i) => (
+                                            <li key={i} className="flex items-center gap-3 text-sm text-slate-600">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    {/* Link */}
+                                    <div className="flex items-center text-sm font-semibold text-emerald-600 group-hover:translate-x-2 transition-transform">
+                                        Read more
+                                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                    </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section className="section">
-                <div className="container text-center">
-                    <h2 className="text-2xl font-bold mb-4">Ready to get started?</h2>
-                    <p className="text-gray-500 mb-8">Let&apos;s discuss your project.</p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://www.fiverr.com/adnanhasib565" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Hire on Fiverr</a>
-                        <Link href="/#contact" className="btn btn-secondary">Contact Us</Link>
-                    </div>
-                </div>
-            </section>
-
-            <section className="section section-alt">
-                <div className="container">
-                    <h2 className="text-2xl font-bold mb-8 text-center">Other Services</h2>
-                    <div className="grid-3">
-                        {others.map((s) => (
-                            <Link key={s.id} href={`/services/${s.id}`} className="card group p-6">
-                                <div className="icon-box mb-4 group-hover:scale-110 transition-transform">{icons[s.icon]}</div>
-                                <h3 className="font-semibold mb-2 group-hover:text-emerald-600 transition-colors">{s.title}</h3>
-                                <p className="text-sm text-gray-500 line-clamp-2">{s.description}</p>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+            <Footer />
+        </>
     );
 }

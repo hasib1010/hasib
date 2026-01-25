@@ -2,131 +2,238 @@ import { CaseStudy } from '@/types';
 
 export const caseStudies: CaseStudy[] = [
     {
-        id: 'luxe-ecommerce',
-        title: 'Luxe Fashion E-Commerce Platform',
-        client: 'Luxe Fashion Inc.',
-        category: 'E-Commerce',
-        description: 'A premium fashion e-commerce platform with advanced filtering, AR try-on features, and seamless checkout experience.',
-        challenge: 'The client needed to compete with major fashion retailers by offering a unique, personalized shopping experience. Their existing platform was slow, outdated, and had a 68% cart abandonment rate.',
-        solution: 'We built a custom Next.js e-commerce platform with real-time inventory, AI-powered recommendations, and an innovative AR try-on feature. The new design focused on speed and mobile-first experience.',
-        results: [
-            '340% increase in mobile conversions',
-            '52% reduction in cart abandonment',
-            '2.1s average page load time',
-            '$2.4M additional revenue in first quarter'
+        "id": "inter-cafe-social-platform",
+        "title": "Inter Cafe - Full-Stack Social Media Platform",
+        "client": "Personal Project",
+        "category": "Social Media Platform",
+        "description": "A comprehensive social media platform with real-time messaging, community features, integrated marketplace, and advanced admin analytics. Built with modern web technologies for scalability and performance.",
+        "challenge": "Building a feature-rich social media platform that combines content sharing, real-time communication, e-commerce, and administrative capabilities. The challenge was to create a seamless user experience while maintaining high performance, implementing secure payment processing, and providing comprehensive analytics for platform management.",
+        "solution": "We developed a full-stack application using Next.js 15 with React 19 for the frontend, providing server-side rendering, static site generation, and optimized performance. The backend leverages Django REST Framework with Django Channels for WebSocket support, enabling real-time chat functionality. We integrated Stripe for subscription management and payment processing, implemented a comprehensive admin dashboard with analytics, and built a marketplace feature within the platform. The architecture supports infinite scrolling, content moderation, community management, and interest-based categorization.",
+        "results": [
+          "Real-time messaging with WebSocket support",
+          "Comprehensive admin analytics dashboard with multiple chart visualizations",
+          "Integrated marketplace with Stripe payment processing",
+          "Subscription-based monetization model with post credits system",
+          "SEO-optimized with SSG/ISR for improved search visibility",
+          "Content moderation system with post approval workflow",
+          "Community-based content organization",
+          "Mobile-responsive design with modern UI/UX"
         ],
-        technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS', 'TensorFlow'],
-        image: '/cases/luxe-hero.jpg',
-        featured: true,
-        testimonial: {
-            quote: 'The team exceeded every expectation. Our new platform is faster, more beautiful, and most importantly, converts like never before.',
-            author: 'Jennifer Walsh',
-            role: 'CEO, Luxe Fashion Inc.'
+        "technologies": [
+          "Next.js 15",
+          "React 19",
+          "TypeScript",
+          "Django REST Framework",
+          "Django Channels",
+          "Redis",
+          "PostgreSQL",
+          "Stripe",
+          "Tailwind CSS",
+          "Redux Toolkit",
+          "React Query",
+          "Chart.js",
+          "WebSocket",
+          "JWT Authentication"
+        ],
+        "image": "/images/inter-cafe.png",
+        "featured": true,
+        // "keyFeatures": [
+        //   "User Authentication & Social Login (Google, Apple)",
+        //   "Posts Management (Text, Media, Links) with Rich Text Editor",
+        //   "Real-time Chat with WebSocket",
+        //   "Community/Group Features",
+        //   "Marketplace with Product Listings",
+        //   "Subscription Plans & Payment Processing",
+        //   "Admin Dashboard with Analytics",
+        //   "Content Moderation & Reporting",
+        //   "Interest Categories & Tagging",
+        //   "Follow/Unfollow System",
+        //   "Notifications",
+        //   "Infinite Scroll & Pagination",
+        //   "SEO Optimization (SSG/ISR)"
+        // ],
+        "testimonial": {
+          "quote": "A well-architected social media platform that demonstrates modern full-stack development practices with real-time features, payment integration, and comprehensive admin capabilities.",
+          "author": "Development Team",
+          "role": "Full-Stack Developers"
         }
-    },
-    {
-        id: 'healthtrack-saas',
-        title: 'HealthTrack SaaS Dashboard',
-        client: 'HealthTrack Medical',
-        category: 'SaaS / Healthcare',
-        description: 'A comprehensive healthcare management dashboard for clinics and hospitals with patient tracking, scheduling, and analytics.',
-        challenge: 'Healthcare providers struggled with fragmented systems for patient management, scheduling, and reporting. They needed a unified, HIPAA-compliant solution that worked across devices.',
-        solution: 'We developed a React-based SaaS platform with real-time updates, role-based access control, and comprehensive analytics. The system integrates with existing EHR systems and provides actionable insights.',
+      },
+      
+      {
+        id: 'fliday-esim',
+        title: 'Fliday – Global eSIM Marketplace',
+        client: 'Fliday',
+        category: 'Travel / Telecom',
+        description: 'A fully responsive, production-grade eSIM marketplace that enables travelers to browse, purchase, and instantly activate global eSIM plans without physical SIM cards.',
+        challenge: 'International travelers faced high roaming charges, limited connectivity options, and the inconvenience of purchasing physical SIM cards in each country.',
+        solution: 'We built a full-stack eSIM retail platform using Next.js and Node.js with instant digital delivery, secure authentication, integrated payments, and real-time order tracking. The platform is optimized for SEO, performance, and scalability.',
         results: [
-            '45% reduction in administrative time',
-            '99.99% uptime maintained',
-            '12,000+ daily active users',
-            'HIPAA & SOC 2 certified'
+            'Instant global eSIM activation',
+            'Seamless digital checkout experience',
+            'High-performance SEO-optimized pages',
+            'Scalable architecture for worldwide users'
         ],
-        technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Docker', 'Kubernetes'],
-        image: '/cases/healthtrack-hero.jpg',
+        technologies: [
+            'Next.js',
+            'React',
+            'Node.js',
+            'Express.js',
+            'MongoDB'
+        ],
+        image: '/images/fliday.png',
         featured: true,
-        testimonial: {
-            quote: 'This platform transformed how we manage patient care. The attention to security and compliance was impressive.',
-            author: 'Dr. Michael Chen',
-            role: 'CTO, HealthTrack Medical'
-        }
-    },
+        "testimonial": {
+  "quote": "A well-architected global eSIM marketplace showcasing modern full-stack development with secure payments, real-time eSIM delivery, and a robust admin management system.",
+  "author": "Fliday Team",
+  "role": "Product & Engineering"
+}
+
+    }
+    ,
     {
-        id: 'finwise-fintech',
-        title: 'FinWise Investment Platform',
-        client: 'FinWise Technologies',
-        category: 'FinTech',
-        description: 'A modern investment platform with real-time market data, portfolio management, and automated trading capabilities.',
-        challenge: 'FinWise needed to attract younger investors with a modern, intuitive platform that simplified complex financial data and enabled quick decision-making.',
-        solution: 'We created a sleek, real-time investment dashboard with data visualization, educational tooltips, and a gamified onboarding experience. The platform supports cryptocurrency and traditional assets.',
-        results: [
-            '180% increase in new user signups',
-            '$50M assets under management',
-            '4.8/5 App Store rating',
-            '65% increase in daily active users'
+        "id": "super-media-bros-auction",
+        "title": "Super Media Bros - Premium Auction Platform",
+        "client": "Super Media Bros",
+        "category": "E-Commerce / Auction Platform",
+        "description": "A full-featured online auction platform specializing in media collectibles, toys, games, and pop culture items. Features real-time bidding, seller consignment management, automated invoicing, and comprehensive admin dashboard.",
+        "challenge": "The client needed a modern auction platform to compete with established auction houses. Requirements included real-time bidding updates, complex proxy bidding logic, seller settlement management, automated invoice generation, and a comprehensive admin CMS. The platform needed to handle high concurrency during live auctions while maintaining data integrity and providing seamless user experience across buyer, seller, and admin roles.",
+        "solution": "Built a scalable Next.js platform with real-time capabilities using Pusher for live bid updates, implemented sophisticated proxy bidding system with automatic bid increments, created comprehensive seller consignment workflow with document verification, developed automated settlement calculation system for seller payouts, integrated Stripe for secure payment processing, and built a full-featured admin CMS for auction management, user administration, and financial operations.",
+        "results": [
+          "Real-time bid updates with <500ms latency",
+          "Automated invoice generation and payment processing",
+          "Complete seller settlement management system",
+          "Comprehensive admin dashboard with 10+ management modules",
+          "Multi-role user system (Buyers, Sellers, Admins)",
+          "Automated email notifications for bids, invoices, and payments"
         ],
-        technologies: ['Vue.js', 'Python', 'FastAPI', 'Redis', 'WebSocket', 'D3.js'],
-        image: '/cases/finwise-hero.jpg',
-        featured: true,
-        testimonial: {
-            quote: 'They understood our vision perfectly. The platform feels premium and our users love the intuitive experience.',
-            author: 'Alexandra Kim',
-            role: 'Founder, FinWise Technologies'
+        "technologies": [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Prisma ORM",
+          "PostgreSQL",
+          "Stripe",
+          "Pusher (Real-time)",
+          "Cloudinary",
+          "Redis/Upstash",
+          "QStash",
+          "Nodemailer",
+          "PDFKit",
+          "Tailwind CSS",
+          "React Query",
+          "Zod",
+          "Vercel"
+        ],
+        // "keyFeatures": [
+        //   "Real-time bidding with live updates",
+        //   "Proxy bidding system with automatic increments",
+        //   "Seller consignment management",
+        //   "Automated invoice generation",
+        //   "Settlement calculation and payout tracking",
+        //   "Admin CMS dashboard",
+        //   "Email notification system",
+        //   "PDF document generation",
+        //   "User authentication & verification",
+        //   "Newsletter management",
+        //   "Payment processing with Stripe",
+        //   "Image upload and management",
+        //   "Rate limiting and queue management"
+        // ],
+        "image": "/images/auction.jpeg",
+        "featured": true,
+        "testimonial": {
+          "quote": "The platform exceeded our expectations. The real-time bidding system works flawlessly, and the admin dashboard makes managing auctions effortless. Our sellers love the automated settlement process.",
+          "author": "Project Owner",
+          "role": "Super Media Bros"
         }
-    },
-    {
-        id: 'edulearn-platform',
-        title: 'EduLearn Online Learning Platform',
-        client: 'EduLearn Global',
-        category: 'EdTech',
-        description: 'An interactive online learning platform with live classes, course management, and student progress tracking.',
-        challenge: 'Traditional LMS platforms lacked engagement features. EduLearn needed a platform that could handle live video, interactive quizzes, and progress tracking at scale.',
-        solution: 'We built a custom learning platform with integrated video conferencing, gamified progress systems, and AI-powered learning path recommendations. The platform supports 50,000+ concurrent users.',
+      },
+      {
+        id: 'i-need-hypno',
+        title: 'I Need Hypno – Doctor’s Video Appointment Generator',
+        client: 'I Need Hypno',
+        category: 'Healthcare / Mental Wellness',
+        description: 'A professional hypnosis platform designed to help individuals achieve personal transformation through guided subconscious therapy, online consultations, and audio-based self-improvement programs.',
+        challenge: 'Clients seeking hypnosis and mental wellness solutions needed a secure, user-friendly platform for booking private sessions, accessing guided content, and maintaining long-term engagement without in-person visits.',
+        solution: 'Developed an intuitive web platform that enables 1-on-1 Zoom hypnosis session bookings, subscription-based audio programs with auto-renewal, and secure user interactions. The system prioritizes ease of use, data protection, and seamless scheduling.',
         results: [
-            '89% course completion rate',
-            '50,000+ concurrent users supported',
-            '42% improvement in learning outcomes',
-            '4.9/5 student satisfaction score'
+            'Streamlined online booking for private hypnosis sessions',
+            'Subscription-based revenue model with auto-renewal',
+            'Improved user engagement through audio programs',
+            'Secure and privacy-compliant user experience'
         ],
-        technologies: ['Next.js', 'GraphQL', 'PostgreSQL', 'WebRTC', 'AWS Lambda', 'ElasticSearch'],
-        image: '/cases/edulearn-hero.jpg',
+        technologies: [
+            'React',
+            'Next.js',
+            'Node.js',
+            'Payment Gateway',
+            'Zoom Integration'
+        ],
+        image: '/images/hypno.png',
         featured: false,
         testimonial: {
-            quote: 'The platform handles our global student base flawlessly. The interactive features keep students engaged throughout courses.',
-            author: 'Robert Martinez',
-            role: 'VP of Product, EduLearn Global'
+            quote: 'A thoughtfully designed platform that combines secure video appointments, subscription-based content, and an intuitive user experience for mental wellness services.',
+            author: 'I Need Hypno Team',
+            role: 'Product & Wellness Specialists'
         }
     },
+    
     {
-        id: 'foodie-delivery',
-        title: 'Foodie Express Delivery App',
-        client: 'Foodie Express',
-        category: 'Food & Delivery',
-        description: 'A complete food delivery ecosystem including customer app, restaurant dashboard, and driver management system.',
-        challenge: 'A regional food delivery startup needed to compete with major players by offering faster delivery, better restaurant tools, and a superior customer experience.',
-        solution: 'We developed a three-part ecosystem: a Progressive Web App for customers, a comprehensive restaurant management portal, and a real-time driver tracking system with route optimization.',
+        id: 'marblestone-property-management',
+        title: 'Marblestone Real Estate – Property Management Platform',
+        client: 'Marblestone Real Estate LLC',
+        category: 'Real Estate / Property Management',
+        description: 'A full-featured property management platform built with the MERN stack that enables property owners and tenants to efficiently manage residential and commercial properties through a single digital system.',
+        challenge: 'Property managers needed a centralized solution to handle property listings, tenant communication, maintenance requests, and financial tracking without relying on fragmented tools.',
+        solution: 'Developed a scalable MERN-based application with a dynamic React front end, secure Node.js and Express backend, and MongoDB for managing properties, leases, payments, and maintenance workflows.',
         results: [
-            '28-minute average delivery time',
-            '500+ restaurant partners',
-            '94% customer satisfaction rate',
-            '3x growth in monthly orders'
+            'Centralized management for residential and commercial properties',
+            'Improved tenant–landlord communication',
+            'Efficient maintenance request tracking',
+            'Secure and scalable data handling'
         ],
-        technologies: ['React Native', 'Node.js', 'Firebase', 'Google Maps API', 'Stripe Connect', 'Socket.io'],
-        image: '/cases/foodie-hero.jpg',
-        featured: false
+        technologies: [
+            'MongoDB',
+            'Express.js',
+            'React',
+            'Node.js'
+        ],
+        image: '/images/marbelstone.png',
+        featured: false,
+        testimonial: {
+            quote: 'A robust and scalable property management solution that streamlines operations for property owners while delivering a smooth and intuitive experience for tenants.',
+            author: 'Marblestone Team',
+            role: 'Property Management'
+        }
     },
+    
     {
-        id: 'realestate-platform',
-        title: 'PropView Real Estate Platform',
-        client: 'PropView Realty',
-        category: 'Real Estate',
-        description: 'A modern real estate platform with virtual tours, AI property matching, and integrated mortgage calculators.',
-        challenge: 'Traditional real estate listings were static and uninspiring. PropView wanted to revolutionize property discovery with immersive virtual experiences.',
-        solution: 'We created an innovative platform featuring 360° virtual tours, AI-powered property recommendations based on user preferences, and seamless scheduling with agents.',
+        id: '44pro-custom-ecommerce',
+        title: '44pro – Custom Product E-commerce Platform',
+        client: '44pro',
+        category: 'E-commerce',
+        description: 'A customizable e-commerce platform that allows users to personalize products before purchase, featuring secure authentication, seamless checkout, and responsive design.',
+        challenge: 'Standard e-commerce platforms lacked flexible product personalization and secure yet simple user authentication while maintaining a smooth purchasing experience.',
+        solution: 'Built a MERN stack e-commerce application with a real-time product customization interface, OTP-based email authentication, Stripe payment integration, and a responsive user-friendly design.',
         results: [
-            '250% increase in property inquiries',
-            '85% reduction in unnecessary site visits',
-            '12,000+ properties listed',
-            '45% faster time-to-close'
+            'Enhanced customer engagement through product personalization',
+            'Secure email-based OTP authentication',
+            'Smooth and reliable checkout with Stripe payments',
+            'Improved order transparency with order history tracking'
         ],
-        technologies: ['Next.js', 'Three.js', 'Python', 'TensorFlow', 'AWS S3', 'Mapbox'],
-        image: '/cases/propview-hero.jpg',
-        featured: false
+        technologies: [
+            'MongoDB',
+            'Express.js',
+            'React',
+            'Node.js',
+            'Stripe'
+        ],
+        image: '/images/44pro.png',
+        featured: false,
+        testimonial: {
+            quote: 'A modern and flexible e-commerce solution that combines product customization, secure authentication, and smooth payment processing into a seamless shopping experience.',
+            author: '44pro Team',
+            role: 'E-commerce Product'
+        }
     }
+    
 ];
