@@ -1,14 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { caseStudies } from '@/data/case-studies';
 
-const categories = ['All', 'E-Commerce', 'SaaS / Healthcare', 'FinTech', 'EdTech'];
-
 export default function CaseStudies() {
-    const [active, setActive] = useState('All');
-    const filtered = active === 'All' ? caseStudies : caseStudies.filter(c => c.category === active);
 
     return (
         <section id="work" className="py-20 lg:py-28 bg-slate-50 relative">
@@ -23,46 +19,45 @@ export default function CaseStudies() {
                     </p>
                 </div>
 
-                {/* Categories */}
-                <div className="flex flex-wrap justify-center gap-3 mb-12">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActive(cat)}
-                            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${active === cat
-                                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 transform scale-105'
-                                : 'bg-white text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 border border-transparent hover:border-emerald-100'
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-                    {filtered.slice(0, 4).map((cs) => (
+                    {caseStudies.slice(0, 4).map((cs) => (
                         <Link
                             key={cs.id}
                             href={`/case-studies/${cs.id}`}
                             className="group block bg-white rounded-[2rem] overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300"
                         >
                             {/* Image Container */}
-                            <div className="aspect-[16/10] bg-gradient-to-br from-slate-100 to-slate-50 relative overflow-hidden">
-                                <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 ${cs.id.includes('ecommerce') ? 'from-blue-500/10 to-purple-500/10' :
-                                    cs.id.includes('health') ? 'from-emerald-500/10 to-teal-500/10' :
-                                        'from-indigo-500/10 to-cyan-500/10'
-                                    }`} />
-
-                                {/* Placeholder Visualization */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-24 h-24 rounded-3xl bg-white shadow-lg flex items-center justify-center text-4xl font-bold text-slate-300 group-hover:scale-110 group-hover:text-emerald-500 transition-all duration-500">
-                                        {cs.title.charAt(0)}
-                                    </div>
-                                </div>
-
+                            <div className="aspect-[16/10] bg-slate-100 relative overflow-hidden">
+                                {cs.image ? (
+                                    <>
+                                        <Image
+                                            src={cs.image}
+                                            alt={cs.title}
+                                            fill
+                                            quality={95}
+                                            className="object-cover object-left transition-transform duration-700 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                                        />
+                                        {/* Subtle overlay only on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-500 ${cs.id.includes('ecommerce') ? 'from-blue-500/10 to-purple-500/10' :
+                                            cs.id.includes('health') ? 'from-emerald-500/10 to-teal-500/10' :
+                                                'from-indigo-500/10 to-cyan-500/10'
+                                            }`} />
+                                        {/* Placeholder Visualization */}
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-24 h-24 rounded-3xl bg-white shadow-lg flex items-center justify-center text-4xl font-bold text-slate-300 group-hover:scale-110 group-hover:text-emerald-500 transition-all duration-500">
+                                                {cs.title.charAt(0)}
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
                                 <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-slate-800 shadow-sm">
+                                    <span className="px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-800 shadow-lg">
                                         {cs.category}
                                     </span>
                                 </div>
