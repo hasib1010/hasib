@@ -490,15 +490,222 @@ export const caseStudies: CaseStudy[] = [
       author: 'AirNexus Team',
       role: 'Product & Marketing'
   }
-}
+},{
+  id: 'restaurant-menu-platform',
+  title: 'Restaurant & Menu Platform – Full Stack Build',
+  client: 'Food Service Client',
+  category: 'Restaurant / Hospitality',
+  description: 'A sophisticated full-stack restaurant and menu platform designed to showcase the menu dynamically, facilitate reservations, and enhance customer engagement with a premium online presence.',
+  challenge: 'The client needed a visually rich, responsive website that could dynamically display menus, handle reservations, and provide an engaging online experience without compromising performance.',
+  solution: 'Developed a full-stack application using React/Next.js for a fast, responsive front end, Node.js/Express for backend API routes, and PostgreSQL/MongoDB for managing menus, specials, and reservations. Implemented a dynamic CMS for easy menu updates and secure reservation forms with back-end validation.',
+  results: [
+      'Dynamic menu system with easy content updates',
+      'Secure, validated reservation forms',
+      'High-performance, responsive website design',
+      'Visually engaging dark-theme layout highlighting food photography'
+  ],
+  technologies: [
+      'React.js / Next.js',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL / MongoDB',
+      'Full-Stack Development',
+      'CMS Integration'
+  ],
+  image: '/images/restaurant.png',
+  featured: false,
+  testimonial: {
+      quote: 'A visually stunning and fully functional platform that elevated our online presence while simplifying menu management and reservations.',
+      author: 'Client Team',
+      role: 'Restaurant Operations'
+  }
+},
+{
+  id: 'corporate-agency-website',
+  title: 'Corporate Agency Website – Full Stack Development',
+  client: 'Corporate Agency',
+  category: 'B2B / Agency / Corporate',
+  description: 'A high-performance, secure full-stack corporate website developed to establish a premium brand identity, showcase client successes, and improve lead conversion for high-value B2B audiences.',
+  challenge: 'The client needed to transform a static website into a dynamic digital hub that clearly communicates credibility, displays team expertise, and generates leads efficiently.',
+  solution: 'Built a modern full-stack platform using React/Next.js for SEO-friendly, responsive front-end architecture with Tailwind CSS. Node.js/Express handled secure backend operations, and PostgreSQL/MongoDB managed persistent data. Integrated a dynamic CMS for content updates and secure lead generation forms with CRM integration.',
+  results: [
+      'Enhanced brand credibility and professional market positioning',
+      'Improved lead generation through validated, secure forms',
+      'Dynamic CMS enabling instant content updates',
+      'Top-tier performance and responsive design across devices'
+  ],
+  technologies: [
+      'React.js / Next.js',
+      'Node.js',
+      'Express.js',
+      'Tailwind CSS',
+      'PostgreSQL / MongoDB',
+      'CMS Integration'
+  ],
+  image: '/images/corporate.png',
+  featured: false,
+  testimonial: {
+      quote: 'A modern, fast, and secure platform that transformed our digital presence and significantly improved our lead conversion and client engagement.',
+      author: 'Client Team',
+      role: 'Corporate Marketing & Operations'
+  }
+},
+{
+  id: 'dynamic-restaurant-website',
+  title: 'Dynamic Restaurant Website & Menu Design',
+  client: 'Restaurant Client',
+  category: 'Restaurant / Hospitality / UI-UX',
+  description: 'A visually engaging restaurant website designed to showcase culinary offerings, highlight promotions, and enhance customer interaction with an intuitive and inviting online experience.',
+  challenge: 'The client needed a platform that clearly presents menu categories, promotes top-selling dishes, and engages users through content and offers, while maintaining an appealing and professional design.',
+  solution: 'Developed a dynamic website with a vibrant hero section, organized menu categories, promotional highlights, and engaging content such as blogs and special offers. The design uses a warm color palette, intuitive navigation, and professional aesthetics to enhance user experience and interaction.',
+  results: [
+      'Improved visibility of menu offerings and promotions',
+      'Increased customer engagement through blogs and special offers',
+      'Enhanced online presence with professional and appealing design',
+      'User-friendly navigation across all devices'
+  ],
+  technologies: [
+      'React.js / Next.js',
+      'UI/UX Design',
+      'Responsive Web Design',
+      'Interactive Content Sections'
+  ],
+  image: '/images/dresturant.png',
+  featured: false,
+  testimonial: {
+      quote: 'A beautifully designed restaurant platform that effectively showcases our menu and engages our customers online.',
+      author: 'Client Team',
+      role: 'Restaurant Management'
+  }
+},
+{
+  id: 'modern-real-estate-website',
+  title: 'Modern Real Estate Website Design',
+  client: 'Real Estate Client',
+  category: 'Real Estate / UI-UX',
+  description: 'A contemporary and highly functional real estate website designed to simplify the home-buying journey, connect buyers with ideal properties, and provide a premium online experience.',
+  challenge: 'The client needed a platform that showcases properties effectively, guides users through an intuitive search and discovery process, and builds trust with professional and engaging content.',
+  solution: 'Designed a sleek, modern interface with captivating hero sections, curated property highlights, and user-centric search. Integrated dynamic content areas for recent articles and market insights, while emphasizing high-quality visuals and a seamless browsing experience.',
+  results: [
+      'Enhanced property discovery with intuitive browsing and search',
+      'Improved user engagement through dynamic content and market insights',
+      'Built credibility with trust-focused sections highlighting expertise',
+      'Delivered a premium, visually appealing interface across all devices'
+  ],
+  technologies: [
+      'React.js / Next.js',
+      'Tailwind CSS',
+      'UI/UX Design',
+      'Responsive Web Design',
+      'Dynamic Content Integration'
+  ],
+  image: '/images/realstate.png',
+  featured: false,
+  testimonial: {
+      quote: 'An elegant and highly functional real estate platform that simplifies property discovery and enhances our online presence.',
+      author: 'Client Team',
+      role: 'Real Estate Marketing'
+  }
+},
+{
+  id: 'dynamic-car-dealer-website',
+  title: 'Dynamic Car Dealer Website',
+  client: 'Car Dealership Client',
+  category: 'Automotive / UI-UX / E-commerce',
+  description: 'A sleek and robust car dealer website designed to enhance the online vehicle shopping experience, streamline operations, and engage customers from browsing to purchase.',
+  challenge: 'The client needed a platform that simplifies vehicle discovery, highlights key inventory, builds trust through transparent pricing and testimonials, and provides interactive tools to assist buyers in decision-making.',
+  solution: 'Developed a dynamic website featuring intuitive vehicle browsing (by type or gallery), prominent inventory highlights with key specs and pricing, trust-building sections including financing offers and customer testimonials, interactive tools like a loan calculator, and subscription features for ongoing engagement.',
+  results: [
+      'Simplified vehicle discovery and tailored browsing experiences',
+      'Enhanced customer trust through transparent pricing and testimonials',
+      'Increased engagement with interactive tools like loan calculators',
+      'Modern, visually appealing design with smooth navigation'
+  ],
+  technologies: [
+      'React.js / Next.js',
+      'Tailwind CSS',
+      'UI/UX Design',
+      'Responsive Web Design',
+      'Interactive Components'
+  ],
+  image: '/images/carrent.png',
+  featured: false,
+  testimonial: {
+      quote: 'A visually appealing and highly functional platform that improved our online vehicle shopping experience while building trust with customers.',
+      author: 'Client Team',
+      role: 'Automotive Sales & Marketing'
+  }
+},
+{
+  id: 'hatildoo-landing-page',
+  title: 'Elegant Home Living Landing Experience',
+  client: 'HATILDOO',
+  category: 'E-commerce / Furniture / UI-UX',
+  description: 'A minimalist and high-impact landing page for HATILDOO, an online furniture store, designed to guide users smoothly from interest to purchase with elegance and clarity.',
+  challenge: 'The client wanted a visually striking yet clean landing page that highlights best-selling products, new arrivals, and curated collections while driving conversions through clear calls-to-action.',
+  solution: 'Designed a clean and sophisticated landing page featuring a striking hero section, clear promotional messaging, curated product highlights including best-selling items and new arrivals, collection spotlights, and trust-building footer elements. Focused on visual hierarchy and intuitive navigation to enhance user experience and boost conversions.',
+  results: [
+      'Increased product discovery and visibility of key items',
+      'Enhanced user engagement with curated collections',
+      'Improved conversion through clear promotional messaging',
+      'Professional, calm, and persuasive UI for a premium feel'
+  ],
+  technologies: [
+      'React.js / Next.js',
+      'Tailwind CSS',
+      'UI/UX Design',
+      'Responsive Web Design',
+      'Visual Merchandising'
+  ],
+  image: '/images/hatildo.png',
+  featured: false,
+  testimonial: {
+      quote: 'A beautifully designed landing page that effectively showcases our furniture collections and converts visitors into confident buyers.',
+      author: 'HATILDOO Team',
+      role: 'E-commerce & Marketing'
+  }
+},
+{
+  "id": "lso-bar-exam-platform",
+  "title": "LSO Bar Exam - Professional Exam Preparation Platform",
+  "client": "LSO Bar Exam Team",
+  "category": "E-Learning / Exam Preparation Platform",
+  "description": "A comprehensive online exam preparation platform for the Law Society of Ontario (LSO) Bar Exam. Features secure OTP-based authentication, paid and free exam practice sets, real-time exam attempt tracking, automated payment processing, and comprehensive admin dashboard. The platform provides Barrister and Solicitor exam preparation with multiple question sets, detailed explanations, and progress monitoring.",
+  "challenge": "The client needed a secure, scalable exam preparation platform that could handle multiple exam types (Barrister/Solicitor), manage paid and free exam access, track user attempts and progress, process payments securely, and provide comprehensive admin oversight. Key requirements included secure authentication without traditional passwords, exam attempt limitations, cart persistence across sessions, automated email notifications for orders and payments, and a robust admin CMS for managing users, orders, and exam content.",
+  "solution": "Built a modern Next.js platform with OTP-based authentication using Redis for secure session management, implemented comprehensive exam management system supporting Barrister and Solicitor exams with Set A and Set B variations, created intelligent cart system with backend persistence that syncs across devices and sessions, integrated Stripe for secure payment processing with webhook handling, developed automated email notification system for order confirmations and payment alerts, implemented exam attempt tracking with attempt limits, built comprehensive admin dashboard for user management, order processing, and exam administration, and created responsive UI with mobile-first design for seamless exam taking experience.",
+  "results": [
+    "Secure OTP-based authentication with Redis session management",
+    "Automated payment processing with Stripe integration",
+    "Cart persistence across logout/login sessions",
+    "Comprehensive email notification system (order confirmations, admin alerts, payment failures)",
+    "Exam attempt tracking with automatic limitation enforcement",
+    "Full-featured admin dashboard with user, order, and exam management",
+    "Multi-exam type support (Barrister/Solicitor, Set A/B, Paid/Free)",
+    "Real-time exam progress tracking and results storage"
+  ],
+  "technologies": [
+    "Next.js 16",
+    "React 19",
+    "TypeScript",
+    "Prisma ORM",
+    "PostgreSQL",
+    "Stripe",
+    "Redis/Upstash",
+    "Nodemailer",
+    "Redux Toolkit",
+    "Tailwind CSS",
+    "Zod",
+    "bcryptjs",
+    "React Query",
+    "Vercel"
+  ],
 
-
-
-
-
-
-
-
-  
-    
+  "image": "/images/lsobar.png",
+  "featured": true,
+  "testimonial": {
+    "quote": "The platform provides a seamless exam preparation experience. The OTP authentication is secure and user-friendly, and the cart persistence across sessions works perfectly. The admin dashboard makes managing users and orders effortless.",
+    "author": "LSO Bar Exam Team",
+    "role": "Project Owner"
+  }
+} 
 ];
