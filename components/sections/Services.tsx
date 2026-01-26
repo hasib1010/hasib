@@ -7,27 +7,37 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const serviceImages: Record<string, string> = {
-  "web-development": "/generated/web_dev_mockup.png",
-  "ui-ux-design": "/generated/uiux_mockup.png",
-  "frontend-development": "/generated/frontend_mockup.png",
-  "backend-development": "/generated/backend_mockup.png",
-  ecommerce: "/generated/ecommerce_mockup.png",
-  "website-maintenance": "/generated/maintenance_mockup.png",
+  "web-development": "/srevices/web_dev_mockup-removebg-preview.png",
+  "ui-ux-design": "/srevices/uiux_mockup-removebg-preview.png",
+  "frontend-development": "/srevices/frontend_mockup-removebg-preview.png",
+  "backend-development": "/srevices/backend_mockup-removebg-preview.png",
+  ecommerce: "/srevices/ecommerce_mockup-removebg-preview.png",
+  "website-maintenance": "/srevices/maintenance_mockup-removebg-preview.png",
 };
 
-// Map accent colors to solid background colors for hover state
+// Mesh Gradients for each service (Default State)
+const cardGradients: Record<string, string> = {
+  purple:
+    "bg-[radial-gradient(at_top_left,_#f3e8ff_0%,_#faf5ff_40%,_#ffffff_100%)]",
+  pink: "bg-[radial-gradient(at_top_left,_#fce7f3_0%,_#fdf2f8_40%,_#ffffff_100%)]",
+  emerald:
+    "bg-[radial-gradient(at_top_left,_#ecfdf5_0%,_#f0fdfa_40%,_#ffffff_100%)]",
+  orange:
+    "bg-[radial-gradient(at_top_left,_#fff7ed_0%,_#fffaf1_40%,_#ffffff_100%)]",
+  yellow:
+    "bg-[radial-gradient(at_top_left,_#fefce8_0%,_#fffdeb_40%,_#ffffff_100%)]",
+  slate:
+    "bg-[radial-gradient(at_top_left,_#f1f5f9_0%,_#f8fafc_40%,_#ffffff_100%)]",
+};
+
+// Solid colors for Hover State
 const hoverColors: Record<string, string> = {
-  purple: "bg-purple-600",
-  pink: "bg-pink-600",
-  emerald: "bg-emerald-600",
-  orange: "bg-orange-600",
-  yellow: "bg-yellow-400", // Yellow is bright, so we use slightly different text colors
-  slate: "bg-slate-900",
-};
-
-const hoverTextColors: Record<string, string> = {
-  yellow: "text-slate-900",
-  default: "text-white",
+  purple: "bg-[#6366f1]", // Indigo
+  pink: "bg-[#db2777]", // Pink 600
+  emerald: "bg-[#059669]", // Emerald 600
+  orange: "bg-[#ea580c]", // Orange 600
+  yellow: "bg-[#facc15]", // Yellow 400
+  slate: "bg-[#0f172a]", // Slate 900
 };
 
 export default function Services() {
@@ -39,158 +49,176 @@ export default function Services() {
       className="py-20 lg:py-32 bg-white relative overflow-hidden"
     >
       {/* Background Pattern */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[20px_20px]" />
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[30px_30px]" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl lg:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            Digital services for
-            <br />
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              forward-thinking brands
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto"
-          >
-            We combine high-end design with technical excellence to build
-            products that redefine industries and scale businesses.
-          </motion.p>
+            <h2 className="text-5xl lg:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">
+              Digital services for
+              <br />
+              <span className="bg-linear-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                forward-thinking brands
+              </span>
+            </h2>
+            <p className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto font-medium">
+              We combine high-end design with technical excellence to build
+              products that redefine industries and scale businesses.
+            </p>
+          </motion.div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const isHovered = hoveredId === service.id;
             const bgClass = isHovered
               ? hoverColors[service.accentColor] || hoverColors.slate
-              : service.color;
-            const textColor = isHovered
-              ? hoverTextColors[service.accentColor] || hoverTextColors.default
-              : "text-slate-900";
-            const descColor = isHovered
-              ? service.accentColor === "yellow"
-                ? "text-slate-800"
-                : "text-white/90"
-              : "text-slate-700";
+              : cardGradients[service.accentColor] || cardGradients.slate;
+
+            const textColor = isHovered ? "text-white" : "text-slate-900";
+            const descColor = isHovered ? "text-white/90" : "text-slate-700";
             const btnBg =
-              service.accentColor === "yellow"
+              service.accentColor === "yellow" && isHovered
                 ? "bg-slate-900 text-white"
                 : "bg-white text-slate-900";
 
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
+                layout
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`relative rounded-[2.5rem] p-8 lg:p-10 overflow-hidden transition-colors duration-500 cursor-pointer min-h-[500px] flex flex-col ${bgClass} shadow-lg hover:shadow-2xl`}
+                className={`relative rounded-3xl p-8 lg:p-10 overflow-hidden transition-all duration-700 cursor-pointer h-[550px] flex flex-col ${bgClass} shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-2xl`}
               >
-                {/* Title (Always visible) */}
-                <h3
-                  className={`text-3xl lg:text-4xl font-black mb-auto tracking-tight transition-colors duration-500 ${textColor}`}
-                >
-                  {service.title}
-                </h3>
+                {/* 1. Header Section */}
+                <div className="relative z-20">
+                  <motion.h3
+                    layout
+                    className={`text-3xl lg:text-4xl font-bold tracking-tight leading-tight transition-colors duration-500 ${textColor}`}
+                  >
+                    {service.title.split(" & ").map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i < arr.length - 1 && (
+                          <>
+                            <br />&{" "}
+                          </>
+                        )}
+                      </span>
+                    ))}
+                  </motion.h3>
+                </div>
 
-                {/* Dynamic Content Area */}
-                <div className="relative flex-grow flex flex-col justify-center mt-8">
+                {/* 2. Content Area */}
+                <div className="relative grow flex flex-col mt-8 h-full">
                   <AnimatePresence mode="wait">
                     {!isHovered ? (
-                      /* State 1: Image */
+                      /* State 1: Mockup Image (Bleeding/Fading) */
                       <motion.div
                         key="image"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.1 }}
-                        transition={{ duration: 0.4 }}
-                        className="relative w-full aspect-square"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 50 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="absolute inset-x-[-10%] bottom-[-5%] flex justify-center items-end h-[75%] pointer-events-none"
+                        style={{
+                          maskImage:
+                            "radial-gradient(circle at bottom, black 40%, transparent 90%)",
+                          WebkitMaskImage:
+                            "radial-gradient(circle at bottom, black 40%, transparent 90%)",
+                        }}
                       >
-                        {serviceImages[service.id] && (
-                          <Image
-                            src={serviceImages[service.id]}
-                            alt={service.title}
-                            fill
-                            className="object-contain"
-                            priority
-                          />
-                        )}
+                        <div className="relative w-full h-full flex items-end justify-center">
+                          <div className="relative w-[90%] h-full transform translate-y-8 transition-transform duration-700 group-hover:-translate-y-4">
+                            <Image
+                              src={serviceImages[service.id]}
+                              alt={service.title}
+                              fill
+                              className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] mix-blend-multiply brightness-[1.02] contrast-[1.05]"
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                              priority
+                            />
+                          </div>
+                        </div>
                       </motion.div>
                     ) : (
-                      /* State 2: Text & Button */
+                      /* State 2: Info & CTA */
                       <motion.div
                         key="info"
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
-                        className="flex flex-col h-full items-start"
+                        exit={{ opacity: 0, y: 20 }}
+                        transition={{ duration: 0.5, ease: "circOut" }}
+                        className="flex flex-col h-full relative z-20"
                       >
                         <p
-                          className={`text-xl lg:text-2xl font-medium leading-relaxed mb-8 ${descColor}`}
+                          className={`text-xl lg:text-2xl font-medium leading-relaxed mb-10 ${descColor}`}
                         >
                           {service.description}
                         </p>
 
-                        <Link
-                          href={`/services/${service.id}`}
-                          className={`mt-auto inline-flex items-center justify-center px-8 py-4 font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg ${btnBg}`}
-                        >
-                          Explore Service
-                          <svg
-                            className="w-5 h-5 ml-2"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
+                        <div className="mt-auto">
+                          <Link
+                            href={`/services/${service.id}`}
+                            className={`inline-flex items-center justify-center px-10 py-5 font-black rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_30px_rgba(0,0,0,0.1)] ${btnBg}`}
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
-                        </Link>
+                            Explore Service
+                            <svg
+                              className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2.5}
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                              />
+                            </svg>
+                          </Link>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
 
-                {/* Subtle Grain Overlay */}
+                {/* Subtle Grain Overlay for Premium Feel */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
               </motion.div>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA Block */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-24 text-center"
         >
+          <p className="text-slate-500 font-bold uppercase tracking-[0.2em] mb-8 text-sm">
+            Next Project?
+          </p>
           <Link
             href="/#contact"
-            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-slate-900 text-white font-black text-xl rounded-full overflow-hidden transition-all duration-500 hover:scale-105"
+            className="group relative inline-flex items-center gap-6 px-12 py-6 bg-slate-900 overflow-hidden transition-all duration-500 hover:pr-16"
           >
-            <span className="relative z-10 text-white">
-              Let&apos;s Build Something Great
+            <span className="relative z-10 text-white font-black text-2xl lg:text-3xl tracking-tight leading-none uppercase">
+              Schedule a <br className="sm:hidden" /> Free Discovery Call
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-r from-emerald-600 to-teal-500 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
             <svg
-              className="w-6 h-6 relative z-10 transition-transform duration-500 group-hover:translate-x-2"
+              className="w-8 h-8 relative z-10 text-white transition-transform duration-500 group-hover:rotate-45"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -198,7 +226,7 @@ export default function Services() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2.5}
+                strokeWidth={3}
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>

@@ -107,12 +107,12 @@ const icons: Record<string, React.ReactNode> = {
 };
 
 const serviceImages: Record<string, string> = {
-  "web-development": "/generated/web_dev_mockup.png",
-  "ui-ux-design": "/generated/uiux_mockup.png",
-  "frontend-development": "/generated/frontend_mockup.png",
-  "backend-development": "/generated/backend_mockup.png",
-  ecommerce: "/generated/ecommerce_mockup.png",
-  "website-maintenance": "/generated/maintenance_mockup.png",
+  "web-development": "/srevices/web_dev_mockup-removebg-preview.png",
+  "ui-ux-design": "/srevices/uiux_mockup-removebg-preview.png",
+  "frontend-development": "/srevices/frontend_mockup-removebg-preview.png",
+  "backend-development": "/srevices/backend_mockup-removebg-preview.png",
+  ecommerce: "/srevices/ecommerce_mockup-removebg-preview.png",
+  "website-maintenance": "/srevices/maintenance_mockup-removebg-preview.png",
 };
 
 export async function generateStaticParams() {
