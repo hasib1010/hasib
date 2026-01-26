@@ -664,21 +664,48 @@ export const caseStudies: CaseStudy[] = [
       author: 'HATILDOO Team',
       role: 'E-commerce & Marketing'
   }
-}
+},
+{
+  "id": "lso-bar-exam-platform",
+  "title": "LSO Bar Exam - Professional Exam Preparation Platform",
+  "client": "LSO Bar Exam Team",
+  "category": "E-Learning / Exam Preparation Platform",
+  "description": "A comprehensive online exam preparation platform for the Law Society of Ontario (LSO) Bar Exam. Features secure OTP-based authentication, paid and free exam practice sets, real-time exam attempt tracking, automated payment processing, and comprehensive admin dashboard. The platform provides Barrister and Solicitor exam preparation with multiple question sets, detailed explanations, and progress monitoring.",
+  "challenge": "The client needed a secure, scalable exam preparation platform that could handle multiple exam types (Barrister/Solicitor), manage paid and free exam access, track user attempts and progress, process payments securely, and provide comprehensive admin oversight. Key requirements included secure authentication without traditional passwords, exam attempt limitations, cart persistence across sessions, automated email notifications for orders and payments, and a robust admin CMS for managing users, orders, and exam content.",
+  "solution": "Built a modern Next.js platform with OTP-based authentication using Redis for secure session management, implemented comprehensive exam management system supporting Barrister and Solicitor exams with Set A and Set B variations, created intelligent cart system with backend persistence that syncs across devices and sessions, integrated Stripe for secure payment processing with webhook handling, developed automated email notification system for order confirmations and payment alerts, implemented exam attempt tracking with attempt limits, built comprehensive admin dashboard for user management, order processing, and exam administration, and created responsive UI with mobile-first design for seamless exam taking experience.",
+  "results": [
+    "Secure OTP-based authentication with Redis session management",
+    "Automated payment processing with Stripe integration",
+    "Cart persistence across logout/login sessions",
+    "Comprehensive email notification system (order confirmations, admin alerts, payment failures)",
+    "Exam attempt tracking with automatic limitation enforcement",
+    "Full-featured admin dashboard with user, order, and exam management",
+    "Multi-exam type support (Barrister/Solicitor, Set A/B, Paid/Free)",
+    "Real-time exam progress tracking and results storage"
+  ],
+  "technologies": [
+    "Next.js 16",
+    "React 19",
+    "TypeScript",
+    "Prisma ORM",
+    "PostgreSQL",
+    "Stripe",
+    "Redis/Upstash",
+    "Nodemailer",
+    "Redux Toolkit",
+    "Tailwind CSS",
+    "Zod",
+    "bcryptjs",
+    "React Query",
+    "Vercel"
+  ],
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    
+  "image": "/images/lsobar.png",
+  "featured": true,
+  "testimonial": {
+    "quote": "The platform provides a seamless exam preparation experience. The OTP authentication is secure and user-friendly, and the cart persistence across sessions works perfectly. The admin dashboard makes managing users and orders effortless.",
+    "author": "LSO Bar Exam Team",
+    "role": "Project Owner"
+  }
+} 
 ];
