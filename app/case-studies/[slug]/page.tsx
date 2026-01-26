@@ -43,8 +43,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                                 sizes="100vw"
                             />
                             {/* Gradient overlay for text readability */}
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black/50" />
+                            <div className="absolute inset-0 bg-linear-to-r from-black/10 backdrop-blur-xs to-transparent" />
                             <div className="container mx-auto px-6 lg:px-12 h-full flex items-end pb-16 relative z-10">
                                 <div className="max-w-4xl">
                                     <div className="flex flex-wrap gap-2 mb-4">
