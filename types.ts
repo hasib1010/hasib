@@ -51,8 +51,16 @@ export interface Service {
   id: string;
   title: string;
   description: string;
+  tagline: string;
   icon: string;
+  color: string;
+  accentColor: string;
   features: string[];
+  longDescription?: string;
+  benefits?: string[];
+  process?: { step: string; description: string }[];
+  technologies?: string[];
+  deliverables?: string[];
 }
 
 export interface Stat {

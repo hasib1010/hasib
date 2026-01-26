@@ -1,127 +1,209 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/data/services";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const serviceImages: Record<string, string> = {
-  "web-development": "/services/web-dev-3d.png",
-  "ui-ux-design": "/services/uiux-3d.png",
-  "frontend-development": "/services/frontend-3d.png",
-  "backend-development": "/services/backend-3d.png",
-  ecommerce: "/services/ecommerce-3d.png",
-  "website-maintenance":
-    "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1080&auto=format&fit=crop",
+  "web-development": "/generated/web_dev_mockup.png",
+  "ui-ux-design": "/generated/uiux_mockup.png",
+  "frontend-development": "/generated/frontend_mockup.png",
+  "backend-development": "/generated/backend_mockup.png",
+  ecommerce: "/generated/ecommerce_mockup.png",
+  "website-maintenance": "/generated/maintenance_mockup.png",
+};
+
+// Map accent colors to solid background colors for hover state
+const hoverColors: Record<string, string> = {
+  purple: "bg-purple-600",
+  pink: "bg-pink-600",
+  emerald: "bg-emerald-600",
+  orange: "bg-orange-600",
+  yellow: "bg-yellow-400", // Yellow is bright, so we use slightly different text colors
+  slate: "bg-slate-900",
+};
+
+const hoverTextColors: Record<string, string> = {
+  yellow: "text-slate-900",
+  default: "text-white",
 };
 
 export default function Services() {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
   return (
     <section
       id="services"
-      className="py-20 lg:py-32 bg-slate-900 relative overflow-hidden"
+      className="py-20 lg:py-32 bg-white relative overflow-hidden"
     >
-      {/* Animated Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse" />
-      <div
-        className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-teal-500/10 rounded-full blur-[100px] animate-pulse"
-        style={{ animationDelay: "2s" }}
-      />
+      {/* Background Pattern */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[20px_20px]" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 uppercase tracking-[0.2em] mb-4">
-              <span className="w-8 h-[1px] bg-emerald-400/50" />
-              Our Expertise
+        {/* Header */}
+        <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl lg:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]"
+          >
+            Digital services for
+            <br />
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              forward-thinking brands
             </span>
-            <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
-              Precision-Engineered <br />
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                Digital Solutions
-              </span>
-            </h2>
-          </div>
-          <p className="max-w-md text-slate-400 text-lg leading-relaxed">
-            We blend cutting-edge technology with world-class design to build
-            products that redefine industries.
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto"
+          >
+            We combine high-end design with technical excellence to build
+            products that redefine industries and scale businesses.
+          </motion.p>
         </div>
 
-        {/* Bento Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
-            // Custom grid spans for Bento effect
-            const isLarge = index === 0 || index === 3;
-            const isMedium = index === 4;
+            const isHovered = hoveredId === service.id;
+            const bgClass = isHovered
+              ? hoverColors[service.accentColor] || hoverColors.slate
+              : service.color;
+            const textColor = isHovered
+              ? hoverTextColors[service.accentColor] || hoverTextColors.default
+              : "text-slate-900";
+            const descColor = isHovered
+              ? service.accentColor === "yellow"
+                ? "text-slate-800"
+                : "text-white/90"
+              : "text-slate-700";
+            const btnBg =
+              service.accentColor === "yellow"
+                ? "bg-slate-900 text-white"
+                : "bg-white text-slate-900";
 
             return (
-              <Link
+              <motion.div
                 key={service.id}
-                href={`/services/${service.id}`}
-                className={`group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 lg:p-10 overflow-hidden transition-all duration-500 hover:border-emerald-400/50 hover:bg-white/[0.08] flex flex-col justify-between
-                                    ${isLarge ? "md:col-span-4" : "md:col-span-2"}
-                                    ${isMedium ? "md:col-span-3" : ""}
-                                `}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onMouseEnter={() => setHoveredId(service.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                className={`relative rounded-[2.5rem] p-8 lg:p-10 overflow-hidden transition-colors duration-500 cursor-pointer min-h-[500px] flex flex-col ${bgClass} shadow-lg hover:shadow-2xl`}
               >
-                {/* Subtle noise texture */}
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+                {/* Title (Always visible) */}
+                <h3
+                  className={`text-3xl lg:text-4xl font-black mb-auto tracking-tight transition-colors duration-500 ${textColor}`}
+                >
+                  {service.title}
+                </h3>
 
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-8">
-                    <div className="w-16 h-16 relative">
-                      <Image
-                        src={serviceImages[service.id]}
-                        alt={service.title}
-                        fill
-                        className="object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
-                      />
-                    </div>
-                    <span className="text-[10px] font-mono text-emerald-400/50 uppercase tracking-widest bg-emerald-400/5 px-3 py-1 rounded-full border border-emerald-400/10">
-                      SEC-0{index + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-emerald-300 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-400 text-base leading-relaxed mb-8 max-w-sm">
-                    {service.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.slice(0, 3).map((f, i) => (
-                      <span
-                        key={i}
-                        className="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-3 py-1.5 bg-white/5 rounded-lg group-hover:text-emerald-200 transition-colors"
+                {/* Dynamic Content Area */}
+                <div className="relative flex-grow flex flex-col justify-center mt-8">
+                  <AnimatePresence mode="wait">
+                    {!isHovered ? (
+                      /* State 1: Image */
+                      <motion.div
+                        key="image"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 1.1 }}
+                        transition={{ duration: 0.4 }}
+                        className="relative w-full aspect-square"
                       >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
+                        {serviceImages[service.id] && (
+                          <Image
+                            src={serviceImages[service.id]}
+                            alt={service.title}
+                            fill
+                            className="object-contain"
+                            priority
+                          />
+                        )}
+                      </motion.div>
+                    ) : (
+                      /* State 2: Text & Button */
+                      <motion.div
+                        key="info"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4 }}
+                        className="flex flex-col h-full items-start"
+                      >
+                        <p
+                          className={`text-xl lg:text-2xl font-medium leading-relaxed mb-8 ${descColor}`}
+                        >
+                          {service.description}
+                        </p>
+
+                        <Link
+                          href={`/services/${service.id}`}
+                          className={`mt-auto inline-flex items-center justify-center px-8 py-4 font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg ${btnBg}`}
+                        >
+                          Explore Service
+                          <svg
+                            className="w-5 h-5 ml-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                          </svg>
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                {/* Interactive arrow */}
-                <div className="mt-12 flex items-center gap-2 text-emerald-400 text-sm font-bold opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                  Explore Service
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-
-                {/* Background gradient glow on hover */}
-                <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              </Link>
+                {/* Subtle Grain Overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+              </motion.div>
             );
           })}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-20 text-center"
+        >
+          <Link
+            href="/#contact"
+            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-slate-900 text-white font-black text-xl rounded-full overflow-hidden transition-all duration-500 hover:scale-105"
+          >
+            <span className="relative z-10 text-white">
+              Let&apos;s Build Something Great
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <svg
+              className="w-6 h-6 relative z-10 transition-transform duration-500 group-hover:translate-x-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
