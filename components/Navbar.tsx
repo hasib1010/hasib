@@ -89,7 +89,7 @@ export default function Navbar() {
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <span className="font-bold text-xl tracking-tight text-slate-900">
-              Hasib<span className="text-emerald-600">Digital</span>
+              <span className="text-emerald-600"> Hasib Digital</span>
             </span>
           </Link>
 
