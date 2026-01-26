@@ -12,8 +12,11 @@ const companyStats = [
 ];
 
 export default function Hero() {
+  const [mounted, setMounted] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant, setCursorVariant] = useState("default");
+  const [particles, setParticles] = useState<
+    { x: number; y: number; duration: number; delay: number }[]
+  >([]);
   const heroRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -25,12 +28,29 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
+    // Avoid synchronous setState in effect to prevent cascading renders
+    const timer = setTimeout(() => {
+      setMounted(true);
+
+      // Pre-calculate particle positions to stay pure during render
+      const newParticles = [...Array(30)].map(() => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        duration: Math.random() * 3 + 2,
+        delay: Math.random() * 2,
+      }));
+      setParticles(newParticles);
+    }, 0);
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(timer);
+    };
   }, []);
 
   const cursorX = useSpring(mousePosition.x, { stiffness: 500, damping: 28 });
@@ -69,26 +89,27 @@ export default function Hero() {
       </div>
 
       {/* Floating Particles */}
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-emerald-500/30 rounded-full"
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          }}
-          animate={{
-            y: [null, Math.random() * -100 - 100],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 3 + 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-            ease: "linear",
-          }}
-        />
-      ))}
+      {mounted &&
+        particles.map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-emerald-500/30 rounded-full"
+            initial={{
+              x: p.x,
+              y: p.y,
+            }}
+            animate={{
+              y: [null, -200],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: p.duration,
+              repeat: Infinity,
+              delay: p.delay,
+              ease: "linear",
+            }}
+          />
+        ))}
 
       {/* Grid Pattern with Animation */}
       <motion.div
@@ -409,7 +430,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <p className="text-sm text-slate-300 leading-relaxed mb-3">
-                  "Exceptional work! Highly recommended."
+                  &quot;Exceptional work! Highly recommended.&quot;
                 </p>
                 <p className="text-xs text-slate-500 font-bold">
                   — Happy Client
