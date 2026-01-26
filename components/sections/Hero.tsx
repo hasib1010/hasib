@@ -176,7 +176,7 @@ export default function Hero() {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  HI&apos;S ME
+                  HI—IT&apos;S ME
                 </motion.span>
                 <motion.span
                   className="block bg-linear-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent bg-size-[200%_auto]"
