@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 const navLinks = [
     { href: '#home', label: 'Home' },
@@ -18,7 +17,7 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
-const pathname = usePathname();
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
@@ -58,7 +57,7 @@ const pathname = usePathname();
                     </Link>
 
                     {/* Desktop Nav */}
-                   {pathname === '/' && <div className="hidden lg:flex items-center gap-1 bg-slate-100/80 backdrop-blur-sm rounded-full p-1.5 border border-slate-200/50">
+                    <div className="hidden lg:flex items-center gap-1 bg-slate-100/80 backdrop-blur-sm rounded-full p-1.5 border border-slate-200/50">
                         {navLinks.map((link) => (
                             <a
                                 key={link.href}
@@ -72,7 +71,7 @@ const pathname = usePathname();
                                 {link.label}
                             </a>
                         ))}
-                    </div>}
+                    </div>
 
                     <div className="hidden lg:flex items-center gap-3">
                         <a
