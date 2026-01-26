@@ -234,6 +234,122 @@ export const caseStudies: CaseStudy[] = [
             author: '44pro Team',
             role: 'E-commerce Product'
         }
+    },
+    {
+      id: 'myperfecthire-recruiting-platform',
+      title: 'MyPerfectHire – Executive Search & Recruiting Platform',
+      client: 'MyPerfectHire.com',
+      category: 'Recruiting / Talent Acquisition',
+      description: 'A flat-fee executive search and recruiting platform designed to help companies hire top-tier talent without traditional recruiter markups, focusing on proactive headhunting and long-term placement success.',
+      challenge: 'Traditional recruiting firms often rely on percentage-based commissions, generic job board candidates, and internal quotas, leading to higher costs and longer hiring cycles.',
+      solution: 'Developed a modern, conversion-focused recruiting platform with a clean UI, clear value proposition, and optimized user experience to communicate trust, transparency, and hiring efficiency.',
+      results: [
+          '50–70% cost savings compared to traditional recruiters',
+          'Clear and transparent flat-fee hiring model',
+          'Improved lead conversion through optimized UX',
+          'Professional, credibility-driven design'
+      ],
+      technologies: [
+          'React.js',
+          'Next.js',
+          'Tailwind CSS',
+          'Redux'
+      ],
+      image: '/images/perfect.png',
+      featured: false,
+      testimonial: {
+          quote: 'A strategic recruiting platform that combines modern UI, clear messaging, and a strong value proposition to help companies hire top talent efficiently.',
+          author: 'MyPerfectHire Team',
+          role: 'Talent Acquisition'
+      }
+  },{
+    id: 'fashion-ecommerce-store',
+    title: 'Full Stack Fashion E-commerce Store',
+    client: 'Fashion Retail Platform',
+    category: 'E-commerce / Fashion',
+    description: 'A modern full-stack fashion e-commerce platform that delivers a seamless and stylish online shopping experience with dynamic product browsing and secure checkout.',
+    challenge: 'Fashion retailers needed a scalable online store that could handle product listings, user authentication, payments, and order management while maintaining a smooth and responsive user experience.',
+    solution: 'Built a MERN stack e-commerce application featuring a dynamic React front end, secure Node.js and Express backend, and MongoDB for managing products, users, and transactions. The platform supports filtering, detailed product views, and reliable order processing.',
+    results: [
+        'Smooth and responsive shopping experience',
+        'Secure authentication and payment processing',
+        'Efficient order and transaction management',
+        'Scalable architecture for future growth'
+    ],
+    technologies: [
+        'MongoDB',
+        'Express.js',
+        'React',
+        'Node.js'
+    ],
+    image: '/images/fasion.png',
+    featured: false,
+    testimonial: {
+        quote: 'A well-built fashion e-commerce platform that combines modern design, secure transactions, and a scalable full-stack architecture.',
+        author: 'Project Review',
+        role: 'E-commerce Development'
     }
+},
+{
+  id: 'eco-agriculture-platform',
+  title: 'Eco-Friendly Agriculture & Organic Farming Platform',
+  client: 'Organic Agriculture Business',
+  category: 'Agriculture / Sustainability',
+  description: 'A modern, high-performance web platform for an eco-friendly agriculture business focused on organic farming supplies, sustainable crop management consulting, and educational content.',
+  challenge: 'The client needed a fast, SEO-friendly, and mobile-optimized website to showcase services, educate farmers on sustainable practices, and increase inquiries—while ensuring smooth performance even on mobile devices used in the field.',
+  solution: 'Developed a full-stack application using Next.js App Router with server-side rendering for performance and SEO, Node.js and Express for backend logic, PostgreSQL for structured content storage, and Framer Motion for engaging yet subtle animations.',
+  results: [
+      'Significantly higher user engagement after launch',
+      'Increased lead generation through optimized contact flows',
+      'Improved visibility via SEO-optimized pages',
+      'Smooth mobile experience for on-field access'
+  ],
+  technologies: [
+      'Next.js',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+      'Framer Motion'
+  ],
+  image: '/images/eco.png',
+  featured: false,
+  testimonial: {
+      quote: 'A beautifully designed and high-performing platform that clearly communicates our mission for sustainable farming while driving real engagement and inquiries.',
+      author: 'Client Team',
+      role: 'Sustainable Agriculture'
+  }
+},
+{
+  id: 'clemson-printing-lab-scheduler',
+  title: 'Clemson University Printing Lab Scheduler',
+  client: 'Clemson University',
+  category: 'Education / Resource Management',
+  description: 'An online scheduling system designed to streamline access to Clemson University’s printing labs, enabling students, faculty, and staff to reserve time slots efficiently and reduce wait times.',
+  challenge: 'The university needed a centralized, easy-to-use platform to manage high-demand printing resources while ensuring fair access, real-time availability, and minimal administrative overhead.',
+  solution: 'Developed a web-based scheduling system with secure university authentication, real-time slot availability, automated notifications, and an admin control panel to manage lab usage and enforce policies.',
+  results: [
+      'Reduced wait times through advance reservations',
+      'Improved utilization of printing lab resources',
+      'Simplified administration with centralized controls',
+      'Enhanced user experience across all devices'
+  ],
+  technologies: [
+      'Web-Based Scheduling System',
+      'User Authentication',
+      'Real-Time Data Management',
+      'Notification Services'
+  ],
+  image: '/images/lab.png',
+  featured: false,
+  testimonial: {
+      quote: 'A reliable and efficient scheduling solution that significantly improved access to our printing labs while reducing administrative complexity.',
+      author: 'Clemson University Staff',
+      role: 'Printing Lab Administration'
+  }
+}
+
+
+
+  
     
 ];

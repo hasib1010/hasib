@@ -18,24 +18,21 @@ export default function TechStack() {
   ] as const;
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-950 relative overflow-hidden">
-      {/* Structural Background Lines */}
+    <section className="py-24 lg:py-32 bg-slate-900 relative overflow-hidden">
+      {/* Animated Background Glows */}
+      <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse" />
       <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#94a3b8 1px, transparent 1px), linear-gradient(90deg, #94a3b8 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
+        className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-teal-500/10 rounded-full blur-[100px] animate-pulse"
+        style={{ animationDelay: "2s" }}
       />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-flex items-center gap-3 text-xs font-mono text-emerald-500 uppercase tracking-[0.3em] mb-4">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 uppercase tracking-[0.2em] mb-4">
+            <span className="w-8 h-[1px] bg-emerald-400/50" />
             Our Tech Ecosystem
           </span>
-          <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight">
+          <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
             Built for{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
               Scale
@@ -53,18 +50,21 @@ export default function TechStack() {
             return (
               <div
                 key={cat}
-                className="group relative bg-slate-900/40 backdrop-blur-sm border border-slate-800 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500"
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 hover:border-emerald-400/50 hover:bg-white/[0.08] transition-all duration-500"
               >
+                {/* Subtle noise texture */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
                 {/* Category Index */}
-                <div className="text-[40px] font-black text-slate-800 absolute top-4 right-6 group-hover:text-emerald-500/10 transition-colors">
+                <div className="relative z-10 text-[40px] font-black text-slate-500 absolute top-4 right-6  transition-colors">
                   0{idx + 1}
                 </div>
 
-                <h4 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-10 border-l-2 border-emerald-500/30 pl-4">
+                <h4 className="relative z-10 text-sm font-mono text-emerald-400 uppercase tracking-widest mb-10 border-l-2 border-emerald-500/30 pl-4">
                   {categoryLabels[cat]}
                 </h4>
 
-                <div className="flex flex-col gap-4">
+                <div className="relative z-10 flex flex-col gap-4">
                   {techs.map((tech) => (
                     <div
                       key={tech.name}
@@ -79,7 +79,7 @@ export default function TechStack() {
                 </div>
 
                 {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem]" />
               </div>
             );
           })}
