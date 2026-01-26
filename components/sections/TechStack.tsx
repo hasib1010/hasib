@@ -39,30 +39,20 @@ export default function TechStack() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 lg:py-32 bg-slate-950 relative overflow-hidden"
+      className="py-24 lg:py-32 bg-slate-900 relative overflow-hidden"
     >
-      {/* Structural Background Lines */}
-      <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#94a3b8 1px, transparent 1px), linear-gradient(90deg, #94a3b8 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      {/* Animated Glow Orbs */}
+      {/* Animated Background Glows */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={isInView ? { opacity: 0.3, scale: 1 } : {}}
+        animate={isInView ? { opacity: 0.15, scale: 1 } : {}}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px]"
+        className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-emerald-500/10 rounded-full blur-[120px]"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={isInView ? { opacity: 0.2, scale: 1 } : {}}
+        animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
         transition={{ duration: 1.5, delay: 0.8 }}
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[120px]"
+        className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-teal-500/10 rounded-full blur-[100px]"
       />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -73,9 +63,9 @@ export default function TechStack() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-3 text-xs font-mono text-emerald-500 uppercase tracking-[0.3em] mb-4"
+            className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 uppercase tracking-[0.2em] mb-4"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-8 h-[1px] bg-emerald-400/50" />
             Our Tech Ecosystem
           </motion.span>
 
@@ -84,7 +74,7 @@ export default function TechStack() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight"
+            className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]"
           >
             Built for{" "}
             <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
@@ -143,14 +133,17 @@ export default function TechStack() {
                   duration: 0.8,
                   delay: 0.8 + idx * 0.15,
                 }}
-                className="group relative bg-slate-900/40 backdrop-blur-sm border border-slate-800 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500"
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 hover:border-emerald-400/50 hover:bg-white/[0.08] transition-all duration-500"
               >
+                {/* Subtle noise texture */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none rounded-[2.5rem] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
                 {/* Category Index */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 1.2 + idx * 0.15 }}
-                  className="text-[40px] font-black text-slate-800 absolute top-4 right-6 group-hover:text-emerald-500/20 transition-colors"
+                  className="relative z-10 text-[40px] font-black text-slate-500 absolute top-4 right-6 group-hover:text-emerald-500/30 transition-colors"
                 >
                   0{idx + 1}
                 </motion.div>
@@ -159,12 +152,12 @@ export default function TechStack() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 1.0 + idx * 0.15 }}
-                  className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-10 border-l-2 border-emerald-500/30 pl-4"
+                  className="relative z-10 text-sm font-mono text-emerald-400 uppercase tracking-widest mb-10 border-l-2 border-emerald-500/30 pl-4"
                 >
                   {categoryLabels[cat]}
                 </motion.h4>
 
-                <div className="flex flex-col gap-4">
+                <div className="relative z-10 flex flex-col gap-4">
                   {techs.map((tech, techIdx) => (
                     <motion.div
                       key={tech.name}
@@ -185,7 +178,7 @@ export default function TechStack() {
                 </div>
 
                 {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem]" />
               </motion.div>
             );
           })}

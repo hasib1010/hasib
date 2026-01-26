@@ -234,6 +234,271 @@ export const caseStudies: CaseStudy[] = [
             author: '44pro Team',
             role: 'E-commerce Product'
         }
+    },
+    {
+      id: 'myperfecthire-recruiting-platform',
+      title: 'MyPerfectHire – Executive Search & Recruiting Platform',
+      client: 'MyPerfectHire.com',
+      category: 'Recruiting / Talent Acquisition',
+      description: 'A flat-fee executive search and recruiting platform designed to help companies hire top-tier talent without traditional recruiter markups, focusing on proactive headhunting and long-term placement success.',
+      challenge: 'Traditional recruiting firms often rely on percentage-based commissions, generic job board candidates, and internal quotas, leading to higher costs and longer hiring cycles.',
+      solution: 'Developed a modern, conversion-focused recruiting platform with a clean UI, clear value proposition, and optimized user experience to communicate trust, transparency, and hiring efficiency.',
+      results: [
+          '50–70% cost savings compared to traditional recruiters',
+          'Clear and transparent flat-fee hiring model',
+          'Improved lead conversion through optimized UX',
+          'Professional, credibility-driven design'
+      ],
+      technologies: [
+          'React.js',
+          'Next.js',
+          'Tailwind CSS',
+          'Redux'
+      ],
+      image: '/images/perfect.png',
+      featured: false,
+      testimonial: {
+          quote: 'A strategic recruiting platform that combines modern UI, clear messaging, and a strong value proposition to help companies hire top talent efficiently.',
+          author: 'MyPerfectHire Team',
+          role: 'Talent Acquisition'
+      }
+  },{
+    id: 'fashion-ecommerce-store',
+    title: 'Full Stack Fashion E-commerce Store',
+    client: 'Fashion Retail Platform',
+    category: 'E-commerce / Fashion',
+    description: 'A modern full-stack fashion e-commerce platform that delivers a seamless and stylish online shopping experience with dynamic product browsing and secure checkout.',
+    challenge: 'Fashion retailers needed a scalable online store that could handle product listings, user authentication, payments, and order management while maintaining a smooth and responsive user experience.',
+    solution: 'Built a MERN stack e-commerce application featuring a dynamic React front end, secure Node.js and Express backend, and MongoDB for managing products, users, and transactions. The platform supports filtering, detailed product views, and reliable order processing.',
+    results: [
+        'Smooth and responsive shopping experience',
+        'Secure authentication and payment processing',
+        'Efficient order and transaction management',
+        'Scalable architecture for future growth'
+    ],
+    technologies: [
+        'MongoDB',
+        'Express.js',
+        'React',
+        'Node.js'
+    ],
+    image: '/images/fasion.png',
+    featured: false,
+    testimonial: {
+        quote: 'A well-built fashion e-commerce platform that combines modern design, secure transactions, and a scalable full-stack architecture.',
+        author: 'Project Review',
+        role: 'E-commerce Development'
     }
+},
+{
+  id: 'eco-agriculture-platform',
+  title: 'Eco-Friendly Agriculture & Organic Farming Platform',
+  client: 'Organic Agriculture Business',
+  category: 'Agriculture / Sustainability',
+  description: 'A modern, high-performance web platform for an eco-friendly agriculture business focused on organic farming supplies, sustainable crop management consulting, and educational content.',
+  challenge: 'The client needed a fast, SEO-friendly, and mobile-optimized website to showcase services, educate farmers on sustainable practices, and increase inquiries—while ensuring smooth performance even on mobile devices used in the field.',
+  solution: 'Developed a full-stack application using Next.js App Router with server-side rendering for performance and SEO, Node.js and Express for backend logic, PostgreSQL for structured content storage, and Framer Motion for engaging yet subtle animations.',
+  results: [
+      'Significantly higher user engagement after launch',
+      'Increased lead generation through optimized contact flows',
+      'Improved visibility via SEO-optimized pages',
+      'Smooth mobile experience for on-field access'
+  ],
+  technologies: [
+      'Next.js',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+      'Framer Motion'
+  ],
+  image: '/images/eco.png',
+  featured: false,
+  testimonial: {
+      quote: 'A beautifully designed and high-performing platform that clearly communicates our mission for sustainable farming while driving real engagement and inquiries.',
+      author: 'Client Team',
+      role: 'Sustainable Agriculture'
+  }
+},
+{
+  id: 'clemson-printing-lab-scheduler',
+  title: 'Clemson University Printing Lab Scheduler',
+  client: 'Clemson University',
+  category: 'Education / Resource Management',
+  description: 'An online scheduling system designed to streamline access to Clemson University’s printing labs, enabling students, faculty, and staff to reserve time slots efficiently and reduce wait times.',
+  challenge: 'The university needed a centralized, easy-to-use platform to manage high-demand printing resources while ensuring fair access, real-time availability, and minimal administrative overhead.',
+  solution: 'Developed a web-based scheduling system with secure university authentication, real-time slot availability, automated notifications, and an admin control panel to manage lab usage and enforce policies.',
+  results: [
+      'Reduced wait times through advance reservations',
+      'Improved utilization of printing lab resources',
+      'Simplified administration with centralized controls',
+      'Enhanced user experience across all devices'
+  ],
+  technologies: [
+      'Web-Based Scheduling System',
+      'User Authentication',
+      'Real-Time Data Management',
+      'Notification Services'
+  ],
+  image: '/images/lab.png',
+  featured: false,
+  testimonial: {
+      quote: 'A reliable and efficient scheduling solution that significantly improved access to our printing labs while reducing administrative complexity.',
+      author: 'Clemson University Staff',
+      role: 'Printing Lab Administration'
+  }
+},
+{
+  id: 'mern-pos-system',
+  title: 'Retail Point of Sale (POS) System',
+  client: 'Retail Business',
+  category: 'Retail / POS',
+  description: 'A robust, full-featured Point of Sale (POS) system designed to streamline sales, inventory, and customer management for retail businesses using a modern MERN stack architecture.',
+  challenge: 'The client needed to replace manual sales tracking and fragmented inventory management with a secure, real-time system that supports multiple user roles and daily operational reporting.',
+  solution: 'Developed a MERN stack POS application with a responsive React frontend, role-based authentication, real-time inventory tracking, sales reporting, barcode scanning, and receipt printing. The backend uses RESTful APIs with Express and Node.js, deployed using Docker and MongoDB Atlas.',
+  results: [
+      'Automated daily sales and inventory operations',
+      'Reduced manual errors and improved data accuracy',
+      'Faster checkout with barcode scanning and receipt printing',
+      'Improved business efficiency through real-time reporting'
+  ],
+  technologies: [
+      'MongoDB',
+      'Express.js',
+      'React.js',
+      'Node.js',
+      'Redux',
+      'Material-UI',
+      'Docker',
+      'MongoDB Atlas'
+  ],
+  image: '/images/retail.png',
+  featured: false,
+  testimonial: {
+      quote: 'A powerful and reliable POS system that significantly improved our daily operations, inventory accuracy, and sales reporting.',
+      author: 'Client Team',
+      role: 'Retail Operations'
+  }
+},
+{
+  id: 'blox-fruit-hub',
+  title: 'Blox Fruit Hub – Gaming E-Commerce Platform',
+  client: 'Blox Fruit Hub',
+  category: 'Gaming / E-commerce',
+  description: 'A modern and dynamic gaming e-commerce website designed for selling Roblox in-game items, focusing on fast purchasing, instant delivery, and a highly engaging user experience.',
+  challenge: 'Gamers expect instant access to digital items, fast checkout, and a visually immersive interface while maintaining secure and reliable payment processing.',
+  solution: 'Designed and developed a dark-themed e-commerce platform with animated visuals, an optimized product grid, and a streamlined checkout flow to ensure fast purchases and immediate digital delivery.',
+  results: [
+      'Faster purchase flow for in-game items',
+      'Improved user engagement with gaming-focused UI',
+      'Secure and reliable payment experience',
+      'Enhanced conversion through optimized product layout'
+  ],
+  technologies: [
+      'React',
+      'Next.js',
+      'Tailwind CSS',
+      'Payment Gateway'
+  ],
+  image: '/images/blox.png',
+  featured: false,
+  testimonial: {
+      quote: 'A visually striking and performance-focused gaming store that delivers a smooth purchasing experience for digital items.',
+      author: 'Blox Fruit Hub Team',
+      role: 'Gaming E-commerce'
+  }
+},
+{
+  id: 'powerup-device-rental',
+  title: 'PowerUp – Smart Device Rental Website',
+  client: 'PowerUp',
+  category: 'IoT / Rental / Smart Devices',
+  description: 'A clean and modern website designed for PowerUp, a smart power bank rental network based in Cracow, focused on convenience, sustainability, and fast charging solutions.',
+  challenge: 'The brand needed a mobile-first website that clearly communicates its value proposition, drives app downloads, supports station partners, and builds user trust through a polished and intuitive interface.',
+  solution: 'Designed a sleek, responsive website with strong visual hierarchy, clear app download CTAs, interactive FAQs, and a dedicated partner section. The design emphasizes usability, eco-friendly messaging, and brand consistency.',
+  results: [
+      'Improved user clarity around rental process',
+      'Increased app download engagement',
+      'Enhanced brand trust through clean UI',
+      'Mobile-first experience optimized for on-the-go users'
+  ],
+  technologies: [
+      'UI/UX Design',
+      'Responsive Web Design',
+      'Interactive Components',
+      'Modern Web Animations'
+  ],
+  image: '/images/powerup.png',
+  featured: false,
+  testimonial: {
+      quote: 'A thoughtfully designed website that clearly communicates our mission while making it easy for users and partners to engage with the PowerUp network.',
+      author: 'PowerUp Team',
+      role: 'Smart Mobility'
+  }
+},
+{
+  id: 'deephash-cloud-mining',
+  title: 'DeepHash – AI-Powered Cloud Mining Platform',
+  client: 'DeepHash',
+  category: 'Blockchain / Cloud Mining',
+  description: 'A professional AI-powered cloud mining website designed to showcase smart hashpower solutions and eco-friendly global mining farms with a focus on performance, clarity, and trust.',
+  challenge: 'Cloud mining platforms must clearly communicate complex concepts like hashpower plans, earnings projections, and sustainability while maintaining user trust and high performance.',
+  solution: 'Designed and developed a modern, responsive platform featuring interactive mining plan selection, live earnings tracking, and a clean UI/UX optimized for clarity, speed, and scalability.',
+  results: [
+      'Improved user understanding of mining plans',
+      'Higher engagement through interactive plan selection',
+      'Clear presentation of live earnings data',
+      'Optimized performance across all devices'
+  ],
+  technologies: [
+      'React',
+      'Next.js',
+      'Tailwind CSS',
+      'Data Visualization'
+  ],
+  image: '/images/deephash.png',
+  featured: false,
+  testimonial: {
+      quote: 'A sleek and professional platform that clearly communicates our AI-driven mining solutions while delivering an engaging and high-performance user experience.',
+      author: 'DeepHash Team',
+      role: 'Blockchain & AI Mining'
+  }
+},
+{
+  id: 'airnexus-b2b-landing-page',
+  title: 'High-Converting B2B Tech Landing Page',
+  client: 'AirNexus',
+  category: 'B2B / AI / UI-UX Design',
+  description: 'A high-converting B2B landing page designed to establish AirNexus as a premium AI-driven technology brand while simplifying complex solutions and driving app downloads and inquiries.',
+  challenge: 'AirNexus needed a landing page that could clearly communicate advanced AI technology in a way that felt accessible, futuristic, and trustworthy to B2B decision-makers.',
+  solution: 'Designed a futuristic dark-mode UI/UX with electric purple and blue accents, glowing 3D abstract visuals, and a clear content hierarchy. Strong headlines, icon-driven sections, and strategically placed CTAs were used to maximize clarity and conversions.',
+  results: [
+      'Clear brand positioning in the AI and B2B space',
+      'Improved user understanding of complex offerings',
+      'Conversion-focused layout with strong CTA visibility',
+      'Premium, modern visual identity ready for development'
+  ],
+  technologies: [
+      'Figma',
+      'UI/UX Design',
+      'Wireframing',
+      'High-Fidelity Prototyping'
+  ],
+  image: '/images/airnexus.png',
+  featured: false,
+  testimonial: {
+      quote: 'A visually striking and conversion-focused landing page that clearly communicates our innovation and positions AirNexus as a premium AI brand.',
+      author: 'AirNexus Team',
+      role: 'Product & Marketing'
+  }
+}
+
+
+
+
+
+
+
+
+  
     
 ];
