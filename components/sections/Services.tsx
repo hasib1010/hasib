@@ -94,7 +94,7 @@ export default function Services() {
                 layout
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 className={`relative rounded-3xl p-8 lg:p-10 overflow-hidden transition-all duration-700 cursor-pointer h-[550px] flex flex-col ${bgClass} shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-2xl`}
@@ -128,22 +128,22 @@ export default function Services() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 50 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="absolute inset-x-[-10%] bottom-[-5%] flex justify-center items-end h-[75%] pointer-events-none"
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="absolute inset-x-[-15%] bottom-[-10%] flex justify-center items-end h-[85%] pointer-events-none"
                         style={{
                           maskImage:
-                            "radial-gradient(circle at bottom, black 40%, transparent 90%)",
+                            "radial-gradient(circle at bottom, black 60%, transparent 95%)",
                           WebkitMaskImage:
-                            "radial-gradient(circle at bottom, black 40%, transparent 90%)",
+                            "radial-gradient(circle at bottom, black 60%, transparent 95%)",
                         }}
                       >
                         <div className="relative w-full h-full flex items-end justify-center">
-                          <div className="relative w-[90%] h-full transform translate-y-8 transition-transform duration-700 group-hover:-translate-y-4">
+                          <div className="relative w-[110%] h-[110%] transform translate-y-12 transition-transform duration-700 group-hover:-translate-y-4">
                             <Image
                               src={serviceImages[service.id]}
                               alt={service.title}
                               fill
-                              className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] mix-blend-multiply brightness-[1.02] contrast-[1.05]"
+                              className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.12)] brightness-[1.05] contrast-[1.02]"
                               sizes="(max-width: 768px) 100vw, 33vw"
                               priority
                             />
@@ -157,7 +157,7 @@ export default function Services() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}
-                        transition={{ duration: 0.5, ease: "circOut" }}
+                        transition={{ duration: 0.3, ease: "circOut" }}
                         className="flex flex-col h-full relative z-20"
                       >
                         <p
@@ -203,7 +203,7 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="mt-24 text-center"
         >
           <p className="text-slate-500 font-bold uppercase tracking-[0.2em] mb-8 text-sm">
@@ -214,7 +214,7 @@ export default function Services() {
             className="group relative inline-flex items-center gap-6 px-12 py-6 bg-slate-900 overflow-hidden transition-all duration-500 hover:pr-16"
           >
             <span className="relative z-10 text-white font-black text-2xl lg:text-3xl tracking-tight leading-none uppercase">
-              Schedule a <br className="sm:hidden" /> Free Discovery Call
+              Contact <br className="sm:hidden" /> Us
             </span>
             <div className="absolute inset-0 bg-linear-to-r from-emerald-600 to-teal-500 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
             <svg

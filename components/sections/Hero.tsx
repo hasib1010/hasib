@@ -250,11 +250,11 @@ export default function Hero() {
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
                 />
-                <span className="relative z-10 group-hover:text-white transition-colors">
+                <span className="relative z-10 group-hover:text-green-600 transition-colors">
                   Schedule Call
                 </span>
                 <motion.svg
-                  className="w-5 h-5 relative z-10 group-hover:text-white transition-colors"
+                  className="w-5 h-5 relative z-10 group-hover:text-green-600 transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
