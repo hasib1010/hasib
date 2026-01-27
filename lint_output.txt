@@ -1,0 +1,23 @@
+
+> my-portfolio@0.1.0 lint
+> eslint
+
+
+/Users/apple/Documents/Elevate It/Portfolio Websites/hasib/app/services/[slug]/page.tsx
+  222:23  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  250:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  356:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  384:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/apple/Documents/Elevate It/Portfolio Websites/hasib/components/Navbar.tsx
+  38:9  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/apple/Documents/Elevate It/Portfolio Websites/hasib/components/sections/FAQ.tsx
+  269:20  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  269:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/apple/Documents/Elevate It/Portfolio Websites/hasib/components/sections/Services.tsx
+  78:35  warning  'index' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 8 problems (6 errors, 2 warnings)
+

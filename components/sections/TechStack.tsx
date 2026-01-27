@@ -21,7 +21,10 @@ export default function TechStack() {
   ] as const;
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-950 relative overflow-hidden min-h-[800px] flex items-center">
+    <section
+      id="tech-stack"
+      className="py-24 lg:py-32 bg-slate-950 relative overflow-hidden min-h-[800px] flex items-center"
+    >
       {/* Structural Background Lines */}
       <div
         className="absolute inset-0 opacity-[0.05]"

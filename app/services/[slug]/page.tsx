@@ -219,7 +219,7 @@ export default async function ServicePage({
                   Why Choose This Service?
                 </h2>
                 <p className="text-lg text-slate-600">
-                  Here's how our {service.title.toLowerCase()} service can
+                  Here&apos;s how our {service.title.toLowerCase()} service can
                   transform your business
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default async function ServicePage({
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                What's Included
+                What&apos;s Included
               </h2>
               <p className="text-lg text-slate-600">
                 Everything you need for a successful project
@@ -353,7 +353,7 @@ export default async function ServicePage({
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-3xl mx-auto text-center mb-16">
                 <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                  What You'll Receive
+                  What You&apos;ll Receive
                 </h2>
                 <p className="text-lg text-slate-600">
                   Comprehensive deliverables for your project
@@ -381,8 +381,8 @@ export default async function ServicePage({
               Ready to get started?
             </h2>
             <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-              Let's discuss how we can help bring your vision to life with our{" "}
-              {service.title.toLowerCase()} services.
+              Let&apos;s discuss how we can help bring your vision to life with
+              our {service.title.toLowerCase()} services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

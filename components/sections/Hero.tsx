@@ -169,17 +169,17 @@ export default function Hero() {
                   stiffness: 100,
                   damping: 15,
                 }}
-                className="text-7xl lg:text-9xl font-black text-white tracking-tighter leading-[0.9]"
+                className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] mb-4"
               >
                 <motion.span
                   className="block"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  HI—IT&apos;S ME
+                  HI—I&apos;M
                 </motion.span>
                 <motion.span
-                  className="block bg-linear-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent bg-size-[200%_auto]"
+                  className="block bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent bg-size-[200%_auto]"
                   animate={{
                     backgroundPosition: ["0% center", "200% center"],
                   }}
