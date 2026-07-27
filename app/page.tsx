@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
@@ -179,10 +179,11 @@ function SectionIntro({
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const reduceMotion = useReducedMotion();
   const reveal = {
-    initial: reduceMotion ? {} : { opacity: 0, y: 24 },
-    whileInView: reduceMotion ? {} : { opacity: 1, y: 0 },
+    // Keep content visible before JavaScript, during full-page captures, and
+    // for crawlers. Motion should enhance the page, never gate its content.
+    initial: false as const,
+    whileInView: { y: 0 },
     viewport: { once: true, amount: 0.2 },
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   };
@@ -248,7 +249,7 @@ export default function Home() {
           <div className="hero__grid">
             <motion.div
               className="hero__copy"
-              initial={reduceMotion ? {} : { opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
@@ -294,7 +295,7 @@ export default function Home() {
 
             <motion.div
               className="hero__portrait-wrap"
-              initial={reduceMotion ? {} : { opacity: 0, scale: 0.96 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >

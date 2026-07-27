@@ -1707,3 +1707,17 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [style*="opacity: 0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
