@@ -6,8 +6,8 @@ import {
 import handler from "vinext/server/app-router-entry";
 
 interface Env {
-  ASSETS: Fetcher;
-  IMAGES: {
+  ASSETS?: Fetcher;
+  IMAGES?: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
         output(options: {
@@ -33,6 +33,21 @@ const worker = {
     const url = new URL(request.url);
 
     if (url.pathname === "/_vinext/image") {
+      // Local Vinext previews do not provide Cloudflare's production image
+      // bindings. Gracefully fall back to the original local asset for any
+      // stale optimizer requests instead of crashing the worker.
+      if (!env.ASSETS || !env.IMAGES) {
+        const source = url.searchParams.get("url");
+
+        if (source?.startsWith("/")) {
+          return Response.redirect(new URL(source, request.url), 307);
+        }
+
+        return new Response("Image optimization is unavailable", {
+          status: 503,
+        });
+      }
+
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
       return handleImageOptimization(
         request,

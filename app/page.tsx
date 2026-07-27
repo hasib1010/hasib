@@ -304,6 +304,7 @@ export default function Home() {
                   alt="Md Hasibul Hasan, full-stack developer"
                   fill
                   priority
+                  unoptimized
                   sizes="(max-width: 900px) 92vw, 42vw"
                 />
                 <div className="portrait-label">
@@ -398,6 +399,7 @@ export default function Home() {
                     src={project.image}
                     alt={`${project.title} interface`}
                     fill
+                    unoptimized
                     sizes="(max-width: 900px) 92vw, 52vw"
                   />
                 </Link>
