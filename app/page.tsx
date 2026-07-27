@@ -11,15 +11,13 @@ import {
   Code2,
   Database,
   Layers3,
-  Mail,
-  Menu,
   ServerCog,
   Sparkles,
-  X,
 } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { SiFiverr, SiToptal, SiUpwork } from "react-icons/si";
-import { useState } from "react";
+import PortfolioFooter from "@/components/PortfolioFooter";
+import PortfolioHeader from "@/components/PortfolioHeader";
 
 const profiles = [
   {
@@ -64,6 +62,7 @@ const services = [
     description:
       "From idea to launch, I turn product requirements into polished, maintainable web experiences.",
     tags: ["Discovery", "Architecture", "UI engineering"],
+    href: "/services/web-development",
   },
   {
     number: "02",
@@ -72,6 +71,7 @@ const services = [
     description:
       "Fast, accessible interfaces with thoughtful interaction design and reusable component systems.",
     tags: ["React", "Next.js", "TypeScript"],
+    href: "/services/frontend-development",
   },
   {
     number: "03",
@@ -80,6 +80,7 @@ const services = [
     description:
       "Secure business logic, reliable data models, integrations, and APIs designed to scale.",
     tags: ["Node.js", "PostgreSQL", "REST / GraphQL"],
+    href: "/services/backend-development",
   },
   {
     number: "04",
@@ -88,6 +89,7 @@ const services = [
     description:
       "Performance audits, cloud deployment, technical rescue work, and long-term product support.",
     tags: ["AWS", "Docker", "CI/CD"],
+    href: "/services/website-maintenance",
   },
 ];
 
@@ -202,13 +204,6 @@ const process = [
   },
 ];
 
-const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Profiles", href: "#profiles" },
-];
-
 function SectionIntro({
   eyebrow,
   title,
@@ -233,7 +228,6 @@ function SectionIntro({
 }
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const reveal = {
     // Keep content visible before JavaScript, during full-page captures, and
     // for crawlers. Motion should enhance the page, never gate its content.
@@ -243,61 +237,13 @@ export default function Home() {
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   };
 
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
 
-      <header className="site-header">
-        <Link href="/" className="brand" aria-label="Hasib home">
-          <span className="brand__mark">H.</span>
-          <span className="brand__name">
-            Hasibul
-            <small>Full-stack developer</small>
-          </span>
-        </Link>
-
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <a className="header-cta" href="mailto:hello@hasibdigital.com">
-          Let&apos;s talk
-          <ArrowUpRight aria-hidden="true" />
-        </a>
-
-        <button
-          className="menu-button"
-          type="button"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
-
-        <div className={`mobile-nav ${menuOpen ? "mobile-nav--open" : ""}`}>
-          <nav aria-label="Mobile navigation">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href} onClick={closeMenu}>
-                {item.label}
-                <ArrowRight aria-hidden="true" />
-              </a>
-            ))}
-            <a href="mailto:hello@hasibdigital.com" onClick={closeMenu}>
-              Start a project
-              <Mail aria-hidden="true" />
-            </a>
-          </nav>
-        </div>
-      </header>
+      <PortfolioHeader />
 
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
@@ -425,6 +371,24 @@ export default function Home() {
               <span>{stat.label}</span>
             </div>
           ))}
+        </section>
+
+        <section className="trust-strip" aria-label="How projects are delivered">
+          <div>
+            <span>01</span>
+            <strong>Clear scope</strong>
+            <p>Written priorities, milestones, and success criteria.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <strong>Visible progress</strong>
+            <p>Short delivery cycles with direct, practical updates.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <strong>Production handoff</strong>
+            <p>Tested code, documentation, deployment, and support.</p>
+          </div>
         </section>
 
         <section className="section section--work" id="work">
@@ -561,6 +525,10 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                  <Link className="service-card__link" href={service.href}>
+                    Explore service
+                    <ArrowUpRight aria-hidden="true" />
+                  </Link>
                 </motion.article>
               );
             })}
@@ -700,33 +668,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <Link href="/" className="brand brand--footer">
-          <span className="brand__mark">H.</span>
-          <span className="brand__name">Hasibul</span>
-        </Link>
-        <p>Full-stack product development for ambitious teams.</p>
-        <div className="footer-profiles">
-          {profiles.map((profile) => {
-            const Icon = profile.icon;
-            return (
-              <a
-                href={profile.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={profile.platform}
-                title={profile.platform}
-                key={profile.platform}
-              >
-                <Icon aria-hidden="true" />
-                <span>{profile.platform}</span>
-              </a>
-            );
-          })}
-          <a href="#main">Back to top ↑</a>
-        </div>
-        <small>© {new Date().getFullYear()} Md Hasibul Hasan</small>
-      </footer>
+      <PortfolioFooter />
     </div>
   );
 }

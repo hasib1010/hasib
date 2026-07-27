@@ -80,7 +80,7 @@ export const caseStudies: CaseStudy[] = [
             'Express.js',
             'MongoDB'
         ],
-        image: '/images/fliday.png',
+        image: '/images/fliday.webp',
         featured: true,
         "testimonial": {
   "quote": "A well-architected global eSIM marketplace showcasing modern full-stack development with secure payments, real-time eSIM delivery, and a robust admin management system.",

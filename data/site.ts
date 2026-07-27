@@ -71,10 +71,10 @@ export const companyStats: Stat[] = [
 ];
 
 export const companyInfo = {
-    name: 'Hasib Digital',
-    tagline: 'Crafting Digital Excellence',
-    description: 'We are a full-service web development agency passionate about creating beautiful, functional, and scalable digital solutions. Our team of 13 experts combines creativity with technical excellence to deliver projects that exceed expectations.',
-    mission: 'To empower businesses with cutting-edge web solutions that drive growth, enhance user experience, and create lasting digital impressions.',
+    name: 'Md Hasibul Hasan',
+    tagline: 'Full-Stack Product Engineering',
+    description: 'Independent full-stack development for founders, product teams, and businesses that need dependable digital products from strategy through launch.',
+    mission: 'To turn complex product requirements into clear, maintainable, and useful software through thoughtful design and responsible engineering.',
     values: [
         {
             title: 'Quality First',

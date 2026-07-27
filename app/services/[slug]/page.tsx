@@ -1,109 +1,37 @@
-import Link from "next/link";
-import Image from "next/image";
-import { services } from "@/data/services";
-import { companyInfo } from "@/data/site";
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Code2,
+  FileCode2,
+  Gauge,
+  Globe2,
+  Handshake,
+  Palette,
+  ServerCog,
+  ShieldCheck,
+  ShoppingBag,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
+import { SiFiverr } from "react-icons/si";
+import MotionReveal from "@/components/MotionReveal";
+import PortfolioFooter from "@/components/PortfolioFooter";
+import PortfolioHeader from "@/components/PortfolioHeader";
+import { services } from "@/data/services";
 
-const icons: Record<string, React.ReactNode> = {
-  globe: (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-      />
-    </svg>
-  ),
-  palette: (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-      />
-    </svg>
-  ),
-  code: (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-      />
-    </svg>
-  ),
-  server: (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-      />
-    </svg>
-  ),
-  "shopping-cart": (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-      />
-    </svg>
-  ),
-  settings: (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-      />
-    </svg>
-  ),
+const serviceIcons: Record<string, LucideIcon> = {
+  globe: Globe2,
+  palette: Palette,
+  code: Code2,
+  server: ServerCog,
+  "shopping-cart": ShoppingBag,
+  settings: Wrench,
 };
 
 const serviceImages: Record<string, string> = {
@@ -115,8 +43,31 @@ const serviceImages: Record<string, string> = {
   "website-maintenance": "/srevices/maintenance_mockup-removebg-preview.png",
 };
 
+const deliveryPrinciples = [
+  {
+    icon: Handshake,
+    title: "Direct collaboration",
+    copy: "You speak with the developer making the decisions and doing the work.",
+  },
+  {
+    icon: FileCode2,
+    title: "Source ownership",
+    copy: "Clean source code, documentation, and a practical handoff are included.",
+  },
+  {
+    icon: Gauge,
+    title: "Production quality",
+    copy: "Performance, accessibility, testing, and maintainability shape the build.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Responsible delivery",
+    copy: "Security, deployment, and post-launch stability are considered from day one.",
+  },
+];
+
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.id }));
+  return services.map((service) => ({ slug: service.id }));
 }
 
 export async function generateMetadata({
@@ -125,10 +76,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = services.find((s) => s.id === slug);
-  if (!service) return { title: "Not Found" };
+  const service = services.find((item) => item.id === slug);
+  if (!service) return { title: "Service Not Found" };
   return {
-    title: `${service.title} | Hasib Digital`,
+    title: `${service.title} | Md Hasibul Hasan`,
     description: service.description,
   };
 }
@@ -139,339 +90,282 @@ export default async function ServicePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const service = services.find((s) => s.id === slug);
+  const service = services.find((item) => item.id === slug);
   if (!service) notFound();
-  const others = services.filter((s) => s.id !== slug).slice(0, 3);
+
+  const ServiceIcon = serviceIcons[service.icon] ?? Code2;
+  const otherServices = services
+    .filter((item) => item.id !== slug)
+    .slice(0, 3);
 
   return (
-    <>
-      <Navbar />
-      <main className="bg-white">
-        {/* Hero Section */}
-        <section
-          className={`pt-32 pb-20 lg:pb-32 ${service.color} relative overflow-hidden`}
-        >
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
-              <div>
-                <div className="w-20 h-20 rounded-3xl bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-900 mb-6 shadow-xl">
-                  {icons[service.icon]}
-                </div>
-                <h1 className="text-5xl lg:text-7xl font-black mb-6 text-slate-900 tracking-tight leading-[1.1]">
-                  {service.title}
-                </h1>
-                <p className="text-xl lg:text-2xl text-slate-700 mb-8 leading-relaxed">
-                  {service.longDescription || service.description}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href={companyInfo.fiverr}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold rounded-full bg-slate-900 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-                  >
-                    <span>Get Started</span>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </a>
-                  <Link
-                    href="/#contact"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold rounded-full bg-white text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all duration-300"
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
+    <div className="site-shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <PortfolioHeader />
 
-              {/* Right Image */}
-              <div className="relative h-[400px] lg:h-[500px]">
-                {serviceImages[service.id] && (
-                  <Image
-                    src={serviceImages[service.id]}
-                    alt={service.title}
-                    fill
-                    className="object-contain drop-shadow-2xl"
-                  />
-                )}
-              </div>
+      <main id="main">
+        <div className="page-crumb">
+          <Link href="/#services">
+            <ArrowLeft aria-hidden="true" />
+            All services
+          </Link>
+          <span>{service.title}</span>
+        </div>
+
+        <section
+          className={`service-detail-hero service-detail-hero--${service.accentColor}`}
+        >
+          <MotionReveal className="service-detail-hero__copy">
+            <div className="service-detail-hero__icon">
+              <ServiceIcon aria-hidden="true" />
             </div>
-          </div>
+            <p className="eyebrow">
+              <span />
+              {service.tagline}
+            </p>
+            <h1>{service.title}</h1>
+            <p>{service.longDescription || service.description}</p>
+            <div className="service-detail-hero__actions">
+              <a
+                className="button button--dark"
+                href="mailto:hello@hasibdigital.com"
+              >
+                Discuss this service
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+              <a
+                className="button button--text"
+                href="https://www.fiverr.com/adnanhasib565"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SiFiverr aria-hidden="true" />
+                Hire on Fiverr
+              </a>
+            </div>
+          </MotionReveal>
+
+          <MotionReveal className="service-detail-hero__visual" delay={0.08}>
+            {serviceImages[service.id] ? (
+              <Image
+                src={serviceImages[service.id]}
+                alt={`${service.title} service preview`}
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 900px) 100vw, 48vw"
+              />
+            ) : null}
+            <div className="service-detail-hero__note">
+              <span>01</span>
+              <p>Plan → build → validate → launch</p>
+            </div>
+          </MotionReveal>
         </section>
 
-        {/* Benefits Section */}
-        {service.benefits && service.benefits.length > 0 && (
-          <section className="py-20 lg:py-32 bg-slate-50">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="max-w-3xl mx-auto text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                  Why Choose This Service?
-                </h2>
-                <p className="text-lg text-slate-600">
-                  Here&apos;s how our {service.title.toLowerCase()} service can
-                  transform your business
+        <section className="trust-strip trust-strip--service">
+          {deliveryPrinciples.map((principle, index) => {
+            const Icon = principle.icon;
+            return (
+              <div key={principle.title}>
+                <Icon aria-hidden="true" />
+                <span>0{index + 1}</span>
+                <strong>{principle.title}</strong>
+                <p>{principle.copy}</p>
+              </div>
+            );
+          })}
+        </section>
+
+        {service.benefits?.length ? (
+          <section className="section service-benefits">
+            <MotionReveal className="section-heading-row">
+              <p className="eyebrow">
+                <span />
+                Business value
+              </p>
+              <div>
+                <h2>Built around the outcome—not a generic package.</h2>
+                <p>
+                  The technical approach is shaped by your users, constraints,
+                  existing systems, and definition of success.
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {service.benefits.map((benefit, i) => (
-                  <div
-                    key={i}
-                    className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600 mb-4 text-2xl font-black">
-                      {i + 1}
-                    </div>
-                    <p className="text-slate-700 text-lg leading-relaxed">
-                      {benefit}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Features Section */}
-        <section className="py-20 lg:py-32 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                What&apos;s Included
-              </h2>
-              <p className="text-lg text-slate-600">
-                Everything you need for a successful project
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {service.features.map((f, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors"
+            </MotionReveal>
+            <div className="service-benefit-grid">
+              {service.benefits.map((benefit, index) => (
+                <MotionReveal
+                  className="service-benefit-card"
+                  delay={Math.min(index * 0.05, 0.2)}
+                  key={benefit}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center text-white flex-shrink-0">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-slate-700 text-lg font-medium">
-                    {f}
-                  </span>
-                </div>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{benefit}</p>
+                </MotionReveal>
               ))}
             </div>
+          </section>
+        ) : null}
+
+        <section className="section service-scope">
+          <MotionReveal className="service-scope__heading">
+            <p className="eyebrow">
+              <span />
+              Scope
+            </p>
+            <h2>What&apos;s included</h2>
+            <p>
+              A clear working scope creates predictable delivery and fewer
+              surprises.
+            </p>
+          </MotionReveal>
+          <div className="service-scope__list">
+            {service.features.map((feature, index) => (
+              <MotionReveal
+                className="service-scope__item"
+                delay={Math.min(index * 0.04, 0.16)}
+                key={feature}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{feature}</p>
+                <Check aria-hidden="true" />
+              </MotionReveal>
+            ))}
           </div>
         </section>
 
-        {/* Process Section */}
-        {service.process && service.process.length > 0 && (
-          <section className="py-20 lg:py-32 bg-slate-50">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="max-w-3xl mx-auto text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                  Our Process
-                </h2>
-                <p className="text-lg text-slate-600">
-                  A proven approach to deliver exceptional results
+        {service.process?.length ? (
+          <section className="section service-process">
+            <MotionReveal className="section-heading-row section-heading-row--light">
+              <p className="eyebrow eyebrow--light">
+                <span />
+                Delivery process
+              </p>
+              <div>
+                <h2>A visible path from requirement to release.</h2>
+                <p>
+                  Each stage has a purpose, a clear output, and a decision point
+                  before the work moves forward.
                 </p>
               </div>
-              <div className="max-w-4xl mx-auto space-y-6">
-                {service.process.map((step, i) => (
-                  <div
-                    key={i}
-                    className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <div className="flex flex-col md:flex-row md:items-center gap-6">
-                      <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-2xl font-black">
-                        {i + 1}
-                      </div>
-                      <div className="flex-grow">
-                        <h3 className="text-2xl font-black text-slate-900 mb-2">
-                          {step.step}
-                        </h3>
-                        <p className="text-slate-600 text-lg leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Technologies Section */}
-        {service.technologies && service.technologies.length > 0 && (
-          <section className="py-20 lg:py-32 bg-white">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="max-w-3xl mx-auto text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                  Technologies We Use
-                </h2>
-                <p className="text-lg text-slate-600">
-                  Industry-leading tools and technologies
-                </p>
-              </div>
-              <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                {service.technologies.map((tech, i) => (
-                  <div
-                    key={i}
-                    className="px-6 py-3 bg-slate-100 text-slate-800 font-bold rounded-full hover:bg-slate-900 hover:text-white transition-all duration-300"
-                  >
-                    {tech}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Deliverables Section */}
-        {service.deliverables && service.deliverables.length > 0 && (
-          <section className="py-20 lg:py-32 bg-slate-50">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="max-w-3xl mx-auto text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                  What You&apos;ll Receive
-                </h2>
-                <p className="text-lg text-slate-600">
-                  Comprehensive deliverables for your project
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {service.deliverables.map((item, i) => (
-                  <div
-                    key={i}
-                    className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-4"
-                  >
-                    <div className="w-3 h-3 rounded-full bg-emerald-500 flex-shrink-0" />
-                    <p className="text-slate-700 text-lg font-medium">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* CTA Section */}
-        <section className="py-20 lg:py-32 bg-slate-900 text-white">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h2 className="text-4xl lg:text-6xl font-black mb-6">
-              Ready to get started?
-            </h2>
-            <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-              Let&apos;s discuss how we can help bring your vision to life with
-              our {service.title.toLowerCase()} services.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={companyInfo.fiverr}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold rounded-full bg-white text-slate-900 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-              >
-                <span>Hire on Fiverr</span>
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            </MotionReveal>
+            <div className="service-process__list">
+              {service.process.map((step, index) => (
+                <MotionReveal
+                  className="service-process__step"
+                  delay={Math.min(index * 0.05, 0.2)}
+                  key={step.step}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold rounded-full bg-transparent text-white border-2 border-white hover:bg-white hover:text-slate-900 transition-all duration-300"
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.step}</h3>
+                  <p>{step.description}</p>
+                </MotionReveal>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <section className="section delivery-package">
+          <MotionReveal className="delivery-package__column">
+            <p className="eyebrow">
+              <span />
+              Technology
+            </p>
+            <h2>Tools selected for fit and longevity.</h2>
+            <div className="technology-cloud">
+              {service.technologies?.map((technology) => (
+                <span key={technology}>{technology}</span>
+              ))}
+            </div>
+          </MotionReveal>
+
+          <MotionReveal className="delivery-package__column" delay={0.08}>
+            <p className="eyebrow">
+              <span />
+              Handoff
+            </p>
+            <h2>What you receive.</h2>
+            <ul>
+              {service.deliverables?.map((deliverable) => (
+                <li key={deliverable}>
+                  <Check aria-hidden="true" />
+                  {deliverable}
+                </li>
+              ))}
+            </ul>
+          </MotionReveal>
+        </section>
+
+        <section className="section related-services">
+          <MotionReveal className="section-heading-row">
+            <p className="eyebrow">
+              <span />
+              Related expertise
+            </p>
+            <div>
+              <h2>One partner across the full product.</h2>
+              <p>
+                Combine services when the project needs design, frontend,
+                backend, commerce, or ongoing support.
+              </p>
+            </div>
+          </MotionReveal>
+          <div className="related-services__grid">
+            {otherServices.map((item) => {
+              const Icon = serviceIcons[item.icon] ?? Code2;
+              return (
+                <MotionReveal key={item.id}>
+                  <Link
+                    className={`related-service related-service--${item.accentColor}`}
+                    href={`/services/${item.id}`}
+                  >
+                    <Icon aria-hidden="true" />
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                    <ArrowRight aria-hidden="true" />
+                  </Link>
+                </MotionReveal>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="contact-section contact-section--compact">
+          <MotionReveal>
+            <p className="eyebrow eyebrow--light">
+              <span />
+              Ready to move forward?
+            </p>
+            <h2>
+              Let&apos;s define the right
+              <em>next step.</em>
+            </h2>
+            <p>
+              Tell me what you need, what already exists, and where the product
+              needs to go. I&apos;ll respond with a focused recommendation.
+            </p>
+            <div className="contact-section__actions">
+              <a
+                className="button button--light"
+                href="mailto:hello@hasibdigital.com"
               >
-                Contact Us
+                Start a conversation
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+              <Link className="button button--outline-light" href="/case-studies">
+                Review my work
+                <ArrowRight aria-hidden="true" />
               </Link>
             </div>
-          </div>
-        </section>
-
-        {/* Other Services */}
-        <section className="py-20 lg:py-32 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-                Explore Our Other{" "}
-                <span className="bg-gradient-to-br from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  Services
-                </span>
-              </h2>
-              <p className="text-lg text-slate-600">
-                Discover more solutions we offer to help grow your business
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {others.map((s) => (
-                <Link
-                  key={s.id}
-                  href={`/services/${s.id}`}
-                  className={`group rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${s.color}`}
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-900 mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {icons[s.icon]}
-                  </div>
-
-                  <h3 className="text-2xl font-black mb-3 text-slate-900">
-                    {s.title}
-                  </h3>
-                  <p className="text-slate-700 leading-relaxed mb-6">
-                    {s.description}
-                  </p>
-
-                  <div className="flex items-center text-sm font-bold text-slate-900 group-hover:translate-x-2 transition-transform">
-                    Learn more
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
+          </MotionReveal>
         </section>
       </main>
-      <Footer />
-    </>
+
+      <PortfolioFooter />
+    </div>
   );
 }
