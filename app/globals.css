@@ -397,6 +397,52 @@ button {
   font-size: 12px;
 }
 
+.hero__platforms {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero__platforms > span {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__platforms > div {
+  display: flex;
+  gap: 8px;
+}
+
+.hero__platforms a {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(11, 16, 32, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.hero__platforms a:hover,
+.hero__platforms a:focus-visible {
+  background: var(--ink);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.hero__platforms svg {
+  width: 14px;
+  height: 14px;
+}
+
 .hero__portrait-wrap {
   position: relative;
   display: flex;
@@ -763,6 +809,122 @@ button {
   transform: scale(1.025);
 }
 
+.project-archive__intro {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.6fr) minmax(280px, 1fr);
+  align-items: end;
+  gap: 8vw;
+  margin: clamp(90px, 11vw, 150px) 0 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--ink);
+}
+
+.project-archive__intro .eyebrow {
+  margin: 0;
+}
+
+.project-archive__intro > p:last-child {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.project-archive {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.archive-card {
+  position: relative;
+  min-height: clamp(330px, 34vw, 520px);
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: 18px;
+  background: var(--ink);
+  isolation: isolate;
+}
+
+.archive-card--wide {
+  grid-column: span 7;
+}
+
+.archive-card--standard {
+  grid-column: span 5;
+}
+
+.archive-card img {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.archive-card:hover img {
+  transform: scale(1.035);
+}
+
+.archive-card__wash {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 13, 29, 0.02) 42%,
+    rgba(8, 13, 29, 0.88) 100%
+  );
+}
+
+.archive-card__meta {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px;
+  color: white;
+}
+
+.archive-card__meta > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+}
+
+.archive-card__meta > div {
+  margin-left: auto;
+  text-align: right;
+}
+
+.archive-card h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.archive-card__meta p {
+  margin: 7px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .all-work {
   display: flex;
   justify-content: center;
@@ -1012,19 +1174,35 @@ button {
 }
 
 .profile-card {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 22px;
-  min-height: 135px;
-  padding: 24px;
+  min-height: 155px;
+  overflow: hidden;
+  padding: 28px;
   border: 1px solid var(--ink);
-  border-radius: 16px;
-  background: transparent;
+  border-radius: 18px;
+  background: var(--paper-bright);
   transition:
     background 200ms ease,
     color 200ms ease,
     transform 200ms ease;
+}
+
+.profile-card::after {
+  position: absolute;
+  top: -85px;
+  left: -70px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--profile-accent);
+  content: "";
+  filter: blur(74px);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .profile-card:hover,
@@ -1038,26 +1216,33 @@ button {
   display: grid;
   width: 58px;
   height: 58px;
+  z-index: 1;
   place-items: center;
-  border-radius: 14px;
-  background: var(--acid);
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 18px;
-  font-weight: 900;
-  text-transform: lowercase;
+  border-radius: 16px;
+  background: var(--profile-accent);
+  color: white;
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--profile-accent) 26%, transparent);
 }
 
-.profile-card:nth-child(2) .profile-card__mark {
-  background: #6fda44;
+.profile-card__mark svg {
+  width: 27px;
+  height: 27px;
 }
 
-.profile-card:nth-child(3) .profile-card__mark {
-  background: #45a6ff;
+.profile-card--fiverr {
+  --profile-accent: #1dbf73;
 }
 
-.profile-card:nth-child(4) .profile-card__mark {
-  background: #70a9f7;
+.profile-card--upwork {
+  --profile-accent: #14a800;
+}
+
+.profile-card--toptal {
+  --profile-accent: #204ecf;
+}
+
+.profile-card--linkedin {
+  --profile-accent: #0a66c2;
 }
 
 .profile-card h3 {
@@ -1079,12 +1264,22 @@ button {
   color: rgba(255, 255, 255, 0.62);
 }
 
-.profile-card > svg {
-  width: 19px;
+.profile-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.profile-card__cta svg {
+  width: 17px;
   transition: transform 200ms ease;
 }
 
-.profile-card:hover > svg {
+.profile-card:hover .profile-card__cta svg {
   transform: translate(4px, -4px);
 }
 
@@ -1220,7 +1415,7 @@ button {
 
 .site-footer {
   display: grid;
-  grid-template-columns: 0.6fr 1.1fr 1fr auto;
+  grid-template-columns: 0.55fr 0.8fr 1.8fr auto;
   align-items: center;
   gap: 28px;
   min-height: 150px;
@@ -1243,13 +1438,21 @@ button {
 .site-footer > div {
   display: flex;
   justify-content: flex-end;
-  gap: 24px;
+  gap: 18px;
 }
 
 .site-footer > div a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: rgba(255, 255, 255, 0.74);
   font-size: 11px;
   font-weight: 700;
+}
+
+.site-footer > div a svg {
+  width: 13px;
+  height: 13px;
 }
 
 .site-footer > div a:hover {
@@ -1471,6 +1674,23 @@ button {
     min-height: 460px;
   }
 
+  .project-archive__intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .project-archive__intro > p:last-child {
+    max-width: 620px;
+  }
+
+  .project-archive {
+    gap: 12px;
+  }
+
+  .archive-card {
+    min-height: 360px;
+  }
+
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1531,6 +1751,11 @@ button {
 
   .hero__proof {
     align-items: flex-start;
+  }
+
+  .hero__platforms {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .hero__portrait {
@@ -1610,6 +1835,20 @@ button {
     align-items: flex-start;
   }
 
+  .archive-card--wide,
+  .archive-card--standard {
+    grid-column: 1 / -1;
+  }
+
+  .archive-card {
+    min-height: 330px;
+    border-radius: 14px;
+  }
+
+  .archive-card__meta {
+    padding: 20px;
+  }
+
   .service-grid {
     grid-template-columns: 1fr;
   }
@@ -1660,6 +1899,16 @@ button {
   .profile-card__mark {
     width: 48px;
     height: 48px;
+  }
+
+  .profile-card__mark svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .profile-card__cta {
+    gap: 0;
+    font-size: 0;
   }
 
   .contact-section {

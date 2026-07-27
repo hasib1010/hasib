@@ -17,32 +17,42 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { SiFiverr, SiToptal, SiUpwork } from "react-icons/si";
 import { useState } from "react";
 
 const profiles = [
   {
+    key: "fiverr",
     platform: "Fiverr",
-    label: "Top-rated freelance services",
+    label: "Explore services and hire directly",
     href: "https://www.fiverr.com/adnanhasib565",
-    mark: "fi",
+    icon: SiFiverr,
+    action: "View Fiverr",
   },
   {
+    key: "upwork",
     platform: "Upwork",
-    label: "View work history & availability",
-    href: "https://www.upwork.com/freelancers/~017458340126d10d97",
-    mark: "up",
+    label: "View my work history and availability",
+    href: "https://www.upwork.com/freelancers/~016c22697bb208b08b?mp_source=share",
+    icon: SiUpwork,
+    action: "View Upwork",
   },
   {
+    key: "toptal",
     platform: "Toptal",
-    label: "Verified developer résumé",
+    label: "Review my verified developer résumé",
     href: "https://www.toptal.com/developers/resume/md-hasibul-hasan",
-    mark: "to",
+    icon: SiToptal,
+    action: "View Toptal",
   },
   {
+    key: "linkedin",
     platform: "LinkedIn",
-    label: "Connect professionally",
+    label: "Connect and follow my professional work",
     href: "https://www.linkedin.com/in/coder-hasib",
-    mark: "in",
+    icon: FaLinkedinIn,
+    action: "Connect",
   },
 ];
 
@@ -114,6 +124,51 @@ const projects = [
     href: "/case-studies/eco-agriculture-platform",
     stack: ["MERN", "E-commerce", "Admin tools"],
     tone: "project--green",
+  },
+];
+
+const projectArchive = [
+  {
+    index: "04",
+    title: "44 Pro",
+    type: "Custom commerce",
+    image: "/images/44pro.png",
+    size: "wide",
+  },
+  {
+    index: "05",
+    title: "Fliday",
+    type: "Travel eSIM platform",
+    image: "/images/fliday.webp",
+    size: "standard",
+  },
+  {
+    index: "06",
+    title: "Interdimensional Cafe",
+    type: "Community platform",
+    image: "/images/inter-cafe.png",
+    size: "standard",
+  },
+  {
+    index: "07",
+    title: "MapleStone",
+    type: "Property management",
+    image: "/images/marbelstone.png",
+    size: "wide",
+  },
+  {
+    index: "08",
+    title: "DeepHash",
+    type: "Cloud platform",
+    image: "/images/deephash.png",
+    size: "wide",
+  },
+  {
+    index: "09",
+    title: "AutoMarket",
+    type: "Automotive marketplace",
+    image: "/images/carrent.png",
+    size: "standard",
   },
 ];
 
@@ -291,6 +346,27 @@ export default function Home() {
                   Product thinking, precise delivery, clear communication.
                 </p>
               </div>
+
+              <div className="hero__platforms" aria-label="Professional profiles">
+                <span>Available on</span>
+                <div>
+                  {profiles.map((profile) => {
+                    const Icon = profile.icon;
+                    return (
+                      <a
+                        href={profile.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Visit Hasib on ${profile.platform}`}
+                        title={profile.platform}
+                        key={profile.platform}
+                      >
+                        <Icon aria-hidden="true" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -408,9 +484,46 @@ export default function Home() {
             ))}
           </div>
 
+          <motion.div className="project-archive__intro" {...reveal}>
+            <p className="eyebrow">
+              <span />
+              More shipped products
+            </p>
+            <p>
+              A broader look at commerce, community, travel, property, and
+              platform work delivered across industries.
+            </p>
+          </motion.div>
+
+          <div className="project-archive">
+            {projectArchive.map((project) => (
+              <motion.article
+                className={`archive-card archive-card--${project.size}`}
+                key={project.title}
+                {...reveal}
+              >
+                <Image
+                  src={project.image}
+                  alt={`${project.title} interface`}
+                  fill
+                  unoptimized
+                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 60vw"
+                />
+                <div className="archive-card__wash" aria-hidden="true" />
+                <div className="archive-card__meta">
+                  <span>{project.index}</span>
+                  <div>
+                    <h3>{project.title}</h3>
+                    <p>{project.type}</p>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
           <motion.div className="all-work" {...reveal}>
             <Link href="/case-studies">
-              View all case studies
+              Explore detailed case studies
               <ArrowRight aria-hidden="true" />
             </Link>
           </motion.div>
@@ -519,23 +632,31 @@ export default function Home() {
           </motion.div>
 
           <div className="profile-grid">
-            {profiles.map((profile) => (
-              <motion.a
-                className="profile-card"
-                href={profile.href}
-                target="_blank"
-                rel="noreferrer"
-                key={profile.platform}
-                {...reveal}
-              >
-                <span className="profile-card__mark">{profile.mark}</span>
-                <div>
-                  <h3>{profile.platform}</h3>
-                  <p>{profile.label}</p>
-                </div>
-                <ArrowUpRight aria-hidden="true" />
-              </motion.a>
-            ))}
+            {profiles.map((profile) => {
+              const Icon = profile.icon;
+              return (
+                <motion.a
+                  className={`profile-card profile-card--${profile.key}`}
+                  href={profile.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={profile.platform}
+                  {...reveal}
+                >
+                  <span className="profile-card__mark">
+                    <Icon aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3>{profile.platform}</h3>
+                    <p>{profile.label}</p>
+                  </div>
+                  <span className="profile-card__cta">
+                    {profile.action}
+                    <ArrowUpRight aria-hidden="true" />
+                  </span>
+                </motion.a>
+              );
+            })}
           </div>
         </section>
 
@@ -570,6 +691,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
+                <SiFiverr aria-hidden="true" />
                 Hire me on Fiverr
                 <ArrowUpRight aria-hidden="true" />
               </a>
@@ -584,21 +706,23 @@ export default function Home() {
           <span className="brand__name">Hasibul</span>
         </Link>
         <p>Full-stack product development for ambitious teams.</p>
-        <div>
-          <a
-            href="https://www.linkedin.com/in/coder-hasib"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://www.toptal.com/developers/resume/md-hasibul-hasan"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Toptal
-          </a>
+        <div className="footer-profiles">
+          {profiles.map((profile) => {
+            const Icon = profile.icon;
+            return (
+              <a
+                href={profile.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={profile.platform}
+                title={profile.platform}
+                key={profile.platform}
+              >
+                <Icon aria-hidden="true" />
+                <span>{profile.platform}</span>
+              </a>
+            );
+          })}
           <a href="#main">Back to top ↑</a>
         </div>
         <small>© {new Date().getFullYear()} Md Hasibul Hasan</small>
