@@ -191,7 +191,7 @@ export default function CaseStudiesPage() {
             <div className="contact-section__actions">
               <a
                 className="button button--light"
-                href="mailto:hello@hasibdigital.com"
+                href="mailto:contact@hasibventure.com"
               >
                 Start a conversation
                 <ArrowRight aria-hidden="true" />

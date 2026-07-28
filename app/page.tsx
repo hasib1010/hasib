@@ -562,7 +562,7 @@ export default function Home() {
               I care about the details users notice and the engineering choices
               they never have to think about.
             </p>
-            <a href="mailto:hello@hasibdigital.com">
+            <a href="mailto:contact@hasibventure.com">
               Start a conversation
               <ArrowUpRight aria-hidden="true" />
             </a>
@@ -648,9 +648,9 @@ export default function Home() {
             <div className="contact-section__actions">
               <a
                 className="button button--light"
-                href="mailto:hello@hasibdigital.com"
+                href="mailto:contact@hasibventure.com"
               >
-                hello@hasibdigital.com
+                contact@hasibventure.com
                 <ArrowUpRight aria-hidden="true" />
               </a>
               <a

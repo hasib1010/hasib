@@ -219,7 +219,7 @@ export default async function CaseStudyPage({
             <div className="contact-section__actions">
               <a
                 className="button button--light"
-                href="mailto:hello@hasibdigital.com"
+                href="mailto:contact@hasibventure.com"
               >
                 Discuss your project
                 <ArrowUpRight aria-hidden="true" />

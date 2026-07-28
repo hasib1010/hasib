@@ -121,7 +121,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="mailto:hello@hasibdigital.com"
+                  href="mailto:contact@hasibventure.com"
                   className="flex items-center gap-4 p-4 bg-white/60 backdrop-blur-sm border border-white rounded-3xl hover:shadow-xl hover:shadow-emerald-500/5 hover:border-emerald-200 transition-all duration-300 group/link"
                 >
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 transition-colors group-hover/link:bg-emerald-600 group-hover/link:text-white">
@@ -144,7 +144,7 @@ export default function Contact() {
                       Email Us
                     </div>
                     <div className="text-[11px] text-slate-500 font-medium">
-                      hello@hasibdigital.com
+                      contact@hasibventure.com
                     </div>
                   </div>
                   <svg
