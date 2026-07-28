@@ -130,7 +130,7 @@ export default async function ServicePage({
             <div className="service-detail-hero__actions">
               <a
                 className="button button--dark"
-                href="mailto:contact@hasibventure.com"
+                href="mailto:mdhasibulhasan360@gmail.com"
               >
                 Discuss this service
                 <ArrowUpRight aria-hidden="true" />
@@ -351,7 +351,7 @@ export default async function ServicePage({
             <div className="contact-section__actions">
               <a
                 className="button button--light"
-                href="mailto:contact@hasibventure.com"
+                href="mailto:mdhasibulhasan360@gmail.com"
               >
                 Start a conversation
                 <ArrowUpRight aria-hidden="true" />

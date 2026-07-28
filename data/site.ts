@@ -95,6 +95,6 @@ export const companyInfo = {
     ],
     founded: 2017,
     location: 'Serving clients worldwide',
-    email: 'contact@hasibventure.com',
+    email: 'mdhasibulhasan360@gmail.com',
     fiverr: 'https://www.fiverr.com/adnanhasib565'
 };
