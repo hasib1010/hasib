@@ -1,1 +1,0 @@
-import{r as e}from"./framework-DkySH6nJ.js";import{t}from"./proxy-CjtgTAiB.js";var n=e();function r({children:e,className:r,delay:i=0}){return(0,n.jsx)(t.div,{className:r,initial:{y:22},whileInView:{y:0},viewport:{once:!0,amount:.12},transition:{duration:.65,delay:i,ease:[.22,1,.36,1]},children:e})}export{r as default};
