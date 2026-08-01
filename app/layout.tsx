@@ -20,9 +20,6 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     authors: [{ name: "Md Hasibul Hasan" }],
     creator: "Md Hasibul Hasan",
-    verification: {
-      google: "JpcXh7Lfvyrv4_qCeBhDUZeUCMllHLucwPHm2PL4lIg",
-    },
     robots: {
       index: true,
       follow: true,
@@ -72,6 +69,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="JpcXh7Lfvyrv4_qCeBhDUZeUCMllHLucwPHm2PL4lIg"
+        />
         <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico?v=2" />
       </head>
