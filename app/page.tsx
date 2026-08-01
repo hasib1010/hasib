@@ -18,6 +18,8 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { SiFiverr, SiToptal, SiUpwork } from "react-icons/si";
 import PortfolioFooter from "@/components/PortfolioFooter";
 import PortfolioHeader from "@/components/PortfolioHeader";
+import AnimatedContent from "@/components/AnimatedContent";
+import GlareHover from "@/components/GlareHover";
 
 const profiles = [
   {
@@ -52,6 +54,13 @@ const profiles = [
     icon: FaLinkedinIn,
     action: "Connect",
   },
+];
+
+const tickerItems = [
+  "React & Next.js",
+  "Node.js & APIs",
+  "Product UI",
+  "Cloud & DevOps",
 ];
 
 const services = [
@@ -347,20 +356,34 @@ export default function Home() {
           </div>
 
           <div className="hero__ticker" aria-label="Core expertise">
-            <div>
-              <span>React & Next.js</span>
-              <i>✦</i>
-              <span>Node.js & APIs</span>
-              <i>✦</i>
-              <span>Product UI</span>
-              <i>✦</i>
-              <span>Cloud & DevOps</span>
-              <i>✦</i>
-              <span>React & Next.js</span>
-              <i>✦</i>
-              <span>Node.js & APIs</span>
-              <i>✦</i>
-            </div>
+            <motion.div
+              className="hero__ticker-track"
+              initial={{ x: "0%" }}
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                x: {
+                  duration: 18,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                },
+              }}
+            >
+              {[false, true].map((isDuplicate) => (
+                <div
+                  className="hero__ticker-group"
+                  aria-hidden={isDuplicate ? "true" : undefined}
+                  key={isDuplicate ? "duplicate" : "primary"}
+                >
+                  {tickerItems.map((item) => (
+                    <span className="hero__ticker-item" key={item}>
+                      <strong>{item}</strong>
+                      <i aria-hidden="true">✦</i>
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
@@ -632,13 +655,22 @@ export default function Home() {
           <div className="contact-section__orbit" aria-hidden="true">
             <span>Available · Remote · Full-stack · </span>
           </div>
-          <motion.div {...reveal}>
+          <AnimatedContent
+            className="contact-section__content"
+            distance={48}
+            duration={0.9}
+            ease="power3.out"
+            initialOpacity={1}
+            animateOpacity={false}
+            threshold={0.25}
+          >
             <p className="eyebrow eyebrow--light">
               <span />
               Have a project in mind?
             </p>
             <h2>
-              Let&apos;s build something
+              <span className="contact-section__title-line">Let&apos;s build</span>{" "}
+              <span className="contact-section__title-line">something</span>
               <em>worth using.</em>
             </h2>
             <p>
@@ -646,25 +678,51 @@ export default function Home() {
               what success looks like. I&apos;ll reply with a clear next step.
             </p>
             <div className="contact-section__actions">
-              <a
-                className="button button--light"
-                href="mailto:mdhasibulhasan360@gmail.com"
+              <GlareHover
+                className="contact-section__glare"
+                width="auto"
+                height="auto"
+                background="transparent"
+                borderRadius="100px"
+                borderColor="transparent"
+                glareColor="#ceff54"
+                glareOpacity={0.32}
+                glareAngle={-35}
+                glareSize={180}
               >
-                mdhasibulhasan360@gmail.com
-                <ArrowUpRight aria-hidden="true" />
-              </a>
-              <a
-                className="button button--outline-light"
-                href="https://www.fiverr.com/adnanhasib565"
-                target="_blank"
-                rel="noreferrer"
+                <a
+                  className="button button--light"
+                  href="mailto:mdhasibulhasan360@gmail.com"
+                >
+                  mdhasibulhasan360@gmail.com
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
+              </GlareHover>
+              <GlareHover
+                className="contact-section__glare"
+                width="auto"
+                height="auto"
+                background="transparent"
+                borderRadius="100px"
+                borderColor="transparent"
+                glareColor="#ffffff"
+                glareOpacity={0.4}
+                glareAngle={-35}
+                glareSize={180}
               >
-                <SiFiverr aria-hidden="true" />
-                Hire me on Fiverr
-                <ArrowUpRight aria-hidden="true" />
-              </a>
+                <a
+                  className="button button--outline-light"
+                  href="https://www.fiverr.com/adnanhasib565"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <SiFiverr aria-hidden="true" />
+                  Hire me on Fiverr
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
+              </GlareHover>
             </div>
-          </motion.div>
+          </AnimatedContent>
         </section>
       </main>
 

@@ -588,18 +588,30 @@ button {
   background: var(--acid);
 }
 
-.hero__ticker div {
+.hero__ticker-track {
   display: flex;
   width: max-content;
-  min-width: 100%;
-  align-items: center;
-  justify-content: space-around;
-  gap: 32px;
-  padding: 14px 0;
-  animation: ticker 26s linear infinite;
+  will-change: transform;
 }
 
-.hero__ticker span {
+.hero__ticker-group {
+  display: flex;
+  min-width: 100vw;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  gap: clamp(32px, 6vw, 110px);
+  padding: 14px clamp(24px, 4vw, 72px);
+}
+
+.hero__ticker-item {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: clamp(32px, 6vw, 110px);
+}
+
+.hero__ticker strong {
   font-family: var(--display);
   font-size: 11px;
   font-weight: 900;
@@ -610,12 +622,6 @@ button {
 
 .hero__ticker i {
   font-style: normal;
-}
-
-@keyframes ticker {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .stats-band {
@@ -1399,16 +1405,19 @@ button {
 .contact-section::before {
   top: -230px;
   left: -100px;
+  animation: contact-ring-drift 10s ease-in-out infinite alternate;
 }
 
 .contact-section::after {
   right: -160px;
   bottom: -250px;
+  animation: contact-ring-drift 13s ease-in-out -4s infinite alternate-reverse;
 }
 
 .contact-section > div:not(.contact-section__orbit) {
   position: relative;
   z-index: 2;
+  width: min(100%, 1180px);
 }
 
 .contact-section .eyebrow {
@@ -1436,6 +1445,10 @@ button {
   text-transform: none;
 }
 
+.contact-section__title-line {
+  display: inline;
+}
+
 .contact-section > div > p:not(.eyebrow) {
   max-width: 610px;
   margin: 0 auto;
@@ -1448,6 +1461,22 @@ button {
   justify-content: center;
   gap: 12px;
   margin-top: 42px;
+}
+
+.contact-section__glare {
+  display: block;
+  border: 0;
+  background: transparent;
+}
+
+.contact-section__glare::before {
+  z-index: 2;
+}
+
+.contact-section__glare > .button {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .button--light {
@@ -1489,6 +1518,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transform: rotate(12deg);
+  animation: contact-orbit-float 5s ease-in-out infinite;
 }
 
 .contact-section__orbit::after {
@@ -1502,6 +1532,27 @@ button {
 .contact-section__orbit span {
   position: absolute;
   width: 75px;
+}
+
+@keyframes contact-ring-drift {
+  from {
+    transform: translate3d(-12px, 4px, 0) scale(0.96);
+  }
+
+  to {
+    transform: translate3d(18px, -12px, 0) scale(1.05);
+  }
+}
+
+@keyframes contact-orbit-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(12deg);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(18deg);
+  }
 }
 
 .site-footer {
@@ -3558,23 +3609,87 @@ button {
   }
 
   .contact-section {
-    min-height: 690px;
-    padding: 90px 18px;
+    min-height: 650px;
+    padding: 104px 18px 82px;
+  }
+
+  .contact-section::before,
+  .contact-section::after {
+    width: 280px;
+    height: 280px;
+  }
+
+  .contact-section::before {
+    top: -155px;
+    left: -125px;
+  }
+
+  .contact-section::after {
+    right: -135px;
+    bottom: -165px;
   }
 
   .contact-section h2 {
-    margin-top: 44px;
-    font-size: clamp(3.4rem, 17vw, 6rem);
+    width: 100%;
+    margin: 42px auto 25px;
+    font-size: clamp(2.85rem, 13.4vw, 4.65rem);
+    letter-spacing: -0.075em;
+    line-height: 0.82;
+    text-wrap: balance;
+  }
+
+  .contact-section__title-line {
+    display: block;
+  }
+
+  .contact-section h2 em {
+    margin-top: 0.18em;
+    font-size: 0.68em;
+    line-height: 0.9;
+  }
+
+  .contact-section > div > p:not(.eyebrow) {
+    width: 100%;
+    max-width: 34rem;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .contact-section__actions {
+    width: 100%;
     flex-direction: column;
+    gap: 10px;
+    margin-top: 34px;
+  }
+
+  .contact-section__actions .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 56px;
+    padding-inline: 14px;
+    font-size: clamp(10px, 3.2vw, 13px);
+    white-space: nowrap;
+  }
+
+  .contact-section__glare {
+    width: 100% !important;
+  }
+
+  .contact-section__actions .button svg {
+    flex: 0 0 auto;
   }
 
   .contact-section__orbit {
-    top: 30px;
-    right: -18px;
-    opacity: 0.45;
+    top: 20px;
+    right: 14px;
+    width: 84px;
+    height: 84px;
+    opacity: 0.6;
+  }
+
+  .contact-section__orbit span {
+    width: 64px;
+    font-size: 7px;
   }
 
   .site-footer {
@@ -3601,6 +3716,7 @@ button {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+
 }
 
 @media print {
