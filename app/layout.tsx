@@ -47,10 +47,6 @@ export async function generateMetadata(): Promise<Metadata> {
         "From product idea to production—high-quality web products built for real business outcomes.",
       images: [`${origin}/og.png`],
     },
-    icons: {
-      icon: "/icon.svg",
-      shortcut: "/icon.svg",
-    },
   };
 }
 
@@ -61,6 +57,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+      </head>
       <body>{children}</body>
     </html>
   );
