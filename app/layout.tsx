@@ -20,6 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     authors: [{ name: "Md Hasibul Hasan" }],
     creator: "Md Hasibul Hasan",
+    verification: {
+      google: "JpcXh7Lfvyrv4_qCeBhDUZeUCMllHLucwPHm2PL4lIg",
+    },
     robots: {
       index: true,
       follow: true,
