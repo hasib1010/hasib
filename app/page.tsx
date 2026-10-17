@@ -6,6 +6,7 @@ import ContactBlock from "@/components/ContactBlock";
 import CountUp from "@/components/CountUp";
 import FiverrReviews from "@/components/FiverrReviews";
 import HeroWall from "@/components/HeroWall";
+import OrderInsights from "@/components/OrderInsights";
 import PlatformIcon from "@/components/PlatformIcon";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -102,8 +103,9 @@ export default function Home() {
 
       <main id="main">
         {/* Hero */}
-        <section className="hero" aria-labelledby="hero-title">
+        <section className="hero" aria-labelledby="hero-title" data-glow>
           <HeroWall />
+          <span className="glow" aria-hidden="true" />
           <div className="container hero__inner">
             <div className="hero__copy">
               <div className="hero__who">
@@ -208,6 +210,7 @@ export default function Home() {
                   <Link
                     href={`/case-studies/${study.id}`}
                     className="stage"
+                    data-tilt
                     style={{ "--stage": stageFor(study.id) } as React.CSSProperties}
                     aria-label={`Read the ${nameFor(study)} case study`}
                   >
@@ -299,6 +302,8 @@ export default function Home() {
 
         <FiverrReviews />
 
+        <OrderInsights />
+
         {/* Services */}
         <section className="services" id="services" aria-labelledby="services-title">
           <div className="container">
@@ -312,7 +317,7 @@ export default function Home() {
             <ul className="service-list">
               {services.map((service) => (
                 <li key={service.title}>
-                  <Link href={service.href} className="service">
+                  <Link href={service.href} className="service" data-glow>
                     <h3>{service.title}</h3>
                     <p>{service.copy}</p>
                     <ul className="service__points">

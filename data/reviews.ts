@@ -26,11 +26,13 @@ export const fiverrGigUrl =
 export const fiverrSummary: {
   rating: number | null;
   reviewCount: number | null;
+  fiveStarCount: number | null;
   level: string | null;
   breakdown: { label: string; value: number }[];
 } = {
   rating: 5.0,
   reviewCount: 165,
+  fiveStarCount: 164,
   level: null,
   breakdown: [
     { label: "Seller communication", value: 5 },

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight, Mail } from "lucide-react";
+import LocalTime from "@/components/LocalTime";
 import PlatformIcon from "@/components/PlatformIcon";
 import { platforms, profile } from "@/data/profile";
 
@@ -30,6 +31,7 @@ export default function ContactBlock({
               </span>
             </p>
           </div>
+          <LocalTime />
           <h2 id="contact-title">{title}</h2>
           <p>{copy}</p>
         </div>

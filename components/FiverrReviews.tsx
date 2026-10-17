@@ -56,7 +56,8 @@ export default function FiverrReviews() {
   const hasReviews = fiverrReviews.length > 0;
 
   return (
-    <section className="reviews" id="reviews" aria-labelledby="reviews-title">
+    <section className="reviews" id="reviews" aria-labelledby="reviews-title" data-glow>
+      <span className="glow" aria-hidden="true" />
       <div className="container">
         <div className="reviews__head">
           <div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import PlatformIcon from "@/components/PlatformIcon";
+import PointerFX from "@/components/PointerFX";
 import { platforms, profile } from "@/data/profile";
 
 const navItems = [
@@ -39,6 +40,8 @@ export default function SiteHeader({ tone = "light" }: { tone?: "light" | "dark"
     <header
       className={`header${scrolled || open ? " header--scrolled" : tone === "dark" ? " header--dark" : ""}`}
     >
+      <PointerFX />
+      <span className="progress" aria-hidden="true" />
       <div className="header__inner">
         <Link href="/" className="wordmark" aria-label={`${profile.name}, home`}>
           <span className="wordmark__name">Hasibul Hasan</span>
