@@ -33,6 +33,7 @@ export interface CaseStudy {
     role: string;
   };
   link?: string;
+  role?: string;
   featured?: boolean;
 }
 

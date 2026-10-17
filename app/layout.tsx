@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+
 export async function generateMetadata(): Promise<Metadata> {
   const origin = "https://hasibventure.com";
 
@@ -20,24 +21,13 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     authors: [{ name: "Md Hasibul Hasan" }],
     creator: "Md Hasibul Hasan",
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
     alternates: {
       canonical: origin,
     },
     openGraph: {
       title: "Md Hasibul Hasan | Full-Stack Developer",
       description:
-        "From product idea to production—high-quality web products built for real business outcomes.",
+        "From product idea to production: high-quality web products built for real business outcomes.",
       type: "website",
       locale: "en_US",
       url: origin,
@@ -47,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${origin}/og.png`,
           width: 1536,
           height: 1024,
-          alt: "Md Hasibul Hasan — Full-Stack Developer",
+          alt: "Md Hasibul Hasan, Full-Stack Developer",
         },
       ],
     },
@@ -55,8 +45,12 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Md Hasibul Hasan | Full-Stack Developer",
       description:
-        "From product idea to production—high-quality web products built for real business outcomes.",
+        "From product idea to production: high-quality web products built for real business outcomes.",
       images: [`${origin}/og.png`],
+    },
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
     },
   };
 }
@@ -68,14 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          name="google-site-verification"
-          content="JpcXh7Lfvyrv4_qCeBhDUZeUCMllHLucwPHm2PL4lIg"
-        />
-        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" />
-      </head>
+      <meta name="google-site-verification" content="JpcXh7Lfvyrv4_qCeBhDUZeUCMllHLucwPHm2PL4lIg" />
       <body>{children}</body>
     </html>
   );

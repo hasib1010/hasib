@@ -1,23 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  CheckCircle2,
-  CircleAlert,
-  Lightbulb,
-  Quote,
-} from "lucide-react";
-import MotionReveal from "@/components/MotionReveal";
-import PortfolioFooter from "@/components/PortfolioFooter";
-import PortfolioHeader from "@/components/PortfolioHeader";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import BrowserFrame from "@/components/BrowserFrame";
+import ContactBlock from "@/components/ContactBlock";
+import PlatformIcon from "@/components/PlatformIcon";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 import { caseStudies } from "@/data/case-studies";
+import { profile } from "@/data/profile";
+import { fullPageFor, liveFor, nameFor, stageFor } from "@/data/showcase";
 
 export async function generateStaticParams() {
-  return caseStudies.map((caseStudy) => ({ slug: caseStudy.id }));
+  return caseStudies.map((study) => ({ slug: study.id }));
 }
 
 export async function generateMetadata({
@@ -26,11 +21,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const caseStudy = caseStudies.find((item) => item.id === slug);
-  if (!caseStudy) return { title: "Case Study Not Found" };
+  const study = caseStudies.find((item) => item.id === slug);
+  if (!study) return { title: "Case study not found" };
   return {
-    title: `${caseStudy.title} | Md Hasibul Hasan`,
-    description: caseStudy.description,
+    title: study.title,
+    description: study.description,
+    openGraph: { images: [study.image] },
   };
 }
 
@@ -40,200 +36,132 @@ export default async function CaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const caseStudy = caseStudies.find((item) => item.id === slug);
-  if (!caseStudy) notFound();
-
-  const currentIndex = caseStudies.findIndex((item) => item.id === slug);
-  const nextCaseStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
+  const index = caseStudies.findIndex((item) => item.id === slug);
+  if (index === -1) notFound();
+  const study = caseStudies[index];
+  const next = caseStudies[(index + 1) % caseStudies.length];
 
   return (
-    <div className="site-shell">
+    <>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <PortfolioHeader />
-
+      <SiteHeader />
       <main id="main">
-        <div className="page-crumb">
-          <Link href="/case-studies">
-            <ArrowLeft aria-hidden="true" />
-            All case studies
-          </Link>
-          <span>{caseStudy.category}</span>
-        </div>
-
-        <section className="case-detail-hero">
-          <MotionReveal className="case-detail-hero__copy">
-            <p className="eyebrow">
-              <span />
-              Case study {String(currentIndex + 1).padStart(2, "0")}
-            </p>
-            <h1>{caseStudy.title}</h1>
-            <p>{caseStudy.description}</p>
-            <div className="case-detail-hero__facts">
+        <section className="cs-hero">
+          <div className="container">
+            <Link className="crumb" href="/case-studies">
+              <ArrowLeft aria-hidden="true" />
+              All case studies
+            </Link>
+            <div className="cs-hero__top">
               <div>
-                <span>Client</span>
-                <strong>{caseStudy.client}</strong>
+                <p className="cs-hero__kind">{study.category}</p>
+                <h1>{study.title}</h1>
               </div>
-              <div>
-                <span>Focus</span>
-                <strong>{caseStudy.category}</strong>
-              </div>
-              <div>
-                <span>Role</span>
-                <strong>Full-stack product engineering</strong>
-              </div>
+              <p>{study.description}</p>
             </div>
-          </MotionReveal>
-
-          <MotionReveal className="case-detail-hero__visual" delay={0.08}>
-            {caseStudy.image ? (
-              <Image
-                src={caseStudy.image}
-                alt={`${caseStudy.title} product interface`}
-                fill
+            <div
+              className="stage stage--hero"
+              style={{ "--stage": stageFor(study.id) } as React.CSSProperties}
+            >
+              <BrowserFrame
+                src={study.image}
+                alt={`${nameFor(study)}, screenshot of the live site`}
+                label={study.link ?? nameFor(study)}
+                fit
+                fullPage={fullPageFor(study.id)}
                 priority
-                unoptimized
-                sizes="(max-width: 900px) 100vw, 54vw"
+                sizes="(max-width: 1200px) 92vw, 1000px"
               />
-            ) : (
-              <span>{caseStudy.title.charAt(0)}</span>
-            )}
-            <div className="case-detail-hero__stamp">
-              <span>Built for</span>
-              <strong>Production</strong>
             </div>
-          </MotionReveal>
-        </section>
-
-        <section className="technology-rail" aria-label="Technologies used">
-          <span>Technology</span>
-          <div>
-            {caseStudy.technologies.map((technology) => (
-              <span key={technology}>{technology}</span>
-            ))}
           </div>
         </section>
 
-        <section className="section case-narrative">
-          <aside>
-            <p className="eyebrow">
-              <span />
-              Project story
-            </p>
-            <p>
-              The goal was not simply to ship features, but to create a product
-              people could use confidently and a system the team could operate.
-            </p>
+        <div className="container cs-body">
+          <aside className="cs-aside" aria-label="Project summary">
+            <dl>
+              <div>
+                <dt>Client</dt>
+                <dd>{study.client}</dd>
+              </div>
+              <div>
+                <dt>Type</dt>
+                <dd>{study.category}</dd>
+              </div>
+              <div>
+                <dt>My role</dt>
+                <dd>{study.role ?? "Full-stack development"}</dd>
+              </div>
+              <div>
+                <dt>Stack</dt>
+                <dd>
+                  <ul className="chips">
+                    {study.technologies.map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+            {liveFor(study.id) ? (
+              <a
+                className="btn btn--ghost"
+                href={liveFor(study.id)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit live site
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            ) : null}
+            <a
+              className="btn btn--whatsapp"
+              href={profile.whatsapp.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PlatformIcon name="whatsapp" />
+              Discuss a similar project
+            </a>
           </aside>
 
-          <div className="case-narrative__content">
-            <MotionReveal className="narrative-block narrative-block--challenge">
-              <div className="narrative-block__icon">
-                <CircleAlert aria-hidden="true" />
-              </div>
-              <span>01 / Challenge</span>
-              <h2>What needed to change</h2>
-              <p>{caseStudy.challenge}</p>
-            </MotionReveal>
-
-            <MotionReveal className="narrative-block narrative-block--solution">
-              <div className="narrative-block__icon">
-                <Lightbulb aria-hidden="true" />
-              </div>
-              <span>02 / Solution</span>
-              <h2>How the product was shaped</h2>
-              <p>{caseStudy.solution}</p>
-            </MotionReveal>
+          <div className="cs-main">
+            <section>
+              <h2>The challenge</h2>
+              <p>{study.challenge}</p>
+            </section>
+            <section>
+              <h2>What I built</h2>
+              <p>{study.solution}</p>
+            </section>
+            <section>
+              <h2>What went live</h2>
+              <ul className="shipped">
+                {study.results.map((result) => (
+                  <li key={result}>
+                    <CheckCircle2 aria-hidden="true" />
+                    {result}
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
-        </section>
+        </div>
 
-        <section className="section results-section">
-          <MotionReveal className="section-heading-row">
-            <p className="eyebrow">
-              <span />
-              What shipped
-            </p>
-            <div>
-              <h2>Concrete capabilities, ready for real users.</h2>
-              <p>
-                The outcome is expressed in delivered product functionality—not
-                vague performance claims.
-              </p>
-            </div>
-          </MotionReveal>
-
-          <div className="results-grid">
-            {caseStudy.results.map((result, index) => (
-              <MotionReveal
-                className="result-card"
-                delay={Math.min(index * 0.035, 0.2)}
-                key={result}
-              >
-                <CheckCircle2 aria-hidden="true" />
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{result}</p>
-              </MotionReveal>
-            ))}
-          </div>
-        </section>
-
-        {caseStudy.testimonial ? (
-          <section className="project-note">
-            <MotionReveal>
-              <Quote aria-hidden="true" />
-              <p>Project reflection</p>
-              <blockquote>“{caseStudy.testimonial.quote}”</blockquote>
-              <span>
-                {caseStudy.testimonial.author} · {caseStudy.testimonial.role}
-              </span>
-            </MotionReveal>
-          </section>
-        ) : null}
-
-        <section className="next-project">
-          <p>Next case study</p>
-          <Link href={`/case-studies/${nextCaseStudy.id}`}>
+        <section className="next-case container" aria-label="Next case study">
+          <Link href={`/case-studies/${next.id}`}>
             <span>
-              <small>{nextCaseStudy.category}</small>
-              {nextCaseStudy.title}
+              <small>Next case study</small>
+              <strong>{next.title}</strong>
             </span>
             <ArrowRight aria-hidden="true" />
           </Link>
         </section>
 
-        <section className="contact-section contact-section--compact">
-          <MotionReveal>
-            <p className="eyebrow eyebrow--light">
-              <span />
-              Need similar capability?
-            </p>
-            <h2>
-              Let&apos;s turn the requirement into
-              <em>a reliable product.</em>
-            </h2>
-            <p>
-              Share the current situation and desired outcome. I&apos;ll respond
-              with a focused technical next step.
-            </p>
-            <div className="contact-section__actions">
-              <a
-                className="button button--light"
-                href="mailto:mdhasibulhasan360@gmail.com"
-              >
-                Discuss your project
-                <ArrowUpRight aria-hidden="true" />
-              </a>
-              <Link className="button button--outline-light" href="/case-studies">
-                More case studies
-                <ArrowRight aria-hidden="true" />
-              </Link>
-            </div>
-          </MotionReveal>
-        </section>
+        <ContactBlock title="Need something like this built?" />
       </main>
-
-      <PortfolioFooter />
-    </div>
+      <SiteFooter />
+    </>
   );
 }

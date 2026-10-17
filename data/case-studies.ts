@@ -3,7 +3,7 @@ import { CaseStudy } from '@/types';
 export const caseStudies: CaseStudy[] = [
     {
         "id": "inter-cafe-social-platform",
-        "title": "Inter Cafe - Full-Stack Social Media Platform",
+        "title": "Inter Cafe: Full-Stack Social Media Platform",
         "client": "Personal Project",
         "category": "Social Media Platform",
         "description": "A comprehensive social media platform with real-time messaging, community features, integrated marketplace, and advanced admin analytics. Built with modern web technologies for scalability and performance.",
@@ -35,7 +35,7 @@ export const caseStudies: CaseStudy[] = [
           "WebSocket",
           "JWT Authentication"
         ],
-        "image": "/images/inter-cafe.png",
+        "image": "/work/inter-cafe.webp",
         "featured": true,
         // "keyFeatures": [
         //   "User Authentication & Social Login (Google, Apple)",
@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
       
       {
         id: 'fliday-esim',
-        title: 'Fliday – Global eSIM Marketplace',
+        title: 'Fliday: Global eSIM Marketplace',
         client: 'Fliday',
         category: 'Travel / Telecom',
         description: 'A fully responsive, production-grade eSIM marketplace that enables travelers to browse, purchase, and instantly activate global eSIM plans without physical SIM cards.',
@@ -80,7 +80,7 @@ export const caseStudies: CaseStudy[] = [
             'Express.js',
             'MongoDB'
         ],
-        image: '/images/fliday.webp',
+        image: '/work/fliday.webp',
         featured: true,
         "testimonial": {
   "quote": "A well-architected global eSIM marketplace showcasing modern full-stack development with secure payments, real-time eSIM delivery, and a robust admin management system.",
@@ -92,7 +92,7 @@ export const caseStudies: CaseStudy[] = [
     ,
     {
         "id": "super-media-bros-auction",
-        "title": "Super Media Bros - Premium Auction Platform",
+        "title": "Super Media Bros: Premium Auction Platform",
         "client": "Super Media Bros",
         "category": "E-Commerce / Auction Platform",
         "description": "A full-featured online auction platform specializing in media collectibles, toys, games, and pop culture items. Features real-time bidding, seller consignment management, automated invoicing, and comprehensive admin dashboard.",
@@ -139,7 +139,7 @@ export const caseStudies: CaseStudy[] = [
         //   "Image upload and management",
         //   "Rate limiting and queue management"
         // ],
-        "image": "/images/auction.jpeg",
+        "image": "/work/auction.webp",
         "featured": true,
         "testimonial": {
           "quote": "The platform exceeded our expectations. The real-time bidding system works flawlessly, and the admin dashboard makes managing auctions effortless. Our sellers love the automated settlement process.",
@@ -149,10 +149,10 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         id: 'i-need-hypno',
-        title: 'I Need Hypno – Doctor’s Video Appointment Generator',
+        title: 'I Need Hypno: Online Hypnotherapy Platform',
         client: 'I Need Hypno',
         category: 'Healthcare / Mental Wellness',
-        description: 'A professional hypnosis platform designed to help individuals achieve personal transformation through guided subconscious therapy, online consultations, and audio-based self-improvement programs.',
+        description: 'An online hypnotherapy platform where clients book one-on-one sessions with certified hypnotherapists, try a free session, and keep working between appointments with a guided audio library and a personal journal.',
         challenge: 'Clients seeking hypnosis and mental wellness solutions needed a secure, user-friendly platform for booking private sessions, accessing guided content, and maintaining long-term engagement without in-person visits.',
         solution: 'Developed an intuitive web platform that enables 1-on-1 Zoom hypnosis session bookings, subscription-based audio programs with auto-renewal, and secure user interactions. The system prioritizes ease of use, data protection, and seamless scheduling.',
         results: [
@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
             'Payment Gateway',
             'Zoom Integration'
         ],
-        image: '/images/hypno.png',
+        image: '/work/hypno.webp',
         featured: false,
         testimonial: {
             quote: 'A thoughtfully designed platform that combines secure video appointments, subscription-based content, and an intuitive user experience for mental wellness services.',
@@ -179,7 +179,7 @@ export const caseStudies: CaseStudy[] = [
     
     {
         id: 'marblestone-property-management',
-        title: 'Marblestone Real Estate – Property Management Platform',
+        title: 'Marblestone Real Estate: Property Management Platform',
         client: 'Marblestone Real Estate LLC',
         category: 'Real Estate / Property Management',
         description: 'A full-featured property management platform built with the MERN stack that enables property owners and tenants to efficiently manage residential and commercial properties through a single digital system.',
@@ -187,7 +187,7 @@ export const caseStudies: CaseStudy[] = [
         solution: 'Developed a scalable MERN-based application with a dynamic React front end, secure Node.js and Express backend, and MongoDB for managing properties, leases, payments, and maintenance workflows.',
         results: [
             'Centralized management for residential and commercial properties',
-            'Improved tenant–landlord communication',
+            'Improved tenant-landlord communication',
             'Efficient maintenance request tracking',
             'Secure and scalable data handling'
         ],
@@ -197,7 +197,7 @@ export const caseStudies: CaseStudy[] = [
             'React',
             'Node.js'
         ],
-        image: '/images/marbelstone.png',
+        image: '/work/marbelstone.webp',
         featured: false,
         testimonial: {
             quote: 'A robust and scalable property management solution that streamlines operations for property owners while delivering a smooth and intuitive experience for tenants.',
@@ -208,7 +208,7 @@ export const caseStudies: CaseStudy[] = [
     
     {
         id: '44pro-custom-ecommerce',
-        title: '44pro – Custom Product E-commerce Platform',
+        title: '44pro: Custom Product E-commerce Platform',
         client: '44pro',
         category: 'E-commerce',
         description: 'A customizable e-commerce platform that allows users to personalize products before purchase, featuring secure authentication, seamless checkout, and responsive design.',
@@ -227,7 +227,7 @@ export const caseStudies: CaseStudy[] = [
             'Node.js',
             'Stripe'
         ],
-        image: '/images/44pro.png',
+        image: '/work/44pro.webp',
         featured: false,
         testimonial: {
             quote: 'A modern and flexible e-commerce solution that combines product customization, secure authentication, and smooth payment processing into a seamless shopping experience.',
@@ -237,14 +237,14 @@ export const caseStudies: CaseStudy[] = [
     },
     {
       id: 'myperfecthire-recruiting-platform',
-      title: 'MyPerfectHire – Executive Search & Recruiting Platform',
+      title: 'MyPerfectHire: Executive Search & Recruiting Platform',
       client: 'MyPerfectHire.com',
       category: 'Recruiting / Talent Acquisition',
       description: 'A flat-fee executive search and recruiting platform designed to help companies hire top-tier talent without traditional recruiter markups, focusing on proactive headhunting and long-term placement success.',
       challenge: 'Traditional recruiting firms often rely on percentage-based commissions, generic job board candidates, and internal quotas, leading to higher costs and longer hiring cycles.',
       solution: 'Developed a modern, conversion-focused recruiting platform with a clean UI, clear value proposition, and optimized user experience to communicate trust, transparency, and hiring efficiency.',
       results: [
-          '50–70% cost savings compared to traditional recruiters',
+          '50-70% cost savings compared to traditional recruiters',
           'Clear and transparent flat-fee hiring model',
           'Improved lead conversion through optimized UX',
           'Professional, credibility-driven design'
@@ -255,7 +255,7 @@ export const caseStudies: CaseStudy[] = [
           'Tailwind CSS',
           'Redux'
       ],
-      image: '/images/perfect.png',
+      image: '/work/perfect.webp',
       featured: false,
       testimonial: {
           quote: 'A strategic recruiting platform that combines modern UI, clear messaging, and a strong value proposition to help companies hire top talent efficiently.',
@@ -282,7 +282,7 @@ export const caseStudies: CaseStudy[] = [
         'React',
         'Node.js'
     ],
-    image: '/images/fasion.png',
+    image: '/work/fasion.webp',
     featured: false,
     testimonial: {
         quote: 'A well-built fashion e-commerce platform that combines modern design, secure transactions, and a scalable full-stack architecture.',
@@ -296,7 +296,7 @@ export const caseStudies: CaseStudy[] = [
   client: 'Organic Agriculture Business',
   category: 'Agriculture / Sustainability',
   description: 'A modern, high-performance web platform for an eco-friendly agriculture business focused on organic farming supplies, sustainable crop management consulting, and educational content.',
-  challenge: 'The client needed a fast, SEO-friendly, and mobile-optimized website to showcase services, educate farmers on sustainable practices, and increase inquiries—while ensuring smooth performance even on mobile devices used in the field.',
+  challenge: 'The client needed a fast, SEO-friendly, and mobile-optimized website to showcase services, educate farmers on sustainable practices, and increase inquiries while ensuring smooth performance even on mobile devices used in the field.',
   solution: 'Developed a full-stack application using Next.js App Router with server-side rendering for performance and SEO, Node.js and Express for backend logic, PostgreSQL for structured content storage, and Framer Motion for engaging yet subtle animations.',
   results: [
       'Significantly higher user engagement after launch',
@@ -311,7 +311,7 @@ export const caseStudies: CaseStudy[] = [
       'PostgreSQL',
       'Framer Motion'
   ],
-  image: '/images/eco.png',
+  image: '/work/eco.webp',
   featured: false,
   testimonial: {
       quote: 'A beautifully designed and high-performing platform that clearly communicates our mission for sustainable farming while driving real engagement and inquiries.',
@@ -339,7 +339,7 @@ export const caseStudies: CaseStudy[] = [
       'Real-Time Data Management',
       'Notification Services'
   ],
-  image: '/images/lab.png',
+  image: '/work/lab.webp',
   featured: false,
   testimonial: {
       quote: 'A reliable and efficient scheduling solution that significantly improved access to our printing labs while reducing administrative complexity.',
@@ -371,7 +371,7 @@ export const caseStudies: CaseStudy[] = [
       'Docker',
       'MongoDB Atlas'
   ],
-  image: '/images/retail.png',
+  image: '/work/retail.webp',
   featured: false,
   testimonial: {
       quote: 'A powerful and reliable POS system that significantly improved our daily operations, inventory accuracy, and sales reporting.',
@@ -381,7 +381,7 @@ export const caseStudies: CaseStudy[] = [
 },
 {
   id: 'blox-fruit-hub',
-  title: 'Blox Fruit Hub – Gaming E-Commerce Platform',
+  title: 'Blox Fruit Hub: Gaming E-Commerce Platform',
   client: 'Blox Fruit Hub',
   category: 'Gaming / E-commerce',
   description: 'A modern and dynamic gaming e-commerce website designed for selling Roblox in-game items, focusing on fast purchasing, instant delivery, and a highly engaging user experience.',
@@ -399,7 +399,7 @@ export const caseStudies: CaseStudy[] = [
       'Tailwind CSS',
       'Payment Gateway'
   ],
-  image: '/images/blox.png',
+  image: '/work/blox.webp',
   featured: false,
   testimonial: {
       quote: 'A visually striking and performance-focused gaming store that delivers a smooth purchasing experience for digital items.',
@@ -409,7 +409,7 @@ export const caseStudies: CaseStudy[] = [
 },
 {
   id: 'powerup-device-rental',
-  title: 'PowerUp – Smart Device Rental Website',
+  title: 'PowerUp: Smart Device Rental Website',
   client: 'PowerUp',
   category: 'IoT / Rental / Smart Devices',
   description: 'A clean and modern website designed for PowerUp, a smart power bank rental network based in Cracow, focused on convenience, sustainability, and fast charging solutions.',
@@ -427,7 +427,7 @@ export const caseStudies: CaseStudy[] = [
       'Interactive Components',
       'Modern Web Animations'
   ],
-  image: '/images/powerup.png',
+  image: '/work/powerup.webp',
   featured: false,
   testimonial: {
       quote: 'A thoughtfully designed website that clearly communicates our mission while making it easy for users and partners to engage with the PowerUp network.',
@@ -437,7 +437,7 @@ export const caseStudies: CaseStudy[] = [
 },
 {
   id: 'deephash-cloud-mining',
-  title: 'DeepHash – AI-Powered Cloud Mining Platform',
+  title: 'DeepHash: AI-Powered Cloud Mining Platform',
   client: 'DeepHash',
   category: 'Blockchain / Cloud Mining',
   description: 'A professional AI-powered cloud mining website designed to showcase smart hashpower solutions and eco-friendly global mining farms with a focus on performance, clarity, and trust.',
@@ -455,7 +455,7 @@ export const caseStudies: CaseStudy[] = [
       'Tailwind CSS',
       'Data Visualization'
   ],
-  image: '/images/deephash.png',
+  image: '/work/deephash.webp',
   featured: false,
   testimonial: {
       quote: 'A sleek and professional platform that clearly communicates our AI-driven mining solutions while delivering an engaging and high-performance user experience.',
@@ -483,7 +483,7 @@ export const caseStudies: CaseStudy[] = [
       'Wireframing',
       'High-Fidelity Prototyping'
   ],
-  image: '/images/airnexus.png',
+  image: '/work/airnexus.webp',
   featured: false,
   testimonial: {
       quote: 'A visually striking and conversion-focused landing page that clearly communicates our innovation and positions AirNexus as a premium AI brand.',
@@ -492,7 +492,7 @@ export const caseStudies: CaseStudy[] = [
   }
 },{
   id: 'restaurant-menu-platform',
-  title: 'Restaurant & Menu Platform – Full Stack Build',
+  title: 'Restaurant & Menu Platform: Full Stack Build',
   client: 'Food Service Client',
   category: 'Restaurant / Hospitality',
   description: 'A sophisticated full-stack restaurant and menu platform designed to showcase the menu dynamically, facilitate reservations, and enhance customer engagement with a premium online presence.',
@@ -512,7 +512,7 @@ export const caseStudies: CaseStudy[] = [
       'Full-Stack Development',
       'CMS Integration'
   ],
-  image: '/images/restaurant.png',
+  image: '/work/restaurant.webp',
   featured: false,
   testimonial: {
       quote: 'A visually stunning and fully functional platform that elevated our online presence while simplifying menu management and reservations.',
@@ -522,7 +522,7 @@ export const caseStudies: CaseStudy[] = [
 },
 {
   id: 'corporate-agency-website',
-  title: 'Corporate Agency Website – Full Stack Development',
+  title: 'Corporate Agency Website: Full Stack Development',
   client: 'Corporate Agency',
   category: 'B2B / Agency / Corporate',
   description: 'A high-performance, secure full-stack corporate website developed to establish a premium brand identity, showcase client successes, and improve lead conversion for high-value B2B audiences.',
@@ -542,7 +542,7 @@ export const caseStudies: CaseStudy[] = [
       'PostgreSQL / MongoDB',
       'CMS Integration'
   ],
-  image: '/images/corporate.png',
+  image: '/work/corporate.webp',
   featured: false,
   testimonial: {
       quote: 'A modern, fast, and secure platform that transformed our digital presence and significantly improved our lead conversion and client engagement.',
@@ -570,7 +570,7 @@ export const caseStudies: CaseStudy[] = [
       'Responsive Web Design',
       'Interactive Content Sections'
   ],
-  image: '/images/dresturant.png',
+  image: '/work/dresturant.webp',
   featured: false,
   testimonial: {
       quote: 'A beautifully designed restaurant platform that effectively showcases our menu and engages our customers online.',
@@ -599,7 +599,7 @@ export const caseStudies: CaseStudy[] = [
       'Responsive Web Design',
       'Dynamic Content Integration'
   ],
-  image: '/images/realstate.png',
+  image: '/work/realstate.webp',
   featured: false,
   testimonial: {
       quote: 'An elegant and highly functional real estate platform that simplifies property discovery and enhances our online presence.',
@@ -628,7 +628,7 @@ export const caseStudies: CaseStudy[] = [
       'Responsive Web Design',
       'Interactive Components'
   ],
-  image: '/images/carrent.png',
+  image: '/work/carrent.webp',
   featured: false,
   testimonial: {
       quote: 'A visually appealing and highly functional platform that improved our online vehicle shopping experience while building trust with customers.',
@@ -657,7 +657,7 @@ export const caseStudies: CaseStudy[] = [
       'Responsive Web Design',
       'Visual Merchandising'
   ],
-  image: '/images/hatildo.png',
+  image: '/work/hatildo.webp',
   featured: false,
   testimonial: {
       quote: 'A beautifully designed landing page that effectively showcases our furniture collections and converts visitors into confident buyers.',
@@ -667,7 +667,7 @@ export const caseStudies: CaseStudy[] = [
 },
 {
   "id": "lso-bar-exam-platform",
-  "title": "LSO Bar Exam - Professional Exam Preparation Platform",
+  "title": "LSO Bar Exam: Professional Exam Preparation Platform",
   "client": "LSO Bar Exam Team",
   "category": "E-Learning / Exam Preparation Platform",
   "description": "A comprehensive online exam preparation platform for the Law Society of Ontario (LSO) Bar Exam. Features secure OTP-based authentication, paid and free exam practice sets, real-time exam attempt tracking, automated payment processing, and comprehensive admin dashboard. The platform provides Barrister and Solicitor exam preparation with multiple question sets, detailed explanations, and progress monitoring.",
@@ -700,12 +700,54 @@ export const caseStudies: CaseStudy[] = [
     "Vercel"
   ],
 
-  "image": "/images/lsobar.png",
+  "image": "/work/lsobar.webp",
   "featured": true,
   "testimonial": {
     "quote": "The platform provides a seamless exam preparation experience. The OTP authentication is secure and user-friendly, and the cart persistence across sessions works perfectly. The admin dashboard makes managing users and orders effortless.",
     "author": "LSO Bar Exam Team",
     "role": "Project Owner"
   }
-} 
+},
+// Script-based projects: built on an existing script and customised for the
+// client, not written from scratch. Keep the role and wording honest.
+{
+  id: 'i24pay-payment-automation',
+  title: 'i24Pay: Payment Automation Platform',
+  client: 'i24Pay',
+  category: 'Fintech / Payment Automation',
+  role: 'Design customization',
+  description: 'A live payment-automation service for Bangladeshi businesses: automatic bKash, Nagad and bank-transfer verification, payment links, invoices and subscription plans, with plugins for WordPress, WooCommerce and WHMCS.',
+  challenge: 'The client had a payment-automation script and needed it to look and feel like their own branded product.',
+  solution: 'I customised the design of an existing Laravel script around the i24Pay brand (logo, colour scheme and homepage layout) so the service presents as i24Pay’s own product rather than a stock template.',
+  results: [
+    'Live at i24pay.com',
+    'Automatic payment verification for bKash, Nagad and bank transfers',
+    'Payment links, invoices and subscription plans in Bangladeshi taka',
+    'Plugins listed for WordPress, WooCommerce, WHMCS, Node.js and PHP'
+  ],
+  technologies: ['Laravel', 'PHP', 'Bootstrap'],
+  image: '/work/i24pay.webp',
+  link: 'i24pay.com',
+  featured: false
+},
+{
+  id: 'one-newz-express',
+  title: 'One Newz Express: Bangla News Portal',
+  client: 'One Newz Express',
+  category: 'Media / News Portal',
+  role: 'Script customization',
+  description: 'A live Bangla-language news portal with national, political, international, regional, sports and entertainment sections, video news and a live TV block.',
+  challenge: 'The publisher needed a complete Bangla news portal on their own domain, based on an existing news script rather than a custom build.',
+  solution: 'I set up and customised an existing Laravel news script for One Newz Express: branding and homepage layout, full Bangla localisation of menus, categories and dates, the category structure, advertising slots and the video and live TV sections, then deployed it on the publisher’s server and domain.',
+  results: [
+    'Live at onewzx.com',
+    'Bangla interface across menus, categories and dates',
+    'Category sections, breaking-news ticker and video news',
+    'Advertising slots throughout the homepage'
+  ],
+  technologies: ['Laravel', 'PHP', 'Bootstrap', 'jQuery'],
+  image: '/work/onewzx.webp',
+  link: 'onewzx.com',
+  featured: false
+}
 ];
