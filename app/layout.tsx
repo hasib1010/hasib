@@ -38,9 +38,9 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: `${origin}/og.png`,
-          width: 1536,
-          height: 1024,
-          alt: "Md Hasibul Hasan, Full-Stack Developer",
+          width: 1200,
+          height: 630,
+          alt: "Md Hasibul Hasan. Full-stack web, mobile apps, games and UI/UX.",
         },
       ],
     },
