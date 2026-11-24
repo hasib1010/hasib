@@ -5,7 +5,7 @@
 export const profile = {
   name: "Md Hasibul Hasan",
   shortName: "Hasib",
-  role: "Full-stack developer",
+  role: "Web, mobile & games",
   location: "Bangladesh",
   timezone: "GMT+6",
   email: "mdhasibulhasan360@gmail.com",
@@ -43,6 +43,16 @@ export const platforms = {
 
 export type PlatformKey = keyof typeof platforms;
 
+export const resume = {
+  href: "/resume.pdf",
+  fileName: "Md-Hasibul-Hasan-Resume.pdf",
+};
+
+export const agency = {
+  name: "Elevate IT",
+  href: "https://www.elevateit.agency/",
+};
+
 export const highlights = [
   { value: "8+", label: "years building for the web" },
   { value: "150+", label: "projects delivered" },
@@ -54,6 +64,13 @@ export const stack = [
   "Next.js",
   "TypeScript",
   "Node.js",
+  "Flutter",
+  "React Native",
+  "Godot",
+  "GDScript",
+  "Unity",
+  "C#",
+  "Figma",
   "Express",
   "Django",
   "PostgreSQL",

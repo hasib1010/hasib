@@ -8,16 +8,19 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     applicationName: "Hasib Venture",
-    title: "Md Hasibul Hasan | Full-Stack Developer",
+    title: "Md Hasibul Hasan | Web, Mobile & Game Developer",
     description:
-      "Full-stack developer building dependable web products with React, Next.js, Node.js, PostgreSQL, and cloud infrastructure.",
+      "Hasib designs and builds full-stack websites, Flutter and React Native apps, and mobile games in Godot and Unity. UI/UX design in Figma. Based in Bangladesh.",
     keywords: [
       "Md Hasibul Hasan",
+      "Hasib",
       "full-stack developer",
-      "React developer",
-      "Next.js developer",
-      "Node.js developer",
-      "web application developer",
+      "Flutter developer",
+      "React Native developer",
+      "Godot",
+      "Unity",
+      "UI/UX designer",
+      "Elevate IT",
     ],
     authors: [{ name: "Md Hasibul Hasan" }],
     creator: "Md Hasibul Hasan",
@@ -25,33 +28,40 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: origin,
     },
     openGraph: {
-      title: "Md Hasibul Hasan | Full-Stack Developer",
+      title: "Md Hasibul Hasan | Web, Mobile & Game Developer",
       description:
-        "From product idea to production: high-quality web products built for real business outcomes.",
+        "Full-stack web, mobile apps and games, plus UI/UX design. Hasib builds from Bangladesh and runs Elevate IT.",
       type: "website",
       locale: "en_US",
       url: origin,
       siteName: "Hasib Venture",
       images: [
         {
-          url: `${origin}/og.png`,
-          width: 1536,
-          height: 1024,
-          alt: "Md Hasibul Hasan, Full-Stack Developer",
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: "Hasib. Web, mobile and games.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Md Hasibul Hasan | Full-Stack Developer",
+      title: "Md Hasibul Hasan | Web, Mobile & Game Developer",
       description:
-        "From product idea to production: high-quality web products built for real business outcomes.",
-      images: [`${origin}/og.png`],
+        "Full-stack web, mobile apps and games, plus UI/UX design. Hasib builds from Bangladesh and runs Elevate IT.",
+      images: ["/og.png"],
     },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon.ico",
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+      shortcut: ["/favicon.ico"],
     },
+    manifest: "/site.webmanifest",
   };
 }
 

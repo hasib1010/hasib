@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import PlatformIcon from "@/components/PlatformIcon";
-import { platforms, profile, type PlatformKey } from "@/data/profile";
+import { agency, platforms, profile, resume, type PlatformKey } from "@/data/profile";
 
 export default function SiteFooter() {
   return (
@@ -8,17 +9,20 @@ export default function SiteFooter() {
       <footer className="footer">
         <div className="footer__inner">
           <div className="footer__brand">
-            <span className="wordmark__name">{profile.name}</span>
+            <Link href="/" className="logo-link" aria-label={`${profile.name}, home`}>
+              <Logo />
+            </Link>
             <p>
-              Independent full-stack developer based in {profile.location},
-              working with clients worldwide.
+              Full-stack web, mobile app and game developer in {profile.location}.
+              Founder of {agency.name}.
             </p>
           </div>
 
           <nav className="footer__col" aria-label="Footer">
             <Link href="/#work">Work</Link>
-            <Link href="/#reviews">Reviews</Link>
+            <Link href="/#design">UI/UX design</Link>
             <Link href="/#services">Services</Link>
+            <Link href="/#about">About</Link>
             <Link href="/case-studies">Case studies</Link>
           </nav>
 
@@ -32,6 +36,12 @@ export default function SiteFooter() {
           </div>
 
           <div className="footer__col">
+            <a href={agency.href} target="_blank" rel="noreferrer">
+              {agency.name}
+            </a>
+            <a href={resume.href} download={resume.fileName}>
+              Download resume
+            </a>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
             <a href={profile.whatsapp.href} target="_blank" rel="noreferrer">
               <PlatformIcon name="whatsapp" />

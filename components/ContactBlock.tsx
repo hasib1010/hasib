@@ -6,7 +6,7 @@ import { platforms, profile } from "@/data/profile";
 
 export default function ContactBlock({
   title = "Tell me what you're building.",
-  copy = "Send a short description of the project, where it stands today and when you'd like to launch. I reply within a day with questions, a rough plan and an estimate.",
+  copy = "Send a short note about the website, app or game, where it stands, and when you want it live. I reply within a day with questions, a rough plan and an estimate.",
 }: {
   title?: string;
   copy?: string;

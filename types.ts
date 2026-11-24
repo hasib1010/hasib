@@ -27,6 +27,8 @@ export interface CaseStudy {
   technologies: string[];
   image: string;
   gallery?: string[];
+  /** "game" presents phone screenshots instead of a browser frame. */
+  layout?: "site" | "game";
   testimonial?: {
     quote: string;
     author: string;

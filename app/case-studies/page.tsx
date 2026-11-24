@@ -9,7 +9,7 @@ import { groupFor, fullPageFor, nameFor, stageFor } from "@/data/showcase";
 export const metadata: Metadata = {
   title: "Case studies",
   description:
-    "Web apps, stores, marketplaces and business websites built by Md Hasibul Hasan, with the problem, the solution and the stack for each.",
+    "Websites, the Elevate IT agency site, and the Android game Gulpy. Each case study says what it is and what Hasib built.",
 };
 
 export default function CaseStudiesPage() {
@@ -32,10 +32,10 @@ export default function CaseStudiesPage() {
       <main id="main">
         <section className="page-hero">
           <div className="container">
-            <h1>Every project, with the story behind it.</h1>
+            <h1>Projects, with a short account of each.</h1>
             <p>
-              {caseStudies.length} products I&apos;ve designed and built: what the
-              client needed, how I approached it, and what went live.
+              Websites, mobile work and Gulpy, the Android game. Open one for
+              what it is and what I built.
             </p>
           </div>
         </section>
