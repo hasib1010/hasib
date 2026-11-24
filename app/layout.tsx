@@ -37,10 +37,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Hasib Venture",
       images: [
         {
-          url: "/og.png",
+          url: `${origin}/og.png`,
           width: 1200,
           height: 630,
-          alt: "Hasib. Web, mobile and games.",
+          alt: "Md Hasibul Hasan. Full-stack web, mobile apps, games and UI/UX.",
         },
       ],
     },
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Md Hasibul Hasan | Web, Mobile & Game Developer",
       description:
         "Full-stack web, mobile apps and games, plus UI/UX design. Hasib builds from Bangladesh and runs Elevate IT.",
-      images: ["/og.png"],
+      images: [`${origin}/og.png`],
     },
     icons: {
       icon: [
