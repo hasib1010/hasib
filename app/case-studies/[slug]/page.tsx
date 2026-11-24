@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import BrowserFrame from "@/components/BrowserFrame";
+import GameStage from "@/components/GameStage";
 import ContactBlock from "@/components/ContactBlock";
 import PlatformIcon from "@/components/PlatformIcon";
 import SiteFooter from "@/components/SiteFooter";
@@ -61,20 +62,34 @@ export default async function CaseStudyPage({
               </div>
               <p>{study.description}</p>
             </div>
-            <div
-              className="stage stage--hero"
-              style={{ "--stage": stageFor(study.id) } as React.CSSProperties}
-            >
-              <BrowserFrame
-                src={study.image}
-                alt={`${nameFor(study)}, screenshot of the live site`}
-                label={study.link ?? nameFor(study)}
-                fit
-                fullPage={fullPageFor(study.id)}
-                priority
-                sizes="(max-width: 1200px) 92vw, 1000px"
+            {study.layout === "game" ? (
+              <GameStage
+                poster={study.image}
+                icon="/work/gulpy/icon.webp"
+                phones={(study.gallery ?? []).map((src, index) => ({
+                  src,
+                  alt:
+                    index === 0
+                      ? `${nameFor(study)}, city level`
+                      : `${nameFor(study)}, island level`,
+                }))}
               />
-            </div>
+            ) : (
+              <div
+                className="stage stage--hero"
+                style={{ "--stage": stageFor(study.id) } as React.CSSProperties}
+              >
+                <BrowserFrame
+                  src={study.image}
+                  alt={`${nameFor(study)} website`}
+                  label={liveFor(study.id)?.replace(/^https?:\/\//, "") ?? nameFor(study)}
+                  fit
+                  fullPage={fullPageFor(study.id)}
+                  priority
+                  sizes="(max-width: 1200px) 92vw, 1000px"
+                />
+              </div>
+            )}
           </div>
         </section>
 

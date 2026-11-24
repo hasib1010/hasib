@@ -2,6 +2,51 @@ import { CaseStudy } from '@/types';
 
 export const caseStudies: CaseStudy[] = [
     {
+        id: "gulpy",
+        title: "Gulpy: Eat the City!",
+        client: "Self-published",
+        category: "Mobile game",
+        role: "Game design and development",
+        layout: "game",
+        description:
+            "An Android hole-and-swallow arcade game. Steer a growing hole through a city and an island, swallow what is smaller than you, and climb the round's leaderboard.",
+        challenge:
+            "A phone game has to be readable in one hand and worth another round. The loop is simple: move, eat, grow, and stay ahead of the other holes before the timer ends.",
+        solution:
+            "I designed and built Gulpy as a top-down arcade game. Each round is a timed run across a map. The hole grows as it swallows the scenery, the score pops on screen, and a leaderboard tracks the round. Two of the maps are a city block and a tropical island.",
+        results: [
+            "Published Android arcade game",
+            "City and island maps",
+            "Timed rounds with a level and an on-screen leaderboard",
+            "Score feedback as the hole swallows the map, including a fever state",
+        ],
+        technologies: ["Android", "Game UI", "2D arcade"],
+        image: "/work/gulpy/feature.webp",
+        gallery: ["/work/gulpy/city.webp", "/work/gulpy/island.webp"],
+        featured: true,
+    },
+    {
+        id: "elevate-it",
+        title: "Elevate IT: Software agency",
+        client: "Elevate IT",
+        category: "Agency website",
+        role: "Founder",
+        description:
+            "The website for Elevate IT, the software agency I own. It introduces custom software, practical AI, and dedicated engineering teams.",
+        challenge:
+            "The agency needed a clear public site: what Elevate IT builds, who it is for, and a straight path to start a project.",
+        solution:
+            "I run Elevate IT and the site at elevateit.agency. It presents the studio as an independent engineering partner, with services, capabilities, about, careers, and a way to start a project. The work covers custom software, practical AI and automation, and dedicated teams for clients in the USA, Europe and the Middle East.",
+        results: [
+            "Public site for the agency I own",
+            "Services, capabilities, about and careers",
+            "A direct path to start a project",
+        ],
+        technologies: ["Web design", "Web development"],
+        image: "/work/live/elevate.webp",
+        featured: true,
+    },
+    {
         "id": "inter-cafe-social-platform",
         "title": "Inter Cafe: Full-Stack Social Media Platform",
         "client": "Personal Project",
@@ -61,17 +106,18 @@ export const caseStudies: CaseStudy[] = [
       
       {
         id: 'fliday-esim',
-        title: 'Fliday: Global eSIM Marketplace',
+        title: 'Fliday: Travel eSIM store',
         client: 'Fliday',
         category: 'Travel / Telecom',
-        description: 'A fully responsive, production-grade eSIM marketplace that enables travelers to browse, purchase, and instantly activate global eSIM plans without physical SIM cards.',
-        challenge: 'International travelers faced high roaming charges, limited connectivity options, and the inconvenience of purchasing physical SIM cards in each country.',
-        solution: 'We built a full-stack eSIM retail platform using Next.js and Node.js with instant digital delivery, secure authentication, integrated payments, and real-time order tracking. The platform is optimized for SEO, performance, and scalability.',
+        role: 'Website development',
+        description: 'A travel eSIM website. Visitors pick a destination, compare data plans, and check out for a digital SIM instead of buying a plastic card.',
+        challenge: 'The site has to make a technical product feel simple: choose where you are going, see a plan, and know the phone can install it.',
+        solution: 'I built the Fliday website as a storefront for prepaid travel data. The homepage leads with a destination search, then plan browsing, a short setup explanation, a compatibility check, support, and an FAQ.',
         results: [
-            'Instant global eSIM activation',
-            'Seamless digital checkout experience',
-            'High-performance SEO-optimized pages',
-            'Scalable architecture for worldwide users'
+            'Destination search and plan browsing',
+            'Checkout path for a digital eSIM',
+            'Compatibility, support and FAQ pages',
+            'Live at fliday.com',
         ],
         technologies: [
             'Next.js',
@@ -80,31 +126,23 @@ export const caseStudies: CaseStudy[] = [
             'Express.js',
             'MongoDB'
         ],
-        image: '/work/fliday.webp',
+        image: '/work/live/fliday.webp',
         featured: true,
-        "testimonial": {
-  "quote": "A well-architected global eSIM marketplace showcasing modern full-stack development with secure payments, real-time eSIM delivery, and a robust admin management system.",
-  "author": "Fliday Team",
-  "role": "Product & Engineering"
-}
-
     }
     ,
     {
         "id": "super-media-bros-auction",
-        "title": "Super Media Bros: Premium Auction Platform",
+        "title": "Super Media Bros: Auction site",
         "client": "Super Media Bros",
         "category": "E-Commerce / Auction Platform",
-        "description": "A full-featured online auction platform specializing in media collectibles, toys, games, and pop culture items. Features real-time bidding, seller consignment management, automated invoicing, and comprehensive admin dashboard.",
-        "challenge": "The client needed a modern auction platform to compete with established auction houses. Requirements included real-time bidding updates, complex proxy bidding logic, seller settlement management, automated invoice generation, and a comprehensive admin CMS. The platform needed to handle high concurrency during live auctions while maintaining data integrity and providing seamless user experience across buyer, seller, and admin roles.",
-        "solution": "Built a scalable Next.js platform with real-time capabilities using Pusher for live bid updates, implemented sophisticated proxy bidding system with automatic bid increments, created comprehensive seller consignment workflow with document verification, developed automated settlement calculation system for seller payouts, integrated Stripe for secure payment processing, and built a full-featured admin CMS for auction management, user administration, and financial operations.",
+        "description": "The website for Super Media Bros, an auction house for toys, games, movies and pop-culture collectibles, with a shop next to the auctions.",
+        "challenge": "Collectors need a place to browse lots, bid, and buy from a store, and sellers need to know how consigning works before they send anything in.",
+        "solution": "I built the Super Media Bros site. The live homepage explains the auction side and the store, then walks a buyer from browsing a lot to bidding, paying an invoice, and receiving the item. Seller notes cover fees and collections.",
         "results": [
-          "Real-time bid updates with <500ms latency",
-          "Automated invoice generation and payment processing",
-          "Complete seller settlement management system",
-          "Comprehensive admin dashboard with 10+ management modules",
-          "Multi-role user system (Buyers, Sellers, Admins)",
-          "Automated email notifications for bids, invoices, and payments"
+          "Auction site for media, toys, games and collectibles",
+          "A store for sets, games and related stock",
+          "Buyer steps for browsing, bidding, payment and delivery",
+          "Live at supermediabros.co.uk"
         ],
         "technologies": [
           "Next.js 16",
@@ -139,42 +177,32 @@ export const caseStudies: CaseStudy[] = [
         //   "Image upload and management",
         //   "Rate limiting and queue management"
         // ],
-        "image": "/work/auction.webp",
-        "featured": true,
-        "testimonial": {
-          "quote": "The platform exceeded our expectations. The real-time bidding system works flawlessly, and the admin dashboard makes managing auctions effortless. Our sellers love the automated settlement process.",
-          "author": "Project Owner",
-          "role": "Super Media Bros"
-        }
+        "image": "/work/live/smb.webp",
+        "role": "Website development",
+        "featured": true
       },
       {
         id: 'i-need-hypno',
         title: 'I Need Hypno: Online Hypnotherapy Platform',
         client: 'I Need Hypno',
         category: 'Healthcare / Mental Wellness',
-        description: 'An online hypnotherapy platform where clients book one-on-one sessions with certified hypnotherapists, try a free session, and keep working between appointments with a guided audio library and a personal journal.',
-        challenge: 'Clients seeking hypnosis and mental wellness solutions needed a secure, user-friendly platform for booking private sessions, accessing guided content, and maintaining long-term engagement without in-person visits.',
-        solution: 'Developed an intuitive web platform that enables 1-on-1 Zoom hypnosis session bookings, subscription-based audio programs with auto-renewal, and secure user interactions. The system prioritizes ease of use, data protection, and seamless scheduling.',
+        description: 'A website for booking one-on-one online hypnotherapy, with a guided audio library, a journal and a free session.',
+        challenge: 'People looking for hypnotherapy needed a calm way to book a video session, or to start with audio, without a clinic visit.',
+        solution: 'I built the I Need Hypno website. It offers one-on-one sessions with certified hypnotherapists, a free session, a library of guided audio, a personal journal, and an account login.',
         results: [
-            'Streamlined online booking for private hypnosis sessions',
-            'Subscription-based revenue model with auto-renewal',
-            'Improved user engagement through audio programs',
-            'Secure and privacy-compliant user experience'
+            'Booking for one-on-one video sessions',
+            'A free session path',
+            'Guided audio library and a personal journal',
+            'Live at ineedhypno.com'
         ],
         technologies: [
             'React',
             'Next.js',
             'Node.js',
-            'Payment Gateway',
-            'Zoom Integration'
         ],
-        image: '/work/hypno.webp',
-        featured: false,
-        testimonial: {
-            quote: 'A thoughtfully designed platform that combines secure video appointments, subscription-based content, and an intuitive user experience for mental wellness services.',
-            author: 'I Need Hypno Team',
-            role: 'Product & Wellness Specialists'
-        }
+        image: '/work/live/hypno.webp',
+        role: 'Website development',
+        featured: true,
     },
     
     {

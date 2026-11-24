@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import PlatformIcon from "@/components/PlatformIcon";
 import PointerFX from "@/components/PointerFX";
-import { platforms, profile } from "@/data/profile";
+import { platforms, profile, resume } from "@/data/profile";
 
 const navItems = [
   { label: "Work", href: "/#work" },
-  { label: "Reviews", href: "/#reviews" },
+  { label: "Design", href: "/#design" },
   { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
   { label: "Case studies", href: "/case-studies" },
@@ -57,6 +57,10 @@ export default function SiteHeader({ tone = "light" }: { tone?: "light" | "dark"
         </nav>
 
         <div className="header__actions">
+          <a className="btn btn--ghost btn--sm header__resume" href={resume.href} download={resume.fileName}>
+            <Download aria-hidden="true" />
+            Resume
+          </a>
           <a
             className="icon-button icon-button--whatsapp"
             href={profile.whatsapp.href}
@@ -101,6 +105,10 @@ export default function SiteHeader({ tone = "light" }: { tone?: "light" | "dark"
           ))}
         </nav>
         <div className="mobile-menu__actions">
+          <a className="btn btn--ghost" href={resume.href} download={resume.fileName}>
+            <Download aria-hidden="true" />
+            Download resume
+          </a>
           <a
             className="btn btn--primary"
             href={platforms.fiverr.href}

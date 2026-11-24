@@ -15,14 +15,18 @@ const presentation: Record<
       "Exam prep platform for Ontario bar candidates: OTP sign-in, paid practice sets, timed attempts, Stripe checkout and a full admin workspace.",
   },
   "super-media-bros-auction": {
-    stage: "#a13ad9",
+    stage: "#7b2cbf",
+    live: "https://supermediabros.co.uk",
+    fullPage: "/work/full/smb.webp",
     pitch:
-      "Live auction house for collectibles with real-time bidding, proxy bids, seller consignments, automatic invoices and payouts.",
+      "An auction site for toys, games, movies and collectibles, with a shop alongside the auctions.",
   },
   "fliday-esim": {
     stage: "#e8692e",
+    live: "https://fliday.com",
+    fullPage: "/work/full/fliday.webp",
     pitch:
-      "Travel eSIM store where buyers pick a country, pay, and receive a working eSIM instantly, built for SEO and global traffic.",
+      "A travel eSIM store. Pick a destination, choose a data plan, and check out for a digital SIM.",
   },
   "myperfecthire-recruiting-platform": {
     stage: "#4b0a6b",
@@ -57,7 +61,19 @@ const presentation: Record<
     live: "https://ineedhypno.com",
     fullPage: "/work/full/hypno.webp",
     pitch:
-      "Online hypnotherapy platform: book one-on-one video sessions with certified therapists, start with a free session, and keep going with a guided audio library and journal.",
+      "A website for booking one-on-one online hypnotherapy, with a guided audio library, a journal and a free session.",
+  },
+  gulpy: {
+    stage: "#f08a24",
+    pitch:
+      "An Android hole-and-swallow arcade game. Grow a hole across a city and an island, and race the round's leaderboard.",
+  },
+  "elevate-it": {
+    stage: "#16325c",
+    live: "https://www.elevateit.agency",
+    fullPage: "/work/full/elevate.webp",
+    pitch:
+      "The site for Elevate IT, the software agency I own. It introduces custom software, practical AI, and dedicated engineering teams.",
   },
   "eco-agriculture-platform": { stage: "#3f7d3a" },
   "deephash-cloud-mining": { stage: "#1d2b4a" },
@@ -66,11 +82,11 @@ const presentation: Record<
 };
 
 const featuredOrder = [
-  "lso-bar-exam-platform",
   "i-need-hypno",
-  "super-media-bros-auction",
   "fliday-esim",
-  "myperfecthire-recruiting-platform",
+  "super-media-bros-auction",
+  "elevate-it",
+  "gulpy",
 ];
 
 export const stageFor = (id: string) => presentation[id]?.stage ?? "#2a3550";
@@ -85,6 +101,8 @@ export const featuredWork = featuredOrder
 
 // Strongest visuals first; everything else follows in data order.
 const moreOrder = [
+  "lso-bar-exam-platform",
+  "myperfecthire-recruiting-platform",
   "inter-cafe-social-platform",
   "44pro-custom-ecommerce",
   "i24pay-payment-automation",
@@ -116,6 +134,7 @@ export function nameFor(study: CaseStudy) {
 // Broad groups for filtering the full case-study index.
 export function groupFor(study: CaseStudy): string {
   const text = `${study.category} ${study.title}`.toLowerCase();
+  if (/game/.test(text)) return "Games";
   if (/commerce|store|shop|retail|pos|auction|marketplace|rental/.test(text))
     return "Commerce";
   if (/platform|saas|scheduler|management|social|cloud|exam|recruit|appointment/.test(text))
