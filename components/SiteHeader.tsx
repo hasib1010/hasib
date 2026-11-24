@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Download, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import Logo from "@/components/Logo";
 import PlatformIcon from "@/components/PlatformIcon";
 import PointerFX from "@/components/PointerFX";
 import { platforms, profile, resume } from "@/data/profile";
@@ -43,9 +44,8 @@ export default function SiteHeader({ tone = "light" }: { tone?: "light" | "dark"
       <PointerFX />
       <span className="progress" aria-hidden="true" />
       <div className="header__inner">
-        <Link href="/" className="wordmark" aria-label={`${profile.name}, home`}>
-          <span className="wordmark__name">Hasibul Hasan</span>
-          <span className="wordmark__role">{profile.role}</span>
+        <Link href="/" className="logo-link" aria-label={`${profile.name}, home`}>
+          <Logo />
         </Link>
 
         <nav className="header__nav" aria-label="Main">

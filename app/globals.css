@@ -365,20 +365,21 @@ svg {
   padding-inline: var(--gutter);
 }
 
-.wordmark {
-  display: grid;
-  line-height: 1.15;
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  line-height: 0;
 }
 
-.wordmark__name {
-  font-weight: 800;
-  font-size: 1.125rem;
-  letter-spacing: -0.02em;
+.logo {
+  display: block;
+  height: 34px;
+  width: auto;
 }
 
-.wordmark__role {
-  font-size: 0.8125rem;
-  color: var(--muted);
+.logo__plate {
+  stroke: transparent;
 }
 
 .header__nav {
@@ -999,14 +1000,18 @@ svg {
   -webkit-backdrop-filter: none;
 }
 
-.header--dark .wordmark__name,
+.header--dark .logo-link,
 .header--dark .header__nav a {
   color: #fff;
+}
+
+.header--dark .header__nav a {
   text-shadow: 0 1px 12px rgba(14, 26, 51, 0.9);
 }
 
-.header--dark .wordmark__role {
-  color: #93a0b8;
+.header--dark .logo__plate {
+  stroke: #fff;
+  stroke-opacity: 0.28;
 }
 
 .header--dark .header__nav a:hover {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import PlatformIcon from "@/components/PlatformIcon";
 import { agency, platforms, profile, resume, type PlatformKey } from "@/data/profile";
 
@@ -8,7 +9,9 @@ export default function SiteFooter() {
       <footer className="footer">
         <div className="footer__inner">
           <div className="footer__brand">
-            <span className="wordmark__name">{profile.name}</span>
+            <Link href="/" className="logo-link" aria-label={`${profile.name}, home`}>
+              <Logo />
+            </Link>
             <p>
               Full-stack web, mobile app and game developer in {profile.location}.
               Founder of {agency.name}.

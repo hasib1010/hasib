@@ -37,10 +37,10 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Hasib Venture",
       images: [
         {
-          url: `${origin}/og.png`,
-          width: 1536,
-          height: 1024,
-          alt: "Md Hasibul Hasan, web, mobile and game developer",
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: "Hasib. Web, mobile and games.",
         },
       ],
     },
@@ -49,12 +49,19 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Md Hasibul Hasan | Web, Mobile & Game Developer",
       description:
         "Full-stack web, mobile apps and games, plus UI/UX design. Hasib builds from Bangladesh and runs Elevate IT.",
-      images: [`${origin}/og.png`],
+      images: ["/og.png"],
     },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon.ico",
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+      shortcut: ["/favicon.ico"],
     },
+    manifest: "/site.webmanifest",
   };
 }
 
